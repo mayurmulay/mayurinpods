@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.Select"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="net.sf.json.JSONArray"/>
+<fullyQualifiedTypeName name="org.apache.james.mime4j.field.datetime.DateTime"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="com.gargoylesoftware.htmlunit.StorageHolder.Type"/>
+<fullyQualifiedTypeName name="net.sf.json.JSONObject"/>
+<fullyQualifiedTypeName name="net.sf.json.JSON"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonSubTypes.Type"/>
+<fullyQualifiedTypeName name="com.google.gson.reflect.TypeToken"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="APIClasses.Events"/>
+<fullyQualifiedTypeName name="APIClasses.AssignmentClass"/>
+<fullyQualifiedTypeName name="APIClasses.News"/>
+<fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+<fullyQualifiedTypeName name="java.io.FileWriter"/>
+<fullyQualifiedTypeName name="Common.Login"/>
+<fullyQualifiedTypeName name="Data.Loger"/>
+<fullyQualifiedTypeName name="Teacher.ValidateCreateAssignment"/>
+<fullyQualifiedTypeName name="Data.Read_Data"/>
+<fullyQualifiedTypeName name="Common.Gototab"/>
+<fullyQualifiedTypeName name="Common.LaunchApp"/>
+<fullyQualifiedTypeName name="Data.ExceptionHndeler"/>
+</qualifiedTypeNameHistroy>

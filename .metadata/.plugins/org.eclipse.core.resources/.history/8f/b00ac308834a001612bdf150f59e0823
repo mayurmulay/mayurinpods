@@ -1,0 +1,21 @@
+package Teacher;
+
+import org.openqa.selenium.By;
+
+import Common.Gototab;
+import Common.LaunchApp;
+
+public class CreateRandomAssignment {
+	public static void CreateRandomAssignment(String QBname,String Assname,String QCount, String Asscount)
+	{
+		 String args1[]={"Manage Course"," "};
+		 Gototab.main(args1);
+		 
+		 LaunchApp.driver.findElement(By.xpath(".//*[@name='createAncestorAssignment']")).click();
+		 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		 
+		 
+	}
+		 
+
+}

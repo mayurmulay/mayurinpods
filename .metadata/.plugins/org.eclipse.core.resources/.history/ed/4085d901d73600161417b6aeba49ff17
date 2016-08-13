@@ -1,0 +1,43 @@
+package ReadAPIResponce;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
+import java.util.List;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
+
+import Data.ExceptionHndeler;
+
+ class ReadAPI {
+
+	public static void main(String[] args) {
+	
+		ReadData("D:\\API_Responce\\name.file");
+	}
+
+	public static String[][] ReadData(String name)
+	{
+		String [][] s1=new String[10000][100];
+		
+		 Charset charset = Charset.forName("ISO-8859-1");
+		 List<String> lines ;
+		try {
+			 lines = Files.readAllLines(Paths.get(name),charset);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			ExceptionHndeler.Log("Read Data","Read Data", e);
+		}
+	  for(int i=0;i<lines.size();i++)
+	  {
+		  System.out.println("\n\n"+lines.get(i));
+	  }
+	     return s1;
+	}
+}

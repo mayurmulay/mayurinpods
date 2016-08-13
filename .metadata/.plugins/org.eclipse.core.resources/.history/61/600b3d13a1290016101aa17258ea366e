@@ -1,0 +1,39 @@
+package StudentAPI;
+
+import java.util.Iterator;
+
+import net.sf.json.JSON;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+import org.testng.annotations.Test;
+
+public class JSONToPOJO {
+	
+	public static void pojo(JSON objJson)
+	{
+		JSONObject obj=(JSONObject) objJson;
+		System.out.println("\n objJson in in pojo):"+objJson);
+		//System.out.println("\nobj:"+obj);
+	/*	JSONObject EventData=  ((JSONArray) objJson).getJSONObject(0);
+		Iterator x = EventData.keys();
+		JSONArray jsonArray = new JSONArray();
+		int count=0;
+		while (x.hasNext()){
+			count++;
+		    String key = (String) x.next();
+		    jsonArray.add(EventData.get(key));
+		    System.out.println("\nobj:"+count+" = "+EventData.get(key));
+		}
+		
+		System.out.println("\n jsonArray:"+jsonArray);
+		JSONArray arr = obj.optJSONArray("results");
+		for (int i = 0; i < 2; i++) {
+			
+			System.out.println("\nDemo:"+arr.getJSONObject(i).toString());
+			
+		}*/
+		
+	}
+
+}

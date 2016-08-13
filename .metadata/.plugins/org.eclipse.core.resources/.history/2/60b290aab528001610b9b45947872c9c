@@ -1,0 +1,23 @@
+package StudentAPI;
+import org.testng.annotations.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.testng.annotations.Parameters;
+
+import Common.LaunchApp;
+public class APILogIn {
+
+	
+	public static void main(String[] str)
+	{
+		
+	}
+	@Test
+	@Parameters({"Url","name","password"})
+	public static void logIn(String Url,String name,String password)
+	{
+		LaunchApp.Execute(Url;
+	}
+
+}

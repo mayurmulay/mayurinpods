@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: aalmiray
+Build-Jdk: 1.5.0_08
+Extension-Name: json-lib
+Specification-Title: Java library for transforming beans, maps, collec
+ tions, java arrays and XML to JSON.
+Implementation-Title: json-lib
+Implementation-Version: 0.9
+

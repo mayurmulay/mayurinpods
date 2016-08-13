@@ -1,0 +1,51 @@
+package Teacher;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import Common.Gototab;
+import Common.LaunchApp;
+
+public class UploadQB {
+	@Test
+	@Parameters({ "name", "path"})
+	public static void UploadQb(String name,String path)
+	{
+	try
+	{
+		
+       String args1[]={"Manage Course"," "};
+       Gototab.main(args1);
+       JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
+       jse.executeScript("window.scrollTo(50, 50)", "");
+       LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Manage Question Banks')]")).click();
+       LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Create Question Bank')]")).click();
+
+ 
+   try {Thread.sleep(900);} catch (InterruptedException e) {e.printStackTrace();}
+   LaunchApp.driver.findElement(By.xpath(".//*[@name='questionBankName']")).sendKeys(name);
+ 
+       LaunchApp.driver.findElement(By.xpath(".//*[@name='questionBankDefn']")).click();
+       
+       Runtime.getRuntime().exec(path.trim());
+ 
+      try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+      
+      LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Create Question Bank')]")).click();
+ 
+       try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+       
+	}
+	catch(Exception e)
+	{
+		e.printStackTrace();
+	}
+
+
+
+}
+
+}

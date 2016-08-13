@@ -1,0 +1,186 @@
+package Teacher;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import Common.Gototab;
+import Common.LaunchApp;
+import Data.ExceptionHndeler;
+import Data.Loger;
+import Data.Read_Data;
+
+public class CreateRandomAssignment {
+	public static void CreateRandomAssignment1(String QBname,String Assname,String QCount, String Asscount)
+	{
+		 String args1[]={"Manage Course"," "};
+		 Gototab.main(args1);
+		 
+		 LaunchApp.driver.findElement(By.xpath(".//*[@name='createAncestorAssignment']")).click();
+		 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		 try
+		 {
+			 Thread.sleep(1000);
+			   Alert alert = LaunchApp.driver.switchTo().alert();
+			   alert.accept();
+		 }catch (InterruptedException e) {e.printStackTrace();}
+		 
+		 LaunchApp.driver.findElement(By.xpath("html/body/div[6]/div[3]/div/button")).click();
+		 
+		 int[] id = new int[100];
+			//**************************code bellow is to find and open the newlly created assignment which commented due to new feature *************************************** 
+			      List <WebElement> li=LaunchApp.driver.findElements(By.className("ancestorName"));
+				  for(int i=0;i<li.size();i++)
+				  {
+					  id[i]=Integer.parseInt(li.get(i).getAttribute("id"));//getting all assignment ID 
+				  }
+				  Arrays.sort(id);
+				 
+				  int m=(id.length)-1;//picking most recent Id
+					String str=Integer.toString((id[m]));
+					 try {
+							Thread.sleep(50);
+						} catch (InterruptedException e) {
+							//e.printStackTrace();
+							}
+					 LaunchApp.driver.findElement(By.xpath(".//*[@id='"+str+"']//*[contains(text(),'Edit')]")).click();
+					 try {
+							Thread.sleep(50);
+						} catch (InterruptedException e) {
+							//e.printStackTrace();
+						}
+		//***********************************************************************end*********************************************************************************			
+	}
+	public static void EditRandomAssignment(String Complexity,String Q_Count)
+	{
+		 String[][] Ass=Read_Data.ReadData("AssignmentCreation.csv");
+		 int no=1;
+		 String str[]=Ass[1];
+		 int i=0;
+		 while(!str[i].equals("End"))
+			{
+		 try {
+				Thread.sleep(500);
+				 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+				 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+				
+			} catch (InterruptedException e) {
+				ExceptionHndeler.Log("String reading","Assignment Editing", e);
+			}
+			System.out.println("in while="+i+" "+str[i]);
+		  try
+		  {
+			String[] s=str[i].split(":");
+			 s[0].trim();
+			 s[1].trim();
+			 System.out.println("in sdfkswhile="+i+" "+s[1]);
+			 System.out.println("insdkl while="+i+" "+s[0]);
+			if(s[0].equals("Name"))
+			{
+				AssignmentCreation.Name(s);
+		     
+			}
+			if(s[0].equals("Assignment Type"))
+			{
+				AssignmentCreation.assType=s[1];
+				if(!(s[1].equals("External")))
+				{System.out.println("assignmenttypeIN=");AssignmentCreation.AssignmentType(s);}
+			}
+			
+			if(s[0].equals("Start Date"))
+			{
+				 String []hm=s[1].split(";");
+				 Loger.LogEvent("Start Date","Start date Selecting");   
+				 System.out.println("in start date date="+s[1]);
+				 if(AssignmentCreation.assType.equals("Test")||AssignmentCreation.assType.equals("Exam"))
+				 {
+				  LaunchApp.driver.findElement(By.xpath(".//*[@name='startDate']")).click();
+				  Thread.sleep(1000);
+				 // LaunchApp.driver.findElement(By.xpath(".//*[@class='datepicker']")).click();
+				  try
+				  {
+					  AssignmentCreation.setStartdate(hm[0]);
+				  
+				  }catch(Exception e){ExceptionHndeler.Log("Satrt Date","Assignment Editing", e);e.printStackTrace();}
+				  String[] tim=hm[1].split("-");
+				  System.out.println("print data "+hm[1]);
+				 
+				  try
+				  {
+					  System.out.println("print data hr "+tim[0]+" Min "+tim[1]);
+					  //AssignmentCreation.SetTime(Integer.parseInt(tim[0]),Integer.parseInt(tim[1]));
+				  }catch(Exception e){ExceptionHndeler.Log("Set time","Assignment Editing", e);e.printStackTrace();}
+				 
+				  System.out.println("print data "+hm[0]);
+				 }
+				 else
+				 {
+					 LaunchApp.driver.findElement(By.xpath(".//*[@name='assignedDate']")).click();
+					// LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']")).click();
+				//	 setStartdate(s[1]);
+				 }
+			    System.out.println("date="+s[1]);
+			    Loger.LogEvent("Start Date ","Start Date Saved="+s[1]);
+			     
+			}
+			if(s[0].equals("Due Date"))
+			{
+				 String []hm=s[1].split(";");
+				 Loger.LogEvent("Due date","Due date Selecting");   
+				 System.out.println("in start date date="+s[1]);
+				 if(AssignmentCreation.assType.equals("Test")||AssignmentCreation.assType.equals("Exam"))
+				 {
+				  LaunchApp.driver.findElement(By.xpath(".//*[@name='dueDate']")).click();
+				  //LaunchApp.driver.findElement(By.xpath(".//*[@class='datepicker-days']")).click();
+				  try
+				  {
+					  AssignmentCreation.setStartdate(hm[0]);
+				  
+				  }catch(Exception e){ExceptionHndeler.Log("Due date","Assignment Editing", e);e.printStackTrace();}
+				  String[] tim=hm[1].split("-");
+				  System.out.println("print data "+hm[1]);
+				 
+				  try
+				  {
+					  System.out.println("print data hr "+tim[0]+" Min "+tim[1]);
+					 //SetTime(Integer.parseInt(tim[0]),Integer.parseInt(tim[1]));
+				  }catch(Exception e){ExceptionHndeler.Log("Due date","Assignment Editing", e);e.printStackTrace();}
+				 
+				  System.out.println("print data "+hm[0]);
+				 }
+				 else
+				 {
+					 LaunchApp.driver.findElement(By.xpath(".//*[@name='dueDate']")).click();
+					//; LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-datepicker']")).click();
+					 AssignmentCreation.setStartdate(s[1]);
+				 }
+			    System.out.println("date="+s[1]);
+			    Loger.LogEvent("Due Date ","Due Date Saved="+s[1]);
+			}
+			if(s[0].equals("Security / Control"))
+			{
+				AssignmentCreation.SecurityControl(s);
+			}
+			
+			if(s[0].equals("Duration"))
+			{
+				AssignmentCreation.Duration(s);
+			}
+			if(s[0].equals("Show answers after due date"))
+			{
+				AssignmentCreation.ShowAnswerAfterDue(s);
+			}
+			
+		 
+		  }catch (InterruptedException e) {
+				ExceptionHndeler.Log("String reading","Assignment Editing", e);
+			}
+		  }
+		 
+	}
+		 
+
+}

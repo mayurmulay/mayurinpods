@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Teacher P0]" parallel="methods">
+  <parameter name="pubDate" value="2"/>
+  <parameter name="lesson" value="lessonDemoChapter"/>
+  <parameter name="TestData" value="AutoTestingMM"/>
+  <parameter name="Important" value="yes"/>
+  <parameter name="QBname" value="AutoTestQB"/>
+  <parameter name="data" value="http://somaiya.inpods.com/"/>
+  <parameter name="Enddate" value="2"/>
+  <parameter name="type" value="Announcement"/>
+  <parameter name="password" value="password"/>
+  <parameter name="message" value="Important Event"/>
+  <parameter name="Chapter" value="ChapterDemoChapter"/>
+  <parameter name="title" value="Important Event"/>
+  <parameter name="AssertString" value="Important Event"/>
+  <parameter name="Cos" value="AutoCO1;AutoCO2;AutoCO3"/>
+  <parameter name="username" value="maym@inpods.com"/>
+  <parameter name="CO_name" value="1"/>
+  <parameter name="Asscount" value="1"/>
+  <parameter name="level" value="Chapter-&gt;Chapter-&gt;Lesson"/>
+  <parameter name="AssignmentListFile" value="AssignmentValidation.csv"/>
+  <parameter name="Complexity" value="1"/>
+  <parameter name="Assname" value="QbAssignment"/>
+  <parameter name="QCount" value="10"/>
+  <parameter name="name" value="AutoTestRubic"/>
+  <parameter name="path" value="D:\AutoTestData\Upload\QBUpload.exe"/>
+  <parameter name="URL" value="http://testing.inpods.com:88/"/>
+  <parameter name="Ack" value="yes"/>
+  <test name="Create QB(failed)" parallel="methods">
+    <parameter name="name" value="AutoTestQB"/>
+    <parameter name="path" value="D:\AutoTestData\Upload\QBUpload.exe"/>
+    <classes>
+      <class name="Teacher.UploadQB">
+        <methods>
+          <include name="UploadQb" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.UploadQB -->
+    </classes>
+  </test> <!-- Create QB(failed) -->
+  <test name="Assignment Creation From QB (failed)" parallel="methods">
+    <parameter name="Asscount" value="1"/>
+    <parameter name="QCount" value="10"/>
+    <parameter name="Assname" value="QbAssignment"/>
+    <parameter name="QBname" value="AutoTestQB"/>
+    <classes>
+      <class name="Teacher.CreateAssignmentFromQB">
+        <methods>
+          <include name="CreateAssignmentQB" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.CreateAssignmentFromQB -->
+    </classes>
+  </test> <!-- Assignment Creation From QB (failed) -->
+  <test name="Create Assignment Add Question From QB(failed)" parallel="methods">
+    <classes>
+      <class name="Teacher.AddQuestionAssignment">
+        <methods>
+          <include name="testAddQuestionAssignment"/>
+        </methods>
+      </class> <!-- Teacher.AddQuestionAssignment -->
+    </classes>
+  </test> <!-- Create Assignment Add Question From QB(failed) -->
+  <test name="Random Assignment createion(failed)" parallel="methods">
+    <parameter name="CO_name" value="1"/>
+    <parameter name="Asscount" value="1"/>
+    <parameter name="Complexity" value="1"/>
+    <parameter name="QCount" value="10"/>
+    <parameter name="QBname" value="AutoTestQB"/>
+    <classes>
+      <class name="Teacher.CreateRandomAssignment">
+        <methods>
+          <include name="CreateRandomAssignment1"/>
+        </methods>
+      </class> <!-- Teacher.CreateRandomAssignment -->
+    </classes>
+  </test> <!-- Random Assignment createion(failed) -->
+  <test name="AssignmentCreation(failed)" parallel="methods">
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation(failed) -->
+  <test name="AssignmentValidation(failed)" parallel="methods">
+    <parameter name="AssignmentListFile" value="AssignmentValidation.csv"/>
+    <classes>
+      <class name="Teacher.ValidateCreateAssignment">
+        <methods>
+          <include name="Validate" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.ValidateCreateAssignment -->
+    </classes>
+  </test> <!-- AssignmentValidation(failed) -->
+  <test name="Back Date Event(failed)" parallel="methods">
+    <parameter name="message" value="Back Date Event"/>
+    <parameter name="pubDate" value="-2"/>
+    <parameter name="AssertString" value="Publish Date should not be less than today&#039;s date"/>
+    <parameter name="title" value="Back Date Event"/>
+    <parameter name="Important" value="yes"/>
+    <parameter name="Enddate" value="-1"/>
+    <parameter name="type" value="Announcement"/>
+    <parameter name="Ack" value="yes"/>
+    <classes>
+      <class name="Teacher.CreateEventsNews">
+        <methods>
+          <include name="CreateEventsNewsExe" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.CreateEventsNews -->
+    </classes>
+  </test> <!-- Back Date Event(failed) -->
+  <test name="PublishDateLessThanTadysDate(failed)" parallel="methods">
+    <parameter name="message" value="PublishDateLessThanTadysDate"/>
+    <parameter name="pubDate" value="-2"/>
+    <parameter name="AssertString" value="Publish Date should not be less than today&#039;s date"/>
+    <parameter name="title" value="PublishDateLessThanTadysDate"/>
+    <parameter name="Important" value="yes"/>
+    <parameter name="Enddate" value="2"/>
+    <parameter name="type" value="Announcement"/>
+    <parameter name="Ack" value="yes"/>
+    <classes>
+      <class name="Teacher.CreateEventsNews">
+        <methods>
+          <include name="CreateEventsNewsExe" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.CreateEventsNews -->
+    </classes>
+  </test> <!-- PublishDateLessThanTadysDate(failed) -->
+  <test name="Simple Event(failed)" parallel="methods">
+    <parameter name="message" value="Simple Event"/>
+    <parameter name="pubDate" value="0"/>
+    <parameter name="AssertString" value="Simple Event"/>
+    <parameter name="title" value="Simple Event"/>
+    <parameter name="Important" value="No"/>
+    <parameter name="Enddate" value="0"/>
+    <parameter name="type" value="Announcement"/>
+    <parameter name="Ack" value="NO"/>
+    <classes>
+      <class name="Teacher.CreateEventsNews">
+        <methods>
+          <include name="CreateEventsNewsExe" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.CreateEventsNews -->
+    </classes>
+  </test> <!-- Simple Event(failed) -->
+  <test name="Ack Event(failed)" parallel="methods">
+    <parameter name="message" value="Ack Event"/>
+    <parameter name="pubDate" value="0"/>
+    <parameter name="AssertString" value="Ack Event"/>
+    <parameter name="title" value="Ack Event"/>
+    <parameter name="Important" value="No"/>
+    <parameter name="Enddate" value="2"/>
+    <parameter name="type" value="Announcement"/>
+    <parameter name="Ack" value="yes"/>
+    <classes>
+      <class name="Teacher.CreateEventsNews">
+        <methods>
+          <include name="CreateEventsNewsExe" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.CreateEventsNews -->
+    </classes>
+  </test> <!-- Ack Event(failed) -->
+  <test name="Important Event(failed)" parallel="methods">
+    <parameter name="message" value="Important Event"/>
+    <parameter name="pubDate" value="2"/>
+    <parameter name="AssertString" value="Important Event"/>
+    <parameter name="title" value="Important Event"/>
+    <parameter name="Important" value="yes"/>
+    <parameter name="Enddate" value="2"/>
+    <parameter name="type" value="Announcement"/>
+    <parameter name="Ack" value="yes"/>
+    <classes>
+      <class name="Teacher.CreateEventsNews">
+        <methods>
+          <include name="CreateEventsNewsExe" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.CreateEventsNews -->
+    </classes>
+  </test> <!-- Important Event(failed) -->
+</suite> <!-- Failed suite [Teacher P0] -->

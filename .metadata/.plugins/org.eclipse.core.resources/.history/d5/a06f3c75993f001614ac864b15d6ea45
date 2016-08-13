@@ -1,0 +1,8 @@
+package NBAReportTesting;
+
+public class CompairNBAReports {
+	String [] old=new String[1000];
+	String [] new=new String[1000];
+
+
+}

@@ -1,0 +1,22 @@
+package NBAReportTesting;
+
+import java.io.File;
+
+public class CompairNBAReports {
+	String [] oldData=new String[1000];
+	String [] newData=new String[1000];
+	
+	public void ReportReading()
+	{
+		 File directory = new File("D:\\API_Responce\\Old");
+	        //get all the files from a directory
+	        File[] fList = directory.listFiles();
+	        for (File file : fList){
+	            System.out.println(file.getName());
+	        }
+	    }
+
+	}
+
+
+}}

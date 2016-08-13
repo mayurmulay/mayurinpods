@@ -1,0 +1,64 @@
+package Teacher;
+
+import java.util.concurrent.TimeUnit;
+import org.testng.annotations.*;
+import static org.testng.Assert.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class GradeStudent {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+
+  @Test
+  public void testGradeStudent() throws Exception {
+    driver.get(baseUrl + "/Admin/Index#/");
+    driver.findElement(By.linkText("Test4")).click();
+    driver.findElement(By.linkText("Student1 Demo")).click();
+    driver.findElement(By.id("TeacherComment7186")).clear();
+    driver.findElement(By.id("TeacherComment7186")).sendKeys("Autograded");
+    driver.findElement(By.name("txtPoints")).clear();
+    driver.findElement(By.name("txtPoints")).sendKeys("8.6");
+    driver.findElement(By.linkText("Complete grading")).click();
+    assertTrue(closeAlertAndGetItsText().matches("^Complete[\\s\\S]$"));
+  }
+
+  
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}

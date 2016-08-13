@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SmokeTest" thread-count="2" parallel="tests">
+<!--declare suit level parameters here with below standard-->
+<parameter name='ENV_PASSWORD' value='passw0rd'></parameter>
+
+
+  <test name="Verify Launch">
+  <!-- parameters can be hard coded/fetched from test data file/fetched from suite level declaration-->
+    <parameter name='id' value='1'></parameter>
+   <parameter name='execute' value='yes'></parameter>
+    <parameter name='LaunchApp' value='URL=http://localhost:90/finsys,use_sg=yes,Expected=SBDC'></parameter>
+    <classes>
+        <class name="Common.LaunchApp"/>
+ </classes>
+  
+  </test>
+   
+  <test name = "Verify Login">
+  <parameter name='id' value='2'></parameter>
+   <parameter name='execute' value='no'></parameter>
+    <parameter name='LaunchApp' value='BrowserCode=ff,URL=http://localhost:90/finsys,use_sg=yes,RunOn=127.0.0.1,Expected=SBDC'></parameter>
+    <parameter name='Login' value='TestData=Login.txt,iteration=1-1,UserName=TestDataFile,Password=ENV_PASSWORD'></parameter>
+  
+  <classes>
+         <class name="com.ej.finsys.modules.LaunchApp"/>
+         <class name="com.ej.finsys.modules.Login"/>
+  </classes>
+  </test>
+  
+  <test name="Verify new company creation">
+  <parameter name='id' value='3'></parameter>
+  <parameter name='execute' value='yes'></parameter>
+  <parameter name='LaunchApp' value='BrowserCode=ff,URL=http://localhost:90/finsys,use_sg=yes,RunOn=127.0.0.1,Expected=SBDC - Small Business Development Co.'></parameter>
+  <parameter name='Login' value='TestData=Login.txt,iteration=1-1,UserName=TestDataFile,Password=TestDataFile'></parameter>
+  <parameter name='Navigation' value='TestData=Navigation.txt,iteration=1-1,Main menu=TestDataFile,Sub menu=TestDataFile'></parameter>
+  <parameter name='CreateCompany' value='TestData=CreateCompany.txt,iteration=1-1,CompanyName=TestDataFile,CompanyType=TestDataFile,CompanySubtype=TestDataFile,Address=TestDataFile,Phone=TestDataFile,Email=TestDataFile,PanDetails=TestDataFile,TinDetails=TestDataFile,Mobile=TestDataFile,WebSite=TestDataFile,Country=TestDataFile,State=TestDataFile,CityName=TestDataFile,TotalEmployee=TestDataFile'></parameter>
+  <classes>
+         <class name="com.ej.finsys.modules.LaunchApp"/>
+         <class name="com.ej.finsys.modules.Login"/>
+         <class name="com.ej.finsys.modules.Navigation"/>
+         <class name="com.ej.finsys.modules.CreateCompany"/>
+  </classes>
+  </test>
+  </suite>

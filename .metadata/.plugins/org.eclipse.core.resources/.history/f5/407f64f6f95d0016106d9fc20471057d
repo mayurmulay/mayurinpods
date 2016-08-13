@@ -1,0 +1,86 @@
+package Teacher;
+
+import java.util.concurrent.TimeUnit;
+
+import org.testng.annotations.*;
+
+import static org.testng.Assert.*;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
+
+import Common.LaunchApp;
+
+public class GradeStudent {
+ 
+
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+
+  @Test
+  public void testGradeStudent() throws Exception {
+	  
+	  System.out.println("In testGradeStudent");
+    try
+    {
+    LaunchApp.driver.findElement(By.xpath(".//*[.='Manage Course']")).click();
+    Thread.sleep(3000);}catch(Exception e){e.printStackTrace();}
+    try
+    {
+    LaunchApp.driver.findElement(By.xpath(".//*[.='Test4']")).click();
+    
+    System.out.println("In testGradeStudent   .//*[.='Test4']");
+    
+    LaunchApp.driver.findElement(By.xpath(".//*[.='Student1 Demo']")).click();
+    
+    System.out.println("In testGradeStudent   .//*[.='Student1 Demo']");
+    
+    LaunchApp.driver.findElement(By.xpath(".//*[@name='TeacherComment']")).click();
+    
+    LaunchApp.driver.findElement(By.xpath(".//*[@name='TeacherComment']")).sendKeys("Autograded");
+    
+    LaunchApp.driver.findElement(By.xpath(".//*[@name='txtPoints']")).clear();
+    
+    LaunchApp.driver.findElement(By.xpath(".//*[@name='txtPoints']")).sendKeys("8.6");
+    LaunchApp.driver.findElement(By.linkText("Complete grading")).click();
+    LaunchApp.driver.findElement(By.xpath(".//*[.='Complete grading']")).click();
+    }catch(Exception e){e.printStackTrace();}
+    assertTrue(closeAlertAndGetItsText().matches("^Complete[\\s\\S]$"));
+  }
+
+  
+
+  private boolean isElementPresent(By by) {
+    try {
+      LaunchApp.driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      LaunchApp.driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = LaunchApp.driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+package StudentAPI;
+
+import org.apache.james.mime4j.field.datetime.DateTime;
+
+public class Events {
+	 public int id;
+     public int SenderId ;
+    // public String Sender ;
+     public int SectionId ;
+     public String SectionName ;
+     public String Title ;
+     public String Description ;
+     public DateTime start ;
+     public DateTime end ;
+     public Boolean Viewed ;
+     public DateTime ViewedOn ;
+   //  public PhotoUrl PhotoUrl;
+     public int SchoolUserId ;
+     public int count ;
+
+     public static void  ConvertToPojo(){
+     }
+     
+}
+public class PhotoUrl
+{
+
+}

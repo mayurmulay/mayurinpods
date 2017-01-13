@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Share_Assignment_Lesson]" parallel="methods">
+  <parameter name="TestData" value="Internal Training - sd"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="AssignmentList" value="External_DQ_SECTION:Lab_DQ_Course:Test_MCQ_Institute"/>
+  <parameter name="TargetLesson" value="CopiedLesson"/>
+  <parameter name="Chapter" value="ShareLesson"/>
+  <parameter name="lesson" value="Link_ShareWithInstitute"/>
+  <parameter name="URL" value="http://testing.inpods.com:88/"/>
+  <parameter name="Subject" value="Internal Training Subject"/>
+  <parameter name="DestinationCourse" value="Internal Training sd - Course"/>
+  <parameter name="Assignment" value="Test_MCQ_Institute"/>
+  <parameter name="password" value="t1t1t1"/>
+  <parameter name="Department" value="Internal Training Department"/>
+  <parameter name="DestinationSection" value="Internal Training - sd"/>
+  <parameter name="lessonList" value="AutherShareWithSection:UploadShareWithCourse:Link_ShareWithInstitute"/>
+  <parameter name="username" value="sd@inpods.com"/>
+  <parameter name="ShareType" value="Institute"/>
+  <test name="ValidateSharedAssignment(failed)" parallel="methods">
+    <parameter name="AssignmentList" value="External_DQ_SECTION:Lab_DQ_Course:Test_MCQ_Institute"/>
+    <classes>
+      <class name="Teacher.ValidateSharedAssignment">
+        <methods>
+          <include name="ValidateAndCopySahredAssignment" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.ValidateSharedAssignment -->
+    </classes>
+  </test> <!-- ValidateSharedAssignment(failed) -->
+  <test name="ValidateSharedLesson(failed)" parallel="methods">
+    <parameter name="TargetLesson" value="CopiedLesson"/>
+    <parameter name="lessonList" value="AutherShareWithSection:UploadShareWithCourse:Link_ShareWithInstitute"/>
+    <classes>
+      <class name="Teacher.ValidateSharedLesson">
+        <methods>
+          <include name="ValidateAndCopySahredLesson" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.ValidateSharedLesson -->
+    </classes>
+  </test> <!-- ValidateSharedLesson(failed) -->
+</suite> <!-- Failed suite [Share_Assignment_Lesson] -->

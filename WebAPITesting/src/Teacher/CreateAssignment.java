@@ -15,14 +15,17 @@ import Common.LaunchApp;
 import Data.ExceptionHndeler;
 
 public class CreateAssignment {
-
-	
 	public static void main(String[] args) {
-		String[] s=args[0].split(":");
+		String[] s=args[1].split(":");
 		String type=" ";
 		type= s[1].trim();
 	  
-		Gototab.execute("Manage Course");
+		try {
+			Gototab.execute("Manage Course");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		CreateAssignment c=new CreateAssignment();
 		System.out.println("ma"+args[0]);
 		
@@ -32,16 +35,17 @@ public class CreateAssignment {
 	}
   public void execute(String type) 
   {
-	  if(type.equals("External"))
-	  {
-		  LaunchApp.driver.findElement(By.xpath(".//*[@name='createExternalAssignment']")).click();// For External Assgnment 
-	  }
-	  else
-	  {
-	  LaunchApp.driver.findElement(By.xpath(".//*[@name='createAssignment']")).click();// For all type other thane Externaml
-	  }
+	  
 	  try
 	  {
+		  if(type.equals("External"))
+		  {
+			  LaunchApp.driver.findElement(By.xpath(".//*[@name='createExternalAssignment']")).click();// For External Assgnment 
+		  }
+		  else
+		  {
+		  LaunchApp.driver.findElement(By.xpath(".//*[@name='createAssignment']")).click();// For all type other thane Externaml
+		  }
 		  Thread.sleep(2000);
 		   Alert alert = LaunchApp.driver.switchTo().alert();
 		   alert.accept();
@@ -56,6 +60,7 @@ public class CreateAssignment {
 	  catch(Exception e)
 	  {
 		  ExceptionHndeler.Log("create assignment", "manage Course", e);
+		  e.printStackTrace();
 		  
 		  //System.out.println("Assignment creation failed");
 	  }

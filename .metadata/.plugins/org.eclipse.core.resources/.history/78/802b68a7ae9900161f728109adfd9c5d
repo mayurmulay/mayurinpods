@@ -1,0 +1,34 @@
+
+import java.util.ArrayList;
+import java.util.List;
+ 
+import org.testng.TestNG;
+ 
+public class RunTestNG {
+ 
+public static void main(String[] args) {
+ 
+
+TestNG runner=new TestNG();
+
+List<String> suitefiles=new ArrayList<String>();
+ if(args.length>0)
+ {
+	 for(int i=0;i<args.length;i++)
+	 suitefiles.add(args[i]);
+ }
+ else{
+	// suitefiles.add("D:\\Xml_to_Run\\Announcement_Survey.xml");
+//suitefiles.add("D:\\Xml_to_Run\\Create_QB_ProdGroop_Rubric.xml");
+suitefiles.add("D:\\Xml_to_Run\\LessonCreation.xml");
+//suitefiles.add("D:\\Xml_to_Run\\Share_Assignment_Lesson.xml");
+//suitefiles.add("D:\\Xml_to_Run\\UploadMarks.xml");
+//suitefiles.add("D:\\Xml_to_Run\\Assignment.xml");
+}
+
+runner.setTestSuites(suitefiles);
+
+runner.run();
+}
+ 
+}

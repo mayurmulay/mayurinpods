@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.testng.eclipse.launchconfig">
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.testng.remote.RemoteTestNG"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="WebAPITesting"/>
+<mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS"/>
+<listAttribute key="org.testng.eclipse.CLASS_TEST_LIST">
+<listEntry value="Teacher.Lesson"/>
+<listEntry value="Teacher.ShareAssignment"/>
+<listEntry value="Teacher.BulkLessonUpload"/>
+<listEntry value="Data.ExceptionHndeler"/>
+<listEntry value="Teacher.Sharelesson"/>
+<listEntry value="Data.Read_Data"/>
+<listEntry value="Data.CompairObjects"/>
+<listEntry value="Common.AlertHandling"/>
+<listEntry value="StudentAPI.APILogIn"/>
+<listEntry value="Teacher.UploadFile"/>
+<listEntry value="ReadAPIResponce.AssignmentActivity"/>
+<listEntry value="assignment_Student.Student_FIB_Test"/>
+<listEntry value="Data.Loger"/>
+<listEntry value="APIClasses.StudentActivityEvalOverview"/>
+<listEntry value="Tech.Permission"/>
+<listEntry value="APIClasses.StudentActivity"/>
+<listEntry value="Common.GetDate"/>
+<listEntry value="Tech.ResetPasswordByAdmin"/>
+<listEntry value="assignment_Student.Student_SQ_Test"/>
+<listEntry value="Common.CloseBrowser"/>
+<listEntry value="Teacher.CreatePodGroup"/>
+<listEntry value="Common.LaunchApp"/>
+<listEntry value="ReadAPIResponce.ReadAPI"/>
+<listEntry value="APIClasses.Acivity"/>
+<listEntry value="Teacher.GradeAssignment"/>
+<listEntry value="APIClasses.StudentActivityEval"/>
+<listEntry value="NBAReportTesting.CompairNBAReports"/>
+<listEntry value="Tech.ErrorpageForAssignment"/>
+<listEntry value="Teacher.CreateRandomAssignment"/>
+<listEntry value="APIClasses.Sender"/>
+<listEntry value="Teacher.CreateAssignmentFromQB"/>
+<listEntry value="APIClasses.AssignmentClass"/>
+<listEntry value="Teacher.UploadQB"/>
+<listEntry value="Teacher.CreateEventsNews"/>
+<listEntry value="StudentAPI.XMLtoJSON"/>
+<listEntry value="Teacher.ValidateSharedAssignment"/>
+<listEntry value="Teacher.RgradeStudent"/>
+<listEntry value="APIClasses.News"/>
+<listEntry value="APIClasses.SubActivityId"/>
+<listEntry value="Teacher.ValidateSharedLesson"/>
+<listEntry value="Lesson_Student.ViewLesson"/>
+<listEntry value="APIClasses.PhotoUrl"/>
+<listEntry value="NBAReportTesting.ReadAPI"/>
+<listEntry value="assignment_Student.ValidateStudent"/>
+<listEntry value="assignment_Student.AttemptSurey"/>
+<listEntry value="Teacher.ValidateCreateAssignment"/>
+<listEntry value="Teacher.EditActivity"/>
+<listEntry value="otherScript.SomaiyaDatarplace"/>
+<listEntry value="assignment_Student.FileOutputStream"/>
+<listEntry value="Teacher.EditQuestion"/>
+<listEntry value="Com.Ojo.ReadJsonObject"/>
+<listEntry value="Teacher.AddQuestionAssignment"/>
+<listEntry value="assignment_Student.Student_MCQ_Test"/>
+<listEntry value="Common.Gototab"/>
+<listEntry value="Common.Login"/>
+<listEntry value="Teacher.AssignmentCreation"/>
+<listEntry value="APIClasses.COPOMapping"/>
+<listEntry value="Teacher.ValidateEditActivity"/>
+<listEntry value="APIClasses.Events"/>
+<listEntry value="assignment_Student.Attempt_test"/>
+<listEntry value="Teacher.SurveyCreation"/>
+<listEntry value="Tech.ReportDownload"/>
+<listEntry value="Common.ChangeSection"/>
+<listEntry value="StudentAPI.JSONToPOJO"/>
+<listEntry value="Common.Navigation"/>
+<listEntry value="Teacher.CreateRubric"/>
+<listEntry value="Teacher.ValidateEditQuestion"/>
+<listEntry value="assignment_Student.Attermpt_testTimerOut"/>
+<listEntry value="Teacher.UploadAssignmentTemplate"/>
+<listEntry value="Teacher.CreateAssignment"/>
+<listEntry value="Tech.ValidateUsername"/>
+</listAttribute>
+<listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
+<listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+<mapAttribute key="org.testng.eclipse.PARAMETERS">
+<mapEntry key="Ack" value="yes"/>
+<mapEntry key="AssName" value="UploadAssignmentTemplate"/>
+<mapEntry key="Asscount" value="1"/>
+<mapEntry key="AssertString" value="Important Event"/>
+<mapEntry key="Assignment" value="Test_MCQ_Institute"/>
+<mapEntry key="AssignmentList" value="External_DQ_SECTION:Lab_DQ_Course:Test_MCQ_Institute"/>
+<mapEntry key="AssignmentListFile" value="AssignmentValidation.csv"/>
+<mapEntry key="Assname" value="QbAssignment"/>
+<mapEntry key="COmapping" value="Q1,1:2;Q2,2:3;Q3,1"/>
+<mapEntry key="Chapter" value="ShareLesson"/>
+<mapEntry key="Cos" value="AutoCO1;AutoCO2;AutoCO3"/>
+<mapEntry key="CountofQuestion" value="6"/>
+<mapEntry key="Department" value="Internal Training Department"/>
+<mapEntry key="DestinationCourse" value="Internal Training sd - Course"/>
+<mapEntry key="DestinationSection" value="Internal Training - sd"/>
+<mapEntry key="Enddate" value="2"/>
+<mapEntry key="Important" value="yes"/>
+<mapEntry key="QBname" value="AutoTestQB"/>
+<mapEntry key="QCount" value="10"/>
+<mapEntry key="ShareType" value="Institute"/>
+<mapEntry key="Subject" value="Internal Training Subject"/>
+<mapEntry key="TargetLesson" value="CopiedLesson"/>
+<mapEntry key="TestData" value="AutoTestingMM"/>
+<mapEntry key="URL" value="http://testing.inpods.com:88/"/>
+<mapEntry key="data" value="D:\AutoTestData\Upload\ImageUpload.exe"/>
+<mapEntry key="lesson" value="Link_ShareWithInstitute"/>
+<mapEntry key="lessonList" value="AutherShareWithSection:UploadShareWithCourse:Link_ShareWithInstitute"/>
+<mapEntry key="level" value="Chapter-&gt;Lesson"/>
+<mapEntry key="message" value="Important Event"/>
+<mapEntry key="name" value="External1"/>
+<mapEntry key="namePod" value="PodGroup"/>
+<mapEntry key="password" value="password"/>
+<mapEntry key="path" value="D:\AutoTestData\Upload\External1_Mayur_Mulay.exe"/>
+<mapEntry key="podGrop" value="PodGroup;Student1 Demo;Student2 Demo;Student3 Demo;Student4 Demo"/>
+<mapEntry key="pubDate" value="2"/>
+<mapEntry key="title" value="Important Event"/>
+<mapEntry key="type" value="Announcement"/>
+<mapEntry key="username" value="maym@inpods.com"/>
+</mapAttribute>
+<stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
+<intAttribute key="org.testng.eclipse.TYPE" value="1"/>
+</launchConfiguration>

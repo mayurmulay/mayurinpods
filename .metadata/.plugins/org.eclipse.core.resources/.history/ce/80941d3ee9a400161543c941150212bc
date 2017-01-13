@@ -1,0 +1,29 @@
+package otherScript;
+import java.sql.DriverManager;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+ class CoonectDB{
+ 
+	public static void main(String args[]){  
+		
+	try{  
+		//Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");	
+		//Connection con = DriverManager.getConnection("jdbc:sqlserver://INPOD;user=sa;password=p@ssw0rd000;database=SARTierII_ProdDB");
+		System.out.println("test");
+	Class.forName("com.mysql.jdbc.Driver");  
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306//aspnetdb","sa","p@ssw0rd000");  
+	//here sonoo is database name, root is username and password  INPOD
+	Statement stmt=con.createStatement();  
+	ResultSet rs=stmt.executeQuery("select * from [SARTierII_ProdDB].[dbo].[SchoolUsers]");  
+	while(rs.next())  
+	System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
+	con.close();  
+	}catch(Exception e){ System.out.println(e);}  
+	
+	}  
+	
+
+}

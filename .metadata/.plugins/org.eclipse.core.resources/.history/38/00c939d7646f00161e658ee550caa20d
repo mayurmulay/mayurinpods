@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Teacher P0" parallel="methods" thread-count="1">
+ <parameter name="Cos" value="null1"/> 
+   <parameter name="URL" value="http://testing.inpods.com:88/"/> 
+   
+   <test name="LaunchApp">
+      <parameter name="TestData" value="http://testing.inpods.com:88/"/> 
+      <parameter name="URL" value="http://testing.inpods.com:88/"/> 
+      <classes>
+         <class name="Common.LaunchApp" />
+      </classes>
+   </test>
+   
+   <test name="Login">
+      <parameter name="username" value="sharavarid@somaiya.edu"/> 
+      <parameter name="password" value="t1t1t1"/> 
+      <classes>
+         <class name="Common.Login" />
+      </classes>
+   </test>
+   
+   <test name="Change Section">
+      <parameter name="TestData" value="EXTC - Sem III - 2016-17 - Data Analysis and Interpretation - B"/> 
+      <classes>
+      <class name="Common.ChangeSection" />
+          <class name="Com.Ojo.ReadJsonObject" />
+          </classes>
+   </test>
+   <!--****************************** Test cases regarding Chapter  and Lesson Creation  *********************************************************************-->
+   <test name="CO mapping">
+       <parameter name="Cos" value="AutoCO1;AutoCO2;AutoCO3"/>
+      <parameter name="Chapter" value="ChapterDemo"/> 
+      <parameter name="lesson" value="Upload_ImageWithCO"/> 
+      <parameter name="type" value="Upload"/> 
+      <parameter name="data" value="D:\AutoTestData\Upload\ImageUpload.exe"/> 
+      <parameter name="level" value="Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>
+   
+   <test name="lesson_Creation_Upload_txt">
+      <parameter name="Chapter" value="ChapterDemo"/> 
+      <parameter name="lesson" value="Upload_txt"/> 
+      <parameter name="type" value="Upload"/> 
+      <parameter name="data" value="D:\AutoTestData\Upload\textUpload.exe"/> 
+      <parameter name="level" value="Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>
+   
+   <test name="lesson_Creation_Link">
+      <parameter name="Chapter" value="ChapterDemo"/> 
+      <parameter name="lesson" value="lessonDemo"/> 
+      <parameter name="type" value="link"/> 
+      <parameter name="data" value="http://somaiya.inpods.com/"/> 
+      <parameter name="level" value="Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>
+   
+   <test name="lesson_Creation_Upload_Video">
+      <parameter name="Chapter" value="ChapterDemo"/> 
+      <parameter name="lesson" value="Upload_Video"/> 
+      <parameter name="type" value="Upload"/> 
+      <parameter name="data" value="D:\AutoTestData\Upload\VideoUpload.exe"/> 
+      <parameter name="level" value="Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>
+   
+   <test name="lesson_Creation_Upload_xlsx">
+      <parameter name="Chapter" value="ChapterDemo"/> 
+      <parameter name="lesson" value="Upload_xlsx"/> 
+      <parameter name="type" value="Upload"/> 
+      <parameter name="data" value="D:\AutoTestData\Upload\XlsxUpload.exe"/> 
+      <parameter name="level" value="Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>    
+   
+    <test name="lesson_Creation_Upload_Image">
+      <parameter name="Chapter" value="ChapterDemo"/> 
+      <parameter name="lesson" value="Upload_Image"/> 
+      <parameter name="type" value="Upload"/> 
+      <parameter name="data" value="D:\AutoTestData\Upload\ImageUpload.exe"/> 
+      <parameter name="level" value="Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>
+   
+        
+   
+   <test name="lesson_lesson_chapter"> 
+      <parameter name="Chapter" value="ChapterDemoChapter"/> 
+      <parameter name="lesson" value="lessonDemoChapter"/> 
+      <parameter name="type" value="link"/> 
+      <parameter name="data" value="http://somaiya.inpods.com/"/> 
+      <parameter name="level" value="Chapter->Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>
+   
+   <!-- ****************************** Test cases regarding Assignments  *********************************************************************-->
+   
+   
+      <test name="AssignmentCreation">
+      <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+      <classes>
+        <class name="Teacher.AssignmentCreation" />
+     
+      </classes>
+ </test>
+ 
+ 
+   
+  
+    <!--*********************************************************************Test casess for Create Survey***********************************-->
+    <test name="Create Survey">
+      <parameter name="name" value="NewSurvey"/> 
+      <parameter name="type" value="CourseFeedback"/> 
+      <parameter name="COmapping" value="Q1,1:2;Q2,2:3;Q3,1"/> 
+      <parameter name="CountofQuestion" value="6"/> 
+      <classes>
+      <class name="Teacher.SurveyCreation" />
+          </classes>
+   </test>
+   
+    
+   <!--*********************************************************************Test casess for anouncement ***********************************-->
+   <test name="Back Date Event">
+      <parameter name="type" value="Announcement"/> 
+      <parameter name="title" value="Back Date Event"/> 
+      <parameter name="message" value="Back Date Event"/> 
+      <parameter name="pubDate" value="-2"/> 
+      <parameter name="Enddate" value="-1"/> 
+      <parameter name="Important" value="yes"/>
+      <parameter name="Ack" value="yes"/> 
+      <parameter name="AssertString" value="Publish Date should not be less than today's date"/> 
+      <classes>
+         <class name="Teacher.CreateEventsNews" />
+      </classes>
+   </test>
+   
+   <test name="PublishDateLessThanTadysDate">
+      <parameter name="type" value="Announcement"/> 
+      <parameter name="title" value="PublishDateLessThanTadysDate"/> 
+      <parameter name="message" value="PublishDateLessThanTadysDate"/> 
+      <parameter name="pubDate" value="-2"/> 
+      <parameter name="Enddate" value="2"/> 
+      <parameter name="Important" value="yes"/>
+      <parameter name="Ack" value="yes"/> 
+      <parameter name="AssertString" value="Publish Date should not be less than today's date"/> 
+      <classes>
+         <class name="Teacher.CreateEventsNews" />
+      </classes>
+   </test>
+   
+  <test name="Simple Event">
+      <parameter name="type" value="Announcement"/> 
+      <parameter name="title" value="Simple Event"/> 
+      <parameter name="message" value="Simple Event"/> 
+      <parameter name="pubDate" value="0"/> 
+      <parameter name="Enddate" value="0"/> 
+      <parameter name="Important" value="No"/>
+      <parameter name="Ack" value="NO"/> 
+      <parameter name="AssertString" value="Simple Event"/> 
+      <classes>
+         <class name="Teacher.CreateEventsNews" />
+      </classes>
+   </test>
+   
+    <test name="Ack Event">
+      <parameter name="type" value="Announcement"/> 
+      <parameter name="title" value="Ack Event"/> 
+      <parameter name="message" value="Ack Event"/> 
+      <parameter name="pubDate" value="0"/> 
+      <parameter name="Enddate" value="2"/> 
+      <parameter name="Important" value="No"/>
+      <parameter name="Ack" value="yes"/> 
+      <parameter name="AssertString" value="Ack Event"/> 
+      <classes>
+         <class name="Teacher.CreateEventsNews" />
+      </classes>
+   </test>
+   
+    <test name="Important Event">
+      <parameter name="type" value="Announcement"/> 
+      <parameter name="title" value="Important Event"/> 
+      <parameter name="message" value="Important Event"/> 
+      <parameter name="pubDate" value="2"/> 
+      <parameter name="Enddate" value="2"/> 
+      <parameter name="Important" value="yes"/>
+      <parameter name="Ack" value="yes"/> 
+      <parameter name="AssertString" value="Important Event"/> 
+      <classes>
+         <class name="Teacher.CreateEventsNews" />
+      </classes>
+   </test>
+  
+   <!-- ****************************** Test Pod Group creation *********************************************************************-->
+      <test name="PodGroupCreation">
+      <parameter name="namePod" value="PodGroup"/>
+	  <parameter name="podGrop" value="PodGroup;Student1 Demo;Student2 Demo;Student3 Demo;Student4 Demo"/>
+      <classes>
+        <class name="Teacher.CreatePodGroup" />
+     
+      </classes>
+ </test>
+    
+<!--****************************** Test cases For Rubric creation *********************************************************************-->
+   <test name="Create Rubric">
+      <parameter name="name" value="AutoTestRubic"/> 
+      <classes>
+         <class name="Teacher.CreateRubric" />
+      </classes>
+   </test>
+   
+    
+
+
+ <!-- ****************************** Test cases regarding Assignments  Validation *********************************************************************-->
+      <test name="AssignmentValidation">
+      <parameter name="AssignmentListFile" value="AssignmentValidation.csv"/>
+      <classes>
+        <class name="Teacher.ValidateCreateAssignment" />
+     
+      </classes>
+ </test>
+  
+   
+   <!-- ******************************  Test cases For Assignment  creation By UploadTemplate  *********************************************************************--> 
+   <test name="UploadAssignmentTemplate">
+      <parameter name="AssName" value="UploadAssignmentTemplate"/> 
+      <parameter name="path" value="D:\AutoTestData\Upload\Assignment_Template.exe"/> 
+      <classes>
+         <class name="Teacher.UploadAssignmentTemplate" />
+      </classes>
+   </test>
+   
+   <!-- ******************************  Test cases For QB creation *********************************************************************--> 
+   <test name="Create QB">
+      <parameter name="name" value="AutoTestQB"/> 
+      <parameter name="path" value="D:\AutoTestData\Upload\QBUpload.exe"/> 
+      <classes>
+         <class name="Teacher.UploadQB" />
+      </classes>
+   </test>
+   
+<!--****************************** Test cases For Assignment creation  From QB*********************************************************************-->
+   <test name="Assignment Creation From QB ">
+      <parameter name="QBname" value="AutoTestQB"/> 
+      <parameter name="Assname" value="QbAssignment"/> 
+      <parameter name="QCount" value="10"/> 
+      <parameter name="Asscount" value="1"/> 
+      <classes>
+         <class name="Teacher.CreateAssignmentFromQB" />
+      </classes>
+</test>
+
+<!-- ******************************  Create Assignment And Add Question From QB *********************************************************************--> 
+   <test name="Create Assignment Add Question From QB">
+      <classes>
+         <class name="Teacher.AddQuestionAssignment" />
+      </classes>
+
+ </test>
+   
+
+
+
+  
+   <!-- ******************************  Test cases For Upload Marks *********************************************************************--> 
+   <test name="Upload External Gradebook SQ">
+      <parameter name="name" value="External"/> 
+      <parameter name="path" value="D:\AutoTestData\Upload\External_Mayur_Mulay.exe"/> 
+      <classes>
+         <class name="Teacher.UploadFile" />
+      </classes>
+   </test>
+   <test name="Upload External Gradebook DQ">
+      <parameter name="name" value="External1"/> 
+      <parameter name="path" value="D:\AutoTestData\Upload\External1_Mayur_Mulay.exe"/> 
+      <classes>
+         <class name="Teacher.UploadFile" />
+      </classes>
+   </test>
+   
+   <test name="Upload Lab Gradebook DQ">
+      <parameter name="name" value="Lab"/> 
+      <parameter name="path" value="D:\AutoTestData\Upload\Lab_Mayur_Mulay.exe"/> 
+      <classes>
+         <class name="Teacher.UploadFile" />
+      </classes>
+   </test>
+   <test name="Upload Lab Gradebook SQ">
+      <parameter name="name" value="Lab"/> 
+      <parameter name="path" value="D:\AutoTestData\Upload\Lab1_Mayur_Mulay.exe"/> 
+      <classes>
+         <class name="Teacher.UploadFile" />
+      </classes>
+   </test>
+   
+   <!--*********************************************************************Test casess Share Assignment***********************************-->
+   <test name="ShareAssignmentToSection">
+    
+      <parameter name="Assignment" value="External_DQ_SECTION"/> 
+      <parameter name="ShareType" value="Section"/> 
+      <parameter name="Department" value="Internal Training Department"/> 
+      <parameter name="Subject" value="Internal Training Subject"/> 
+      <parameter name="DestinationCourse" value="Internal Training sd - Course"/> 
+      <parameter name="DestinationSection" value="Internal Training - sd"/> 
+      <classes>
+      <class name="Teacher.ShareAssignment" />
+          </classes>
+   </test>
+   
+    <test name="ShareAssignmentToCourse">
+     
+      <parameter name="Assignment" value="Lab_DQ_Course"/> 
+      <parameter name="ShareType" value="Course"/> 
+      <parameter name="Department" value="Internal Training Department"/> 
+      <parameter name="Subject" value="Internal Training Subject"/> 
+      <parameter name="DestinationCourse" value="Internal Training sd - Course"/> 
+      <parameter name="DestinationSection" value="Internal Training - sd"/> 
+      <classes>
+      <class name="Teacher.ShareAssignment" />
+          </classes>
+   </test>
+    <test name="ShareAssignmentTOinstitute">
+    
+      <parameter name="Assignment" value="Test_MCQ_Institute"/> 
+      <parameter name="ShareType" value="Institute"/> 
+      <parameter name="Department" value="Internal Training Department"/> 
+      <parameter name="Subject" value="Internal Training Subject"/> 
+      <parameter name="DestinationCourse" value="Internal Training sd - Course"/> 
+      <parameter name="DestinationSection" value="Internal Training - sd"/> 
+      <classes>
+      <class name="Teacher.ShareAssignment" />
+          </classes>
+   </test>
+   
+    <!--*********************************************************************Test casess Share Lesson***********************************-->
+   
+   <test name="ShareLessonToSection">
+    
+      <parameter name="Chapter" value="ShareLesson"/> 
+      <parameter name="lesson" value="AutherShareWithSection"/> 
+      <parameter name="ShareType" value="Section"/> 
+      <parameter name="Department" value="Internal Training Department"/> 
+      <parameter name="Subject" value="Internal Training Subject"/> 
+      <parameter name="DestinationCourse" value="Internal Training sd - Course"/> 
+      <parameter name="DestinationSection" value="Internal Training - sd"/> 
+      <classes>
+      <class name="Teacher.Sharelesson" />
+          </classes>
+   </test>
+   
+    <test name="ShareLessonToCourse">
+    
+      <parameter name="Chapter" value="ShareLesson"/> 
+      <parameter name="lesson" value="UploadShareWithCourse"/> 
+      <parameter name="ShareType" value="Course"/> 
+      <parameter name="Department" value="Internal Training Department"/> 
+      <parameter name="Subject" value="Internal Training Subject"/> 
+      <parameter name="DestinationCourse" value="Internal Training sd - Course"/> 
+      <parameter name="DestinationSection" value="Internal Training - sd"/> 
+      <classes>
+      <class name="Teacher.Sharelesson" />
+          </classes>
+   </test>
+    <test name="ShareLessonTOinstitute">
+    
+      <parameter name="Chapter" value="ShareLesson"/> 
+      <parameter name="lesson" value="Link_ShareWithInstitute"/> 
+      <parameter name="ShareType" value="Institute"/> 
+      <parameter name="Department" value="Internal Training Department"/> 
+      <parameter name="Subject" value="Internal Training Subject"/> 
+      <parameter name="DestinationCourse" value="Internal Training sd - Course"/> 
+      <parameter name="DestinationSection" value="Internal Training - sd"/> 
+      <classes>
+      <class name="Teacher.Sharelesson" />
+          </classes>
+   </test>
+   
+   <!--*********************************************************************Test casess validate share Assignment***********************************-->  
+   <test name="ValidateSharedAssignment">
+    
+      <parameter name="AssignmentList" value="External_DQ_SECTION:Lab_DQ_Course:Test_MCQ_Institute"/> 
+      <classes>
+      <class name="Teacher.ValidateSharedAssignment" />
+          </classes>
+   </test>
+ 
+  <!--*********************************************************************Test casess validate share lesson***********************************-->  
+   <test name="ValidateSharedLesson">
+    
+      <parameter name="lessonList" value="AutherShareWithSection:UploadShareWithCourse:Link_ShareWithInstitute"/> 
+      <parameter name="TargetLesson" value="CopiedLesson"/> 
+      <classes>
+      <class name="Teacher.ValidateSharedLesson" />
+          </classes>
+   </test>
+   
+  </suite>

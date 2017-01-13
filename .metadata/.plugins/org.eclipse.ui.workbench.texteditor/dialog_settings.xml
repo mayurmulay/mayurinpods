@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="430" key="DIALOG_Y_ORIGIN"/>
-		<item value="380" key="DIALOG_HEIGHT"/>
-		<item value="899" key="DIALOG_X_ORIGIN"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="305" key="DIALOG_WIDTH"/>
+		<item value="178" key="DIALOG_Y_ORIGIN"/>
+		<item value="442" key="DIALOG_HEIGHT"/>
+		<item value="48" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
@@ -13,20 +13,26 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="AssignmentType" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="assert"/>
+			<item value="CourseLevel"/>
+			<item value="CourseLevelReports"/>
+			<item value="AssignmentType("/>
 			<item value="AssignmentType"/>
-			<item value="driver"/>
-			<item value="isAlertPresent()"/>
-			<item value="APItype"/>
-			<item value="logIn"/>
-			<item value="i="/>
-			<item value="Count"/>
-			<item value="URL"/>
+			<item value="assType"/>
+			<item value="Sharing"/>
+			<item value="-Fail"/>
 		</list>
 		<list key="replacehistory">
-			<item value="LaunchApp.driver"/>
-			<item value="&quot;"/>
+			<item value=""/>
+			<item value="1000"/>
+			<item value="500"/>
+			<item value="Min"/>
+			<item value=" "/>
+			<item value="Assignment"/>
+			<item value="AssignmentName"/>
+			<item value="Lesson"/>
 		</list>
 	</section>
 </section>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Teacher P0" parallel="methods" thread-count="1">
+ <parameter name="Cos" value="null1"/> 
+   <parameter name="URL" value="http://ec2-54-167-102-68.compute-1.amazonaws.com/"/> 
+   <test name="LaunchApp">
+      <parameter name="TestData" value="http://testing.inpods.com:88/"/> 
+      <parameter name="URL" value="http://testing.inpods.com:88/"/> 
+      <classes>
+         <class name="Common.LaunchApp" />
+      </classes>
+   </test>
+ 
+   <test name="Student Attempt">
+      <parameter name="TestData" value="http://testing.inpods.com:88/"/> 
+      <classes>
+      <class name="assignment_Student.Attempt_test" />
+      </classes>
+   </test>
+   
+</suite>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="10" total="23" passed="12">
+<testng-results skipped="0" failed="0" total="12" passed="12">
   <reporter-output>
   </reporter-output>
-  <suite name="Teacher P0" duration-ms="87810" started-at="2016-08-12T12:10:48Z" finished-at="2016-08-12T12:12:16Z">
+  <suite name="UploadMarks" duration-ms="274216" started-at="2017-01-13T05:42:07Z" finished-at="2017-01-13T05:46:41Z">
     <groups>
     </groups>
-    <test name="LaunchApp" duration-ms="37661" started-at="2016-08-12T12:10:48Z" finished-at="2016-08-12T12:11:26Z">
+    <test name="LaunchApp" duration-ms="5320" started-at="2017-01-13T05:42:07Z" finished-at="2017-01-13T05:42:12Z">
       <class name="Common.LaunchApp">
-        <test-method status="PASS" signature="Execute(java.lang.String)[pri:0, instance:Common.LaunchApp@623e2b64]" name="Execute" duration-ms="37635" started-at="2016-08-12T17:40:48Z" finished-at="2016-08-12T17:41:26Z">
+        <test-method status="PASS" signature="Execute(java.lang.String)[pri:0, instance:Common.LaunchApp@4a1b4407]" name="Execute" duration-ms="5299" started-at="2017-01-13T11:12:07Z" finished-at="2017-01-13T11:12:12Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[http://testing.inpods.com:88/]]>
+                <![CDATA[http://localhost/]]>
               </value>
             </param>
           </params>
@@ -20,9 +20,9 @@
         </test-method> <!-- Execute -->
       </class> <!-- Common.LaunchApp -->
     </test> <!-- LaunchApp -->
-    <test name="Login" duration-ms="13416" started-at="2016-08-12T12:11:26Z" finished-at="2016-08-12T12:11:39Z">
+    <test name="Login" duration-ms="10100" started-at="2017-01-13T05:42:12Z" finished-at="2017-01-13T05:42:23Z">
       <class name="Common.Login">
-        <test-method status="PASS" signature="LoginD(java.lang.String, java.lang.String)[pri:0, instance:Common.Login@688610c4]" name="LoginD" duration-ms="13409" started-at="2016-08-12T17:41:26Z" finished-at="2016-08-12T17:41:39Z">
+        <test-method status="PASS" signature="LoginD(java.lang.String, java.lang.String)[pri:0, instance:Common.Login@4d7cca20]" name="LoginD" duration-ms="10098" started-at="2017-01-13T11:12:12Z" finished-at="2017-01-13T11:12:23Z">
           <params>
             <param index="0">
               <value>
@@ -40,9 +40,9 @@
         </test-method> <!-- LoginD -->
       </class> <!-- Common.Login -->
     </test> <!-- Login -->
-    <test name="Change Section" duration-ms="1705" started-at="2016-08-12T12:11:39Z" finished-at="2016-08-12T12:11:41Z">
+    <test name="Change Section" duration-ms="11508" started-at="2017-01-13T05:42:23Z" finished-at="2017-01-13T05:42:34Z">
       <class name="Common.ChangeSection">
-        <test-method status="PASS" signature="selectSection(java.lang.String)[pri:0, instance:Common.ChangeSection@13707ac]" name="selectSection" duration-ms="1315" started-at="2016-08-12T17:41:39Z" finished-at="2016-08-12T17:41:41Z">
+        <test-method status="PASS" signature="selectSection(java.lang.String)[pri:0, instance:Common.ChangeSection@8262adc]" name="selectSection" duration-ms="11058" started-at="2017-01-13T11:12:23Z" finished-at="2017-01-13T11:12:34Z">
           <params>
             <param index="0">
               <value>
@@ -55,1292 +55,138 @@
         </test-method> <!-- selectSection -->
       </class> <!-- Common.ChangeSection -->
       <class name="Com.Ojo.ReadJsonObject">
-        <test-method status="PASS" signature="aptTesting()[pri:0, instance:Com.Ojo.ReadJsonObject@43d8add3]" name="aptTesting" duration-ms="378" started-at="2016-08-12T17:41:41Z" finished-at="2016-08-12T17:41:41Z">
+        <test-method status="PASS" signature="aptTesting()[pri:0, instance:Com.Ojo.ReadJsonObject@1c7d5b2]" name="aptTesting" duration-ms="443" started-at="2017-01-13T11:12:34Z" finished-at="2017-01-13T11:12:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- aptTesting -->
       </class> <!-- Com.Ojo.ReadJsonObject -->
     </test> <!-- Change Section -->
-    <test name="lesson_Creation_Upload_txt" duration-ms="16506" started-at="2016-08-12T12:11:41Z" finished-at="2016-08-12T12:11:58Z">
-      <class name="Teacher.Lesson">
-        <test-method status="PASS" signature="CreateLesson(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.Lesson@39a26ac5]" name="CreateLesson" duration-ms="16499" started-at="2016-08-12T17:41:41Z" finished-at="2016-08-12T17:41:58Z">
+    <test name="Upload Lab Gradebook DQ In Section 2" duration-ms="64591" started-at="2017-01-13T05:42:34Z" finished-at="2017-01-13T05:43:39Z">
+      <class name="Common.ChangeSection">
+        <test-method status="PASS" signature="selectSection(java.lang.String)[pri:0, instance:Common.ChangeSection@4038bbd7]" name="selectSection" duration-ms="11851" started-at="2017-01-13T11:12:34Z" finished-at="2017-01-13T11:12:46Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[ChapterDemo]]>
+                <![CDATA[Lab1_AutoTestingMM]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectSection -->
+      </class> <!-- Common.ChangeSection -->
+      <class name="Teacher.UploadFile">
+        <test-method status="PASS" signature="upload_gradebook(java.lang.String, java.lang.String)[pri:0, instance:Teacher.UploadFile@4cb44131]" name="upload_gradebook" duration-ms="52737" started-at="2017-01-13T11:12:46Z" finished-at="2017-01-13T11:13:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Lab1]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Upload_txt]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Upload]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[D:\AutoTestData\Upload\textUpload.exe]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Chapter->Lesson]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[null1]]>
+                <![CDATA[D:\AutoTestData_Chrome\Upload\Lab1_Mayur Mulay.xlsx]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CreateLesson -->
-      </class> <!-- Teacher.Lesson -->
-    </test> <!-- lesson_Creation_Upload_txt -->
-    <test name="lesson_Creation_Link" duration-ms="1126" started-at="2016-08-12T12:11:58Z" finished-at="2016-08-12T12:11:59Z">
-      <class name="Teacher.Lesson">
-        <test-method status="PASS" signature="CreateLesson(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.Lesson@6ed279e2]" name="CreateLesson" duration-ms="1121" started-at="2016-08-12T17:41:58Z" finished-at="2016-08-12T17:41:59Z">
+        </test-method> <!-- upload_gradebook -->
+      </class> <!-- Teacher.UploadFile -->
+    </test> <!-- Upload Lab Gradebook DQ In Section 2 -->
+    <test name="Upload Lab Gradebook SQ In Section 3" duration-ms="63949" started-at="2017-01-13T05:43:39Z" finished-at="2017-01-13T05:44:43Z">
+      <class name="Common.ChangeSection">
+        <test-method status="PASS" signature="selectSection(java.lang.String)[pri:0, instance:Common.ChangeSection@60483218]" name="selectSection" duration-ms="11865" started-at="2017-01-13T11:13:39Z" finished-at="2017-01-13T11:13:50Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[ChapterDemo]]>
+                <![CDATA[Lab2_AutoTestingMM]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectSection -->
+      </class> <!-- Common.ChangeSection -->
+      <class name="Teacher.UploadFile">
+        <test-method status="PASS" signature="upload_gradebook(java.lang.String, java.lang.String)[pri:0, instance:Teacher.UploadFile@23d0f70a]" name="upload_gradebook" duration-ms="52078" started-at="2017-01-13T11:13:50Z" finished-at="2017-01-13T11:14:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Lab]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[lessonDemo]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[link]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[http://somaiya.inpods.com/]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Chapter->Lesson]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[null1]]>
+                <![CDATA[D:\AutoTestData_Chrome\Upload\Lab_Mayur Mulay.xlsx]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CreateLesson -->
-      </class> <!-- Teacher.Lesson -->
-    </test> <!-- lesson_Creation_Link -->
-    <test name="lesson_Creation_Upload_Video" duration-ms="1102" started-at="2016-08-12T12:11:59Z" finished-at="2016-08-12T12:12:00Z">
-      <class name="Teacher.Lesson">
-        <test-method status="PASS" signature="CreateLesson(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.Lesson@19839755]" name="CreateLesson" duration-ms="1099" started-at="2016-08-12T17:41:59Z" finished-at="2016-08-12T17:42:00Z">
+        </test-method> <!-- upload_gradebook -->
+      </class> <!-- Teacher.UploadFile -->
+    </test> <!-- Upload Lab Gradebook SQ In Section 3 -->
+    <test name="Upload External Gradebook SQ" duration-ms="64578" started-at="2017-01-13T05:44:43Z" finished-at="2017-01-13T05:45:47Z">
+      <class name="Common.ChangeSection">
+        <test-method status="PASS" signature="selectSection(java.lang.String)[pri:0, instance:Common.ChangeSection@57b324dd]" name="selectSection" duration-ms="11925" started-at="2017-01-13T11:14:43Z" finished-at="2017-01-13T11:14:55Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[ChapterDemo]]>
+                <![CDATA[AutoTestingMM]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectSection -->
+      </class> <!-- Common.ChangeSection -->
+      <class name="Teacher.UploadFile">
+        <test-method status="PASS" signature="upload_gradebook(java.lang.String, java.lang.String)[pri:0, instance:Teacher.UploadFile@32395626]" name="upload_gradebook" duration-ms="52649" started-at="2017-01-13T11:14:55Z" finished-at="2017-01-13T11:15:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[External]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Upload_Video]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Upload]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[D:\AutoTestData\Upload\VideoUpload.exe]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Chapter->Lesson]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[null1]]>
+                <![CDATA[D:\AutoTestData_Chrome\Upload\External_Mayur Mulay.xlsx]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CreateLesson -->
-      </class> <!-- Teacher.Lesson -->
-    </test> <!-- lesson_Creation_Upload_Video -->
-    <test name="lesson_Creation_Upload_xlsx" duration-ms="1089" started-at="2016-08-12T12:12:00Z" finished-at="2016-08-12T12:12:01Z">
-      <class name="Teacher.Lesson">
-        <test-method status="PASS" signature="CreateLesson(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.Lesson@78d51c6c]" name="CreateLesson" duration-ms="1082" started-at="2016-08-12T17:42:00Z" finished-at="2016-08-12T17:42:01Z">
+        </test-method> <!-- upload_gradebook -->
+      </class> <!-- Teacher.UploadFile -->
+    </test> <!-- Upload External Gradebook SQ -->
+    <test name="Upload External Gradebook DQ" duration-ms="52836" started-at="2017-01-13T05:45:47Z" finished-at="2017-01-13T05:46:40Z">
+      <class name="Teacher.UploadFile">
+        <test-method status="PASS" signature="upload_gradebook(java.lang.String, java.lang.String)[pri:0, instance:Teacher.UploadFile@480ae510]" name="upload_gradebook" duration-ms="52834" started-at="2017-01-13T11:15:47Z" finished-at="2017-01-13T11:16:40Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[ChapterDemo]]>
+                <![CDATA[External1]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Upload_xlsx]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Upload]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[D:\AutoTestData\Upload\XlsxUpload.exe]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Chapter->Lesson]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[null1]]>
+                <![CDATA[D:\AutoTestData_Chrome\Upload\External1_Mayur Mulay.xlsx]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CreateLesson -->
-      </class> <!-- Teacher.Lesson -->
-    </test> <!-- lesson_Creation_Upload_xlsx -->
-    <test name="lesson_Creation_Upload_Image" duration-ms="1095" started-at="2016-08-12T12:12:01Z" finished-at="2016-08-12T12:12:02Z">
-      <class name="Teacher.Lesson">
-        <test-method status="PASS" signature="CreateLesson(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.Lesson@455f1fa0]" name="CreateLesson" duration-ms="1090" started-at="2016-08-12T17:42:01Z" finished-at="2016-08-12T17:42:02Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[ChapterDemo]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Upload_Image]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Upload]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[D:\AutoTestData\Upload\ImageUpload.exe]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Chapter->Lesson]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[null1]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- upload_gradebook -->
+      </class> <!-- Teacher.UploadFile -->
+    </test> <!-- Upload External Gradebook DQ -->
+    <test name="CloseBroser" duration-ms="1269" started-at="2017-01-13T05:46:40Z" finished-at="2017-01-13T05:46:41Z">
+      <class name="Common.CloseBroser">
+        <test-method status="PASS" signature="quit1()[pri:0, instance:Common.CloseBroser@30f3c90f]" name="quit1" duration-ms="1262" started-at="2017-01-13T11:16:40Z" finished-at="2017-01-13T11:16:41Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CreateLesson -->
-      </class> <!-- Teacher.Lesson -->
-    </test> <!-- lesson_Creation_Upload_Image -->
-    <test name="CO mapping" duration-ms="1094" started-at="2016-08-12T12:12:02Z" finished-at="2016-08-12T12:12:03Z">
-      <class name="Teacher.Lesson">
-        <test-method status="PASS" signature="CreateLesson(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.Lesson@2d30e79d]" name="CreateLesson" duration-ms="1089" started-at="2016-08-12T17:42:02Z" finished-at="2016-08-12T17:42:03Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[ChapterDemo]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Upload_ImageWithCO]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Upload]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[D:\AutoTestData\Upload\ImageUpload.exe]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Chapter->Lesson]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[AutoCO1;AutoCO2;AutoCO3]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateLesson -->
-      </class> <!-- Teacher.Lesson -->
-    </test> <!-- CO mapping -->
-    <test name="lesson_lesson_chapter" duration-ms="1117" started-at="2016-08-12T12:12:03Z" finished-at="2016-08-12T12:12:04Z">
-      <class name="Teacher.Lesson">
-        <test-method status="PASS" signature="CreateLesson(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.Lesson@77edc3aa]" name="CreateLesson" duration-ms="1113" started-at="2016-08-12T17:42:03Z" finished-at="2016-08-12T17:42:04Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[ChapterDemoChapter]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[lessonDemoChapter]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[link]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[http://somaiya.inpods.com/]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Chapter->Chapter->Lesson]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[null1]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateLesson -->
-      </class> <!-- Teacher.Lesson -->
-    </test> <!-- lesson_lesson_chapter -->
-    <test name="Create QB" duration-ms="1342" started-at="2016-08-12T12:12:04Z" finished-at="2016-08-12T12:12:06Z">
-      <class name="Teacher.UploadQB">
-        <test-method status="FAIL" signature="UploadQb(java.lang.String, java.lang.String)[pri:0, instance:Teacher.UploadQB@4e4574df]" name="UploadQb" duration-ms="1329" started-at="2016-08-12T17:42:04Z" finished-at="2016-08-12T17:42:06Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AutoTestQB]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[D:\AutoTestData\Upload\QBUpload.exe]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Unable TO create QB]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Unable TO create QB
-	at org.testng.Assert.fail(Assert.java:94)
-	at Teacher.UploadQB.UploadQb(UploadQB.java:62)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:823)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UploadQb -->
-      </class> <!-- Teacher.UploadQB -->
-    </test> <!-- Create QB -->
-    <test name="Assignment Creation From QB " duration-ms="1020" started-at="2016-08-12T12:12:06Z" finished-at="2016-08-12T12:12:07Z">
-      <class name="Teacher.CreateAssignmentFromQB">
-        <test-method status="FAIL" signature="CreateAssignmentQB(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.CreateAssignmentFromQB@44a38527]" name="CreateAssignmentQB" duration-ms="1005" started-at="2016-08-12T17:42:06Z" finished-at="2016-08-12T17:42:07Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AutoTestQB]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[QbAssignment]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[10]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
-            <message>
-              <![CDATA[Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:589)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:397)
-	at org.openqa.selenium.By$ByLinkText.findElement(By.java:243)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:340)
-	at Common.Gototab.execute(Gototab.java:13)
-	at Common.Gototab.main(Gototab.java:9)
-	at Teacher.CreateAssignmentFromQB.CreateAssignmentQB(CreateAssignmentFromQB.java:26)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:823)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7056 [/127.0.0.1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:134)
-	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:170)
-	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:393)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:568)
-	... 20 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-	at java.net.PlainSocketImpl.connect(Unknown Source)
-	at java.net.SocksSocketImpl.connect(Unknown Source)
-	at java.net.Socket.connect(Unknown Source)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
-	... 35 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateAssignmentQB -->
-      </class> <!-- Teacher.CreateAssignmentFromQB -->
-    </test> <!-- Assignment Creation From QB  -->
-    <test name="Create Assignment Add Question From QB" duration-ms="1039" started-at="2016-08-12T12:12:07Z" finished-at="2016-08-12T12:12:08Z">
-      <class name="Teacher.AddQuestionAssignment">
-        <test-method status="FAIL" signature="testAddQuestionAssignment()[pri:0, instance:Teacher.AddQuestionAssignment@47041bea]" name="testAddQuestionAssignment" duration-ms="1006" started-at="2016-08-12T17:42:07Z" finished-at="2016-08-12T17:42:08Z">
-          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
-            <message>
-              <![CDATA[Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:589)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:397)
-	at org.openqa.selenium.By$ByLinkText.findElement(By.java:243)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:340)
-	at Teacher.AddQuestionAssignment.testAddQuestionAssignment(AddQuestionAssignment.java:39)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:823)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7056 [/127.0.0.1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:134)
-	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:170)
-	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:393)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:568)
-	... 18 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-	at java.net.PlainSocketImpl.connect(Unknown Source)
-	at java.net.SocksSocketImpl.connect(Unknown Source)
-	at java.net.Socket.connect(Unknown Source)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
-	... 33 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testAddQuestionAssignment -->
-      </class> <!-- Teacher.AddQuestionAssignment -->
-    </test> <!-- Create Assignment Add Question From QB -->
-    <test name="Random Assignment createion" duration-ms="3" started-at="2016-08-12T12:12:08Z" finished-at="2016-08-12T12:12:08Z">
-      <class name="Teacher.CreateRandomAssignment">
-        <test-method status="SKIP" signature="CreateRandomAssignment1(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.CreateRandomAssignment@5f96c1d2]" name="CreateRandomAssignment1" duration-ms="0" started-at="2016-08-12T17:42:08Z" finished-at="2016-08-12T17:42:08Z">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Parameter 'Assname' is required by @Test on method CreateRandomAssignment1 but has not been marked @Optional or defined
-in D:\InpodsAutomation\WebAPITesting\src\Common\testng.xml]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Parameter 'Assname' is required by @Test on method CreateRandomAssignment1 but has not been marked @Optional or defined
-in D:\InpodsAutomation\WebAPITesting\src\Common\testng.xml
-	at org.testng.internal.Parameters.createParameters(Parameters.java:154)
-	at org.testng.internal.Parameters.createParameters(Parameters.java:361)
-	at org.testng.internal.Parameters.handleParameters(Parameters.java:451)
-	at org.testng.internal.Invoker.handleParameters(Invoker.java:1243)
-	at org.testng.internal.Invoker.createParameters(Invoker.java:992)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1082)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateRandomAssignment1 -->
-      </class> <!-- Teacher.CreateRandomAssignment -->
-    </test> <!-- Random Assignment createion -->
-    <test name="Create Rubric" duration-ms="1015" started-at="2016-08-12T12:12:08Z" finished-at="2016-08-12T12:12:09Z">
-      <class name="Teacher.CreateRubric">
-        <test-method status="PASS" signature="CreateRubric(java.lang.String)[pri:0, instance:Teacher.CreateRubric@522305c2]" name="CreateRubric" duration-ms="1005" started-at="2016-08-12T17:42:08Z" finished-at="2016-08-12T17:42:09Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AutoTestRubic]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateRubric -->
-      </class> <!-- Teacher.CreateRubric -->
-    </test> <!-- Create Rubric -->
-    <test name="AssignmentCreation" duration-ms="1023" started-at="2016-08-12T12:12:09Z" finished-at="2016-08-12T12:12:10Z">
-      <class name="Teacher.AssignmentCreation">
-        <test-method status="FAIL" signature="AssignmentCreationDataCreation(java.lang.String)[pri:0, instance:Teacher.AssignmentCreation@4440096c]" name="AssignmentCreationDataCreation" duration-ms="1010" started-at="2016-08-12T17:42:09Z" finished-at="2016-08-12T17:42:10Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AssignmentCreation.csv]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
-            <message>
-              <![CDATA[Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:589)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:397)
-	at org.openqa.selenium.By$ByLinkText.findElement(By.java:243)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:340)
-	at Common.Gototab.execute(Gototab.java:13)
-	at Common.Gototab.main(Gototab.java:9)
-	at Teacher.AssignmentCreation.AssignmentCreationDataCreation(AssignmentCreation.java:38)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:823)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7056 [/127.0.0.1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:134)
-	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:170)
-	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:393)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:568)
-	... 20 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-	at java.net.PlainSocketImpl.connect(Unknown Source)
-	at java.net.SocksSocketImpl.connect(Unknown Source)
-	at java.net.Socket.connect(Unknown Source)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
-	... 35 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AssignmentCreationDataCreation -->
-      </class> <!-- Teacher.AssignmentCreation -->
-    </test> <!-- AssignmentCreation -->
-    <test name="AssignmentValidation" duration-ms="1022" started-at="2016-08-12T12:12:10Z" finished-at="2016-08-12T12:12:11Z">
-      <class name="Teacher.ValidateCreateAssignment">
-        <test-method status="FAIL" signature="Validate(java.lang.String)[pri:0, instance:Teacher.ValidateCreateAssignment@373bb3ec]" name="Validate" duration-ms="1013" started-at="2016-08-12T17:42:10Z" finished-at="2016-08-12T17:42:11Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[AssignmentValidation.csv]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
-            <message>
-              <![CDATA[Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:589)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:397)
-	at org.openqa.selenium.By$ByLinkText.findElement(By.java:243)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:340)
-	at Common.Gototab.execute(Gototab.java:13)
-	at Common.Gototab.main(Gototab.java:9)
-	at Teacher.ValidateCreateAssignment.Validate(ValidateCreateAssignment.java:39)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:823)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7056 [/127.0.0.1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:134)
-	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:170)
-	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:393)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:568)
-	... 20 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-	at java.net.PlainSocketImpl.connect(Unknown Source)
-	at java.net.SocksSocketImpl.connect(Unknown Source)
-	at java.net.Socket.connect(Unknown Source)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
-	... 35 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Validate -->
-      </class> <!-- Teacher.ValidateCreateAssignment -->
-    </test> <!-- AssignmentValidation -->
-    <test name="Back Date Event" duration-ms="1017" started-at="2016-08-12T12:12:11Z" finished-at="2016-08-12T12:12:12Z">
-      <class name="Teacher.CreateEventsNews">
-        <test-method status="FAIL" signature="CreateEventsNewsExe(java.lang.String, java.lang.String, java.lang.String, int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.CreateEventsNews@462ac22a]" name="CreateEventsNewsExe" duration-ms="1005" started-at="2016-08-12T17:42:11Z" finished-at="2016-08-12T17:42:12Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Announcement]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Back Date Event]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Back Date Event]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[-2]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[-1]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[yes]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[yes]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[Publish Date should not be less than today's date]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[http://ec2-54-167-102-68.compute-1.amazonaws.com/]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
-            <message>
-              <![CDATA[Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:589)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:306)
-	at Teacher.CreateEventsNews.CreateEventsNewsExe(CreateEventsNews.java:26)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:823)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7056 [/127.0.0.1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:134)
-	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:170)
-	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:393)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:568)
-	... 15 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-	at java.net.PlainSocketImpl.connect(Unknown Source)
-	at java.net.SocksSocketImpl.connect(Unknown Source)
-	at java.net.Socket.connect(Unknown Source)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
-	... 30 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateEventsNewsExe -->
-      </class> <!-- Teacher.CreateEventsNews -->
-    </test> <!-- Back Date Event -->
-    <test name="PublishDateLessThanTadysDate" duration-ms="1015" started-at="2016-08-12T12:12:12Z" finished-at="2016-08-12T12:12:13Z">
-      <class name="Teacher.CreateEventsNews">
-        <test-method status="FAIL" signature="CreateEventsNewsExe(java.lang.String, java.lang.String, java.lang.String, int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.CreateEventsNews@35e62c83]" name="CreateEventsNewsExe" duration-ms="1002" started-at="2016-08-12T17:42:12Z" finished-at="2016-08-12T17:42:13Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Announcement]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[PublishDateLessThanTadysDate]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[PublishDateLessThanTadysDate]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[-2]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[yes]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[yes]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[Publish Date should not be less than today's date]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[http://ec2-54-167-102-68.compute-1.amazonaws.com/]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
-            <message>
-              <![CDATA[Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:589)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:306)
-	at Teacher.CreateEventsNews.CreateEventsNewsExe(CreateEventsNews.java:26)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:823)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7056 [/127.0.0.1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:134)
-	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:170)
-	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:393)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:568)
-	... 15 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-	at java.net.PlainSocketImpl.connect(Unknown Source)
-	at java.net.SocksSocketImpl.connect(Unknown Source)
-	at java.net.Socket.connect(Unknown Source)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
-	... 30 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateEventsNewsExe -->
-      </class> <!-- Teacher.CreateEventsNews -->
-    </test> <!-- PublishDateLessThanTadysDate -->
-    <test name="Simple Event" duration-ms="1017" started-at="2016-08-12T12:12:13Z" finished-at="2016-08-12T12:12:14Z">
-      <class name="Teacher.CreateEventsNews">
-        <test-method status="FAIL" signature="CreateEventsNewsExe(java.lang.String, java.lang.String, java.lang.String, int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.CreateEventsNews@19fe59c2]" name="CreateEventsNewsExe" duration-ms="1005" started-at="2016-08-12T17:42:13Z" finished-at="2016-08-12T17:42:14Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Announcement]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Simple Event]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Simple Event]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[No]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[NO]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[Simple Event]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[http://ec2-54-167-102-68.compute-1.amazonaws.com/]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
-            <message>
-              <![CDATA[Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:589)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:306)
-	at Teacher.CreateEventsNews.CreateEventsNewsExe(CreateEventsNews.java:26)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:823)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7056 [/127.0.0.1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:134)
-	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:170)
-	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:393)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:568)
-	... 15 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-	at java.net.PlainSocketImpl.connect(Unknown Source)
-	at java.net.SocksSocketImpl.connect(Unknown Source)
-	at java.net.Socket.connect(Unknown Source)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
-	... 30 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateEventsNewsExe -->
-      </class> <!-- Teacher.CreateEventsNews -->
-    </test> <!-- Simple Event -->
-    <test name="Ack Event" duration-ms="1028" started-at="2016-08-12T12:12:14Z" finished-at="2016-08-12T12:12:15Z">
-      <class name="Teacher.CreateEventsNews">
-        <test-method status="FAIL" signature="CreateEventsNewsExe(java.lang.String, java.lang.String, java.lang.String, int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.CreateEventsNews@526864d6]" name="CreateEventsNewsExe" duration-ms="1015" started-at="2016-08-12T17:42:14Z" finished-at="2016-08-12T17:42:15Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Announcement]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Ack Event]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Ack Event]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[No]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[yes]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[Ack Event]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[http://ec2-54-167-102-68.compute-1.amazonaws.com/]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
-            <message>
-              <![CDATA[Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:589)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:306)
-	at Teacher.CreateEventsNews.CreateEventsNewsExe(CreateEventsNews.java:26)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:823)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7056 [/127.0.0.1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:134)
-	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:170)
-	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:393)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:568)
-	... 15 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-	at java.net.PlainSocketImpl.connect(Unknown Source)
-	at java.net.SocksSocketImpl.connect(Unknown Source)
-	at java.net.Socket.connect(Unknown Source)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
-	... 30 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateEventsNewsExe -->
-      </class> <!-- Teacher.CreateEventsNews -->
-    </test> <!-- Ack Event -->
-    <test name="Important Event" duration-ms="1027" started-at="2016-08-12T12:12:15Z" finished-at="2016-08-12T12:12:16Z">
-      <class name="Teacher.CreateEventsNews">
-        <test-method status="FAIL" signature="CreateEventsNewsExe(java.lang.String, java.lang.String, java.lang.String, int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Teacher.CreateEventsNews@70124154]" name="CreateEventsNewsExe" duration-ms="1013" started-at="2016-08-12T17:42:15Z" finished-at="2016-08-12T17:42:16Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Announcement]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Important Event]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Important Event]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[yes]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[yes]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[Important Event]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[http://ec2-54-167-102-68.compute-1.amazonaws.com/]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
-            <message>
-              <![CDATA[Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '2.47.1', revision: '411b314', time: '2015-07-30 02:56:46'
-System info: host: 'INPOD', ip: '192.168.2.8', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_21'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:589)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:306)
-	at Teacher.CreateEventsNews.CreateEventsNewsExe(CreateEventsNews.java:26)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:823)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7056 [/127.0.0.1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:134)
-	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:170)
-	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:393)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:568)
-	... 15 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-	at java.net.PlainSocketImpl.connect(Unknown Source)
-	at java.net.SocksSocketImpl.connect(Unknown Source)
-	at java.net.Socket.connect(Unknown Source)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
-	... 30 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateEventsNewsExe -->
-      </class> <!-- Teacher.CreateEventsNews -->
-    </test> <!-- Important Event -->
-  </suite> <!-- Teacher P0 -->
+        </test-method> <!-- quit1 -->
+      </class> <!-- Common.CloseBroser -->
+    </test> <!-- CloseBroser -->
+  </suite> <!-- UploadMarks -->
 </testng-results>

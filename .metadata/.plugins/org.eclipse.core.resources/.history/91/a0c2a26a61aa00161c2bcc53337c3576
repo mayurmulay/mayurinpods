@@ -1,0 +1,56 @@
+package Tech;
+
+import Teacher.Publish_Section_level_Report;
+import Common.LaunchApp;
+import Common.Login;
+import Data.Read_Data;
+
+public class PublishSectionLevelReport {
+	public static void main(String str[])
+	{
+		try {
+			LaunchApp.Execute("http://testing.inpods.com:88/");
+			Thread.sleep(2000);
+			Login.LoginD("inpodssa@sar.com","techone");
+		    } catch (InterruptedException e) {
+			e.printStackTrace();
+		    }
+		String[][] Data=Read_Data.ReadData("SomaiyaDeptCourse.csv");
+		
+		for(int i=0;i<Data.length;i++)
+		{
+			//TechChangeSection.TechChangeSection(Data[i][0].trim(), Data[i][1].trim(), Data[i][2].trim());
+			TechChangeSection.TechChangeSectionById("949");
+			try {
+				Thread.sleep(2000);
+				Publish_Section_level_Report.main(Data[i]);
+				Thread.sleep(20000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+	}
+	public static void PublishReport()
+	{
+		
+		try {
+			LaunchApp.Execute("http://testing.inpods.com:88/");
+			Thread.sleep(2000);
+			Login.LoginD("inpodssa@sar.com","techone");
+		    } catch (InterruptedException e) {
+			e.printStackTrace();
+		    }
+		String[][] Data=Read_Data.ReadData("SomaiyaDeptCourse.csv");
+		
+		for(int i=0;i<Data.length;i++)
+		{
+			TechChangeSection.TechChangeSection(Data[i][0].trim(), Data[i][1].trim(), Data[i][2].trim());
+		}
+		
+		
+	}
+
+}

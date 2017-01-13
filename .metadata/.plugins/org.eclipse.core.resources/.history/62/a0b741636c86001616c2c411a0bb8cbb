@@ -1,0 +1,136 @@
+package Tech;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+
+import Common.LaunchApp;
+import Common.Login;
+import Data.Read_Data;
+
+
+
+
+public class ResetPasswordByAdmin {
+	static String Path="";
+	static String name="";
+	static String password="";
+	public static void main(String[] str)
+	{
+		Readdata();
+	}
+	public static void Readdata()
+	{
+	String[][] URL=new String[1000][1000];
+	//URL=Read_Data.ReadData("URL.csv");
+	
+	//Path=URL[0][0].trim();
+	Path="http://ec2-54-160-147-133.compute-1.amazonaws.com/";
+	URL[0][0]=Path;
+	String[][] Data=Read_Data.ReadData("PasswordChangeInBulk\\changejspm.csv");
+	LaunchApp.main(URL[0]);
+	Login.main(Data[0]);
+	//LaunchApp.driver.findElement(By.xpath("//*[contains(text(),'Admin')]")).click();
+	try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
+	//LaunchApp.driver.findElement(By.xpath("//*[contains(text(),'ResetPassword')]")).click();
+	try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
+	//LaunchApp.driver.findElement(By.xpath("//*[contains(text(),'Search')]")).click();
+	for(int i=1;i<Data.length;i++)
+	{
+		try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
+			name=Data[i][0].trim();
+			password=Data[i][4].trim();
+			String Username=Data[i][3].trim();
+			String Email=Data[i][3].trim();
+			String Fname=Data[i][1].trim();
+			String Lname=Data[i][2].trim();
+			changePassword(name,password,Username,Email,Fname,Lname);
+			
+			
+	}
+	}
+    public static void changePassword(String name,String password,String Username,String Email,String Fname,String Lname)
+    {
+    	try {
+    		
+    		//**********************************************************************************************newEmailId
+	     	
+	  	    
+	  	    
+    	LaunchApp.driver.findElement(By.xpath(".//*[@name='userName']")).clear();
+    	Thread.sleep(2000);
+    	LaunchApp.driver.findElement(By.xpath(".//*[@name='userName']")).sendKeys(name.trim());
+    	Thread.sleep(2000);
+    	LaunchApp.driver.findElement(By.xpath(".//*[@ng-disabled='searchUserForm.userName.$error.required']")).click();
+    	Thread.sleep(2000);
+    	
+    	LaunchApp.driver.findElement(By.xpath(".//*[@name='newEmailId']")).clear();
+	   	Thread.sleep(2000);
+	   	LaunchApp.driver.findElement(By.xpath(".//*[@name='newEmailId']")).sendKeys(Email.trim());
+	   	Thread.sleep(2000);
+	   	LaunchApp.driver.findElement(By.xpath(".//*[@name='confirmEmailId']")).clear();
+	   	Thread.sleep(2000);
+	   	LaunchApp.driver.findElement(By.xpath(".//*[@name='confirmEmailId']")).sendKeys(Email.trim());
+	   	Thread.sleep(2000);
+	   	LaunchApp.driver.findElement(By.xpath(".//*[@id='page-wrapper2']/div[1]/div/div/div[3]/div/div/form/div/div[7]/div[3]/div/span/button")).click();
+	   	Thread.sleep(2000);
+	    Alert	alert = LaunchApp.driver.switchTo().alert();
+	  	    alert.accept();
+	  	    
+    	LaunchApp.driver.findElement(By.xpath(".//*[@name='password']")).clear();
+    	Thread.sleep(2000);
+    	LaunchApp.driver.findElement(By.xpath(".//*[@name='password']")).sendKeys(password.trim());
+    	Thread.sleep(2000);
+    	LaunchApp.driver.findElement(By.xpath(".//*[@name='password_confirm']")).clear();
+    	Thread.sleep(2000);
+    	LaunchApp.driver.findElement(By.xpath(".//*[@name='password_confirm']")).sendKeys(password.trim());
+    	Thread.sleep(2000);
+    	LaunchApp.driver.findElement(By.xpath(".//*[@id='page-wrapper2']/div[1]/div/div/div[3]/div/div/form/div/div[3]/div[3]/div/span/button")).click();
+    	Thread.sleep(2000);
+    	 alert = LaunchApp.driver.switchTo().alert();
+   	    alert.accept();
+   	    
+   	  
+     	   
+   	    
+   	    
+	    
+	    
+	   	  //**********************************************************************************************newFirstName
+	     	 LaunchApp.driver.findElement(By.xpath(".//*[@name='newFirstName']")).clear();
+	   	Thread.sleep(2000);
+	   	LaunchApp.driver.findElement(By.xpath(".//*[@name='newFirstName']")).sendKeys(Fname.trim());
+	   	Thread.sleep(2000);
+	   	LaunchApp.driver.findElement(By.xpath(".//*[@name='newLastName']")).clear();
+	   	Thread.sleep(2000);
+	   	LaunchApp.driver.findElement(By.xpath(".//*[@name='newLastName']")).sendKeys(Lname.trim());
+	   	Thread.sleep(2000);
+	   	LaunchApp.driver.findElement(By.xpath(".//*[@id='page-wrapper2']/div[1]/div/div/div[3]/div/div/form/div/div[9]/div[3]/div/span/button")).click();
+	   	Thread.sleep(2000);
+	   	 alert = LaunchApp.driver.switchTo().alert();
+	  	    alert.accept();
+	  	    
+	  	    
+	  	//**********************************************************************************************User name
+	  	   	 LaunchApp.driver.findElement(By.xpath(".//*[@name='newUsername']")).clear();
+	  	 	Thread.sleep(2000);
+	  	 	LaunchApp.driver.findElement(By.xpath(".//*[@name='newUsername']")).sendKeys(Username.trim());
+	  	 	Thread.sleep(2000);
+	  	 	LaunchApp.driver.findElement(By.xpath(".//*[@name='confirmUsername']")).clear();
+	  	 	Thread.sleep(2000);
+	  	 	LaunchApp.driver.findElement(By.xpath(".//*[@name='confirmUsername']")).sendKeys(Username.trim());
+	  	 	Thread.sleep(2000);
+	  	 	LaunchApp.driver.findElement(By.xpath(".//*[@id='page-wrapper2']/div[1]/div/div/div[3]/div/div/form/div/div[5]/div[3]/div/span/button")).click();
+	  	 	Thread.sleep(2000);
+	  	 	 alert = LaunchApp.driver.switchTo().alert();
+	  		    alert.accept();
+	  	   	   
+	  	    
+	  	//**********************************************************************************************newEmailId
+	     	 
+    	} catch (Exception e) {System.out.println("user not fount ="+name); e.printStackTrace();}
+    	
+    	
+    	
+       	
+    }
+}

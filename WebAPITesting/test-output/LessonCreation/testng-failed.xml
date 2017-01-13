@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [LessonCreation]" parallel="methods">
+  <parameter name="Cos" value="null1"/>
+  <parameter name="filename" value="setting.csv"/>
+  <parameter name="URL" value="http://localhost/"/>
+  <test name="Change setting(failed)" parallel="methods">
+    <parameter name="filename" value="setting.csv"/>
+    <classes>
+      <class name="Tech.ChangeCOattainemntSetting">
+        <methods>
+          <include name="exicute" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Tech.ChangeCOattainemntSetting -->
+    </classes>
+  </test> <!-- Change setting(failed) -->
+</suite> <!-- Failed suite [LessonCreation] -->

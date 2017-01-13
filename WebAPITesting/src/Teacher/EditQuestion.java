@@ -1,14 +1,22 @@
 package Teacher;
 
 
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import Common.Clickevent;
 import Common.LaunchApp;
+import Common.MooveToElement;
 import Data.ExceptionHndeler;
 import Data.Loger;
 import Data.Read_Data;
@@ -30,23 +38,20 @@ public class EditQuestion {
 	   {
 		   LaunchApp.driver.findElement(By.xpath(".//*[@name='btnAddQuestion']")).click();
 		   LaunchApp.driver.findElement(By.xpath(".//*[@name='btnAddQuestion']")).click();
-		  
-		   
-	   }
-		
-		
-		
-		List <WebElement> li=LaunchApp.driver.findElements(By.xpath("//*[@value='points']"));
-		String[] Qid= new String[100];int i=0,count=0;
+		}
+	   List <WebElement> li=LaunchApp.driver.findElements(By.xpath("//*[@value='points']"));
+		ArrayList<String> Qid= new ArrayList<String>();
+		int i=0,count=0;
 		String[][] Ass=Read_Data.ReadData(AssignmentCreation.AssignmentQueDoc);
 		System.out.println(li.size());
 		for(WebElement element : li){
 			try
 			{
+			
 	            String s=element.getAttribute("id");
 	            if(!s.equals(""))
 	            {
-	            	Qid[count]=s;
+	            	Qid.add(s);
 		           System.out.println("id="+s);
 		           count++;
 	            }
@@ -60,10 +65,11 @@ public class EditQuestion {
 		i=0;
 		try
 		{
-			System.out.println("length="+Qid.length);
+			System.out.println("length="+Qid.size());
+			Collections.sort(Qid);
 		 while(i<count)
 				{
-			         EditQuestion(Ass[i],Qid[i]);
+			         EditQuestion(Ass[i],Qid.get(i));
 			         i++;
 				}
 		}
@@ -73,8 +79,21 @@ public class EditQuestion {
 				System.out.println("page getting refresh");
 				//try {LaunchApp.driver.navigate().refresh(); }catch(Exception e) {e.printStackTrace();}
 			Thread.sleep(3000);
+			
+			ExceptionHndeler.getScreen("Creating Assignment Save"+AssignmentCreation.assName);
+			JavascriptExecutor js = ((JavascriptExecutor) LaunchApp.driver);
+            js.executeScript("window.scrollTo(0,0)");
+            Thread.sleep(1000);
+			ExceptionHndeler.getScreen("Creating Assignment MetaData"+AssignmentCreation.assName);
+			Thread.sleep(1000);
+			
+            js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+            Thread.sleep(1000);
+			
 		    LaunchApp.driver.findElement(By.name("btnSave")).click();
+		    Thread.sleep(1000);
 			LaunchApp.driver.findElement(By.xpath(".//*[@id='cbxEnablePublish']")).click();
+			Thread.sleep(1000);
 			LaunchApp.driver.findElement(By.xpath("//*[@class='okButtonClass']")).click();
 			  Thread.sleep(1000);
 			   Alert alert = LaunchApp.driver.switchTo().alert();
@@ -91,7 +110,8 @@ public class EditQuestion {
 			   Loger.LogException("Error while creating assignmetnt","Saving assignment", msg);
 		 }
 		 catch(Exception e)
-		 {ExceptionHndeler.Log("Save Button","Question Editing", e); e.printStackTrace();}
+		 { //ExceptionHndeler.Log("Save Button","Question Editing", e);}
+		 }
 		
 	}
 	public void EditQuestion(String str[],String Qid)
@@ -140,10 +160,13 @@ public class EditQuestion {
 		
 			}
 			if(s[0].equals("Course Outcome"))  
-			{ 
+			{
+				if(!AssignmentCreation.IsUniversity.equals("yes"))
+				{
 				System.out.println("Selecing CO");
 				mapCO(s[1],Qid);	
 				System.out.println("Selecing CO  Selected");
+				}
 		    }
 			if(s[0].equals("Select Rubrics"))
 			{ 
@@ -157,7 +180,8 @@ public class EditQuestion {
 		}
 		catch(Exception e)
 		{
-			ExceptionHndeler.Log(str[i],"Question Editing", e); e.printStackTrace();
+			ExceptionHndeler.Log(str[i],"Question Editing", e); 
+			e.printStackTrace();
 		}
 		
 	}
@@ -180,8 +204,7 @@ public class EditQuestion {
 			}catch (Exception e) {
 				ExceptionHndeler.Log("Map Co","Question Editing", e);
 			}
-			
-		}
+	}
 	public void MapBloom(String co_name,String Qid)
 	{
 		//*[@id='2275']//*[@class='ui-multiselect ui-widget ui-state-default ui-corner-all' ]
@@ -193,6 +216,8 @@ public class EditQuestion {
 		    {
 		    	int i=Integer.parseInt(hm[c]);
 		    	LaunchApp.driver.findElement(By.xpath("//*[@name='multiselect_"+Qid+"' and @title='"+CORubricData[i][1].trim()+"']")).click();  
+		    	LaunchApp.driver.findElement(By.xpath("//*[@id='"+Qid+"']/tr[3]/td[2]/button")).click();  
+		    	
 		    }
 		 
 			}catch (Exception e) {
@@ -221,12 +246,18 @@ public class EditQuestion {
 		}
 	public static void Points(String [] s,String Qid)
 	{
-		
+		try
+		{
 		Loger.LogEvent("Points","Points selecting");
-		LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lbl"+AssignmentCreation.QuestionType+"QuestionPoints']")).click();
+		System.out.println(".//*[@id='"+Qid+"']//*[@name='lbl"+AssignmentCreation.QuestionType+"QuestionPoints']");
+		WebElement e=LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lbl"+AssignmentCreation.QuestionType+"QuestionPoints']"));
+		Clickevent.ClickEvent(e);
+		System.out.println(".//*[@id='"+Qid+"']//*[@name='value']");
 		LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='value']")).clear();
-        LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lbl"+AssignmentCreation.QuestionType+"QuestionPoints']")).sendKeys(s[1]);
+		System.out.println(".//*[@id='"+Qid+"']//*[@name='lbl"+AssignmentCreation.QuestionType+"QuestionPoints']="+s[1]);
+        LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='value']")).sendKeys(s[1]);
         Loger.LogEvent("Points","Points selected "+s[1]);
+		}catch(Exception e){e.printStackTrace();}
 	}
 	public static void NegativeMarks(String [] s,String Qid)
 	{
@@ -244,7 +275,7 @@ public class EditQuestion {
 		Loger.LogEvent("Negative Mark Points for Unattempted","Negative Mark Points for Unattempted selecting");
 		  LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lblmcqQuestionNegativeMarkPointsforunattempted']")).click();
 		  LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lblmcqQuestionNegativeMarkPointsforunattempted']//*[@name='value']")).clear();
-		  LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lblmcqQuestionNegativeMarkPointsforunattempted']")).sendKeys(s[1]);
+		  LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lblmcqQuestionNegativeMarkPointsforunattempted']//*[@name='value']")).sendKeys(s[1]);
 		  Loger.LogEvent("Negative Mark Points for Unattempted","Negative Mark Points for Unattempted selected"+s[1]);
 	}
 	public static void CorrectAns(String [] s,String Qid)
@@ -254,6 +285,23 @@ public class EditQuestion {
 		 LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@choice='"+s[1]+"']")).click();
 		 Loger.LogEvent("CorrectAnswer","CorrectAnswer selected"+s[1]);
 	}
+	
+	
+}
+ class ViewComparator implements Comparator {
+
+	
+
+	@Override
+	public int compare(Object o1, Object o2) {
+		String m=((Alert) o1).getText();
+	      String n=((Alert) o2).getText();
+	      return(m.compareTo(n));
+	}
+
+
+	
+
 	
 	
 }

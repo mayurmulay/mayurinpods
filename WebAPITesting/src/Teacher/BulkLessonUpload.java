@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 import Common.LaunchApp;
 import Data.ExceptionHndeler;
+import Data.Loger;
 
 public class BulkLessonUpload {
 	
@@ -106,7 +107,8 @@ public class BulkLessonUpload {
 			
 			if(LaunchApp.driver.findElements(By.linkText(lesson.trim())).size() > 0)
 			{
-				Assert.assertTrue(true, "User unable to create");
+				Assert.assertTrue(true, "User able to create bulk lesson");
+				Loger.LogEvent("User able to create bulk lesson", "Pass");
 			}
 		   LaunchApp.driver.findElement(By.linkText("Enable")).click();
 		   try

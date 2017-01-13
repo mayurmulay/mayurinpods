@@ -1,6 +1,7 @@
 package Common;
 
 import java.util.concurrent.TimeUnit;
+
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.testng.annotations.Parameters;
@@ -16,9 +17,13 @@ public class Login {
 	try
 	{
 	    LaunchApp.driver.findElement(By.xpath(".//*[@id='topbar']/div[2]/ul/li/a")).click();
+	    Thread.sleep(2000);
 		LaunchApp.driver.findElement(By.xpath(".//*[@id='UserName']")).sendKeys(username.trim());
+		 Thread.sleep(2000);
 		LaunchApp.driver.findElement(By.xpath(".//*[@id='Password']")).sendKeys(password.trim());
+		 Thread.sleep(2000);
 		LaunchApp.driver.findElement(By.xpath(".//*[@id='page-login']//button")).click();
+		 Thread.sleep(2000);
 	}
 	catch(Exception ex)
 	{

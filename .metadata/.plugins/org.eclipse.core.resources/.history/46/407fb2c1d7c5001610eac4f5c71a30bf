@@ -1,0 +1,65 @@
+package Teacher;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import Common.Clickevent;
+import Common.Gototab;
+import Common.LaunchApp;
+import Data.ExceptionHndeler;
+
+public class SelectAssignmnetUnderCat {
+	
+	static String Sectionname1;
+	@Test
+	@Parameters({ "Sectionname", "CatgoriName", "Asignment_name"})
+	
+	public static void exicute(String Sectionname,String CatgoriName,String Asignment_name )
+	{
+	    String args1[]={"Reports"," "};
+		Gototab.main(args1);
+		JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
+		jse.executeScript("window.scrollTo(50, 50)", "");
+		LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Reports')]")).click();
+		try{Thread.sleep(15000);
+		
+	    Clickevent.clickLinkByHref("/Report/Gradebook?sectionId",".//*[.='"+Sectionname.trim()+"']");
+	    MapAssCat(Asignment_name,CatgoriName);
+		}catch(Exception e){e.printStackTrace(); ExceptionHndeler.Log("Error","CreateCategories", e);}
+		
+		
+	}
+	public static void MapAssCat(String ass_Name, String CatgoriName)
+	{
+		LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-id-2']")).click();
+		LaunchApp.driver.findElement(By.xpath(".//*[@name='cmbCategory']")).click();
+	  new Select(LaunchApp.driver.findElement(By.xpath(".//*[@name='cmbCategory']"))).selectByVisibleText(CatgoriName.trim());
+		List <WebElement> li=Common.LaunchApp.driver.findElements(By.xpath(".//*[@value='0']"));
+		for(WebElement element : li)
+		{
+			try
+			{
+			    String AssNamefromUI=element.getText();
+				if(AssNamefromUI.contains(ass_Name.trim()))
+				{
+					Clickevent.ClickEvent(element);
+				}
+			}
+			catch(Exception e){e.printStackTrace(); ExceptionHndeler.Log("Error","CreateCategories", e);}
+	    }
+		LaunchApp.driver.findElement(By.xpath(".//*[@name='btnSubmit']")).click();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ExceptionHndeler.getScreen("Greadbook_"+ass_Name);
+	}
+}

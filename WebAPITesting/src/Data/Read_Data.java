@@ -17,7 +17,7 @@ public class Read_Data {
 		String [][] s1=new String[10000][100];
 		 BufferedReader bufferedReader = null;
 		try {
-			bufferedReader = new BufferedReader(new FileReader("D:\\Policy\\"+name));
+			bufferedReader = new BufferedReader(new FileReader("D:\\Somaiya\\"+name));
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

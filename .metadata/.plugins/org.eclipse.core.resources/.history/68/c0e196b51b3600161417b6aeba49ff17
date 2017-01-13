@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Teacher P0" parallel="methods" thread-count="1">
+ <parameter name="Cos" value="null1"/> 
+   <test name="LaunchApp">
+       
+      <parameter name="TestData" value="http://testing.inpods.com"/> 
+      <classes>
+         <class name="Common.LaunchApp" />
+      </classes>
+   </test>
+   <test name="Login">
+   
+      <parameter name="username" value="teacher1@auto.com"/> 
+      <parameter name="password" value="t1t1t1"/> 
+      <classes>
+         <class name="Common.Login" />
+      </classes>
+      
+   </test>
+   <test name="Change Section">
+      <parameter name="TestData" value="B3"/> 
+      <classes>
+         <class name="Common.ChangeSection" />
+          <class name="Com.Ojo.ReadJsonObject" />
+      </classes>
+   </test>
+   <!-- ****************************** Test cases AssignmentCreation   *********************************************************************-->
+   <test name="AssignmentCreation">
+      <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+      <classes>
+         <class name="Teacher.AssignmentCreation" />
+     
+      </classes>
+   </test>
+ <!--  ****************************** Test cases regarding Announcements  *********************************************************************-->
+  

@@ -122,5 +122,7 @@
 	<classpathentry kind="lib" path="JAR/json-lib-0.9.jar"/>
 	<classpathentry kind="lib" path="JAR/poi-ooxml-3.7-20101029.jar"/>
 	<classpathentry kind="lib" path="JAR/xom.jar"/>
+	<classpathentry kind="lib" path="D:/InpodsAutomation/WebAPITesting/JAR/DB_connector/mysql-connector.jar"/>
+	<classpathentry kind="lib" path="D:/InpodsAutomation/WebAPITesting/JAR/DB_connector/sqljdbc4-3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

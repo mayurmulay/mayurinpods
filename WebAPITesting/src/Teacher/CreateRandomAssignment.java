@@ -128,7 +128,7 @@ public class CreateRandomAssignment {
 				 // LaunchApp.driver.findElement(By.xpath(".//*[@class='datepicker']")).click();
 				  try
 				  {
-					  AssignmentCreation.setStartdate(hm[0]);
+					  AssignmentCreation.setStartdate(hm[0],"start");
 				  
 				  }catch(Exception e){ExceptionHndeler.Log("Satrt Date","Assignment Editing", e);e.printStackTrace();}
 				  String[] tim=hm[1].split("-");
@@ -163,7 +163,7 @@ public class CreateRandomAssignment {
 				  //LaunchApp.driver.findElement(By.xpath(".//*[@class='datepicker-days']")).click();
 				  try
 				  {
-					  AssignmentCreation.setStartdate(hm[0]);
+					  AssignmentCreation.setStartdate(hm[0],"End");
 				  
 				  }catch(Exception e){ExceptionHndeler.Log("Due date","Assignment Editing", e);e.printStackTrace();}
 				  String[] tim=hm[1].split("-");
@@ -181,7 +181,7 @@ public class CreateRandomAssignment {
 				 {
 					 LaunchApp.driver.findElement(By.xpath(".//*[@name='dueDate']")).click();
 					//; LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-datepicker']")).click();
-					 AssignmentCreation.setStartdate(s[1]);
+					 AssignmentCreation.setStartdate(s[1],"start");
 				 }
 			    System.out.println("date="+s[1]);
 			    Loger.LogEvent("Due Date ","Due Date Saved="+s[1]);

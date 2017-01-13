@@ -1,6 +1,9 @@
 package Common;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -34,9 +37,22 @@ public class ChangeSection {
 		}
 
 		//new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='sectionId']"))).selectByVisibleText(TestData);
-		Thread.sleep(1000);
-		LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+TestData+"')]")).click();
-		//LaunchApp.driver.findElement(By.id("sectionId")).sendKeys(Keys.ENTER);
+		Thread.sleep(10000);
+		//WebElement element=LaunchApp.driver.findElement(By.xpath(".//*[.='"+TestData+"']")); 
+		
+		List <WebElement> element=LaunchApp.driver.findElements(By.xpath(".//*[@ng-click='sectionSelected(section.section.id)']")); ////*[contains(text(),'ABC')]
+		
+		for(WebElement  li: element){
+			try{
+			if(li.getText().trim().equals(TestData.trim()))
+			{
+				ClickEvent(li);
+				break;
+			}}
+			catch(Exception e){continue;}
+			
+		}
+	    //LaunchApp.driver.findElement(By.id("sectionId")).sendKeys(Keys.ENTER);
 		//LaunchApp.driver.findElement(By.id("Value")).sendKeys(Keys.ENTER);
 		Thread.sleep(100);
 		System.out.print("Selected section "+TestData);
@@ -47,7 +63,13 @@ public class ChangeSection {
 			ExceptionHndeler.Log(TestData,"Section Selection", e);
 			
 		}
+		
 
+	}
+	public static void ClickEvent(WebElement element){
+		JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
+	    jse.executeScript("var evt = document.createEvent('MouseEvents');" + "evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);" + "arguments[0].dispatchEvent(evt);", element);
+		
 	}
 	
 }

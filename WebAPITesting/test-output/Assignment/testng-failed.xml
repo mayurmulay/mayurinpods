@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Assignment]" parallel="methods">
+  <parameter name="username" value="maym@inpods.com"/>
+  <parameter name="TestData" value="AutoTestingMM"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="Asscount" value="1"/>
+  <parameter name="QBname" value="AutoTestQB"/>
+  <parameter name="Assname" value="QbAssignment"/>
+  <parameter name="QCount" value="10"/>
+  <parameter name="AssignmentListFile" value="AssignmentValidation.csv"/>
+  <parameter name="URL" value="http://localhost/"/>
+  <parameter name="password" value="password"/>
+  <parameter name="AssignmentType" value="Exam+CI"/>
+  <test name="Create Assignment Add Question From QB(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <classes>
+      <class name="Teacher.AddQuestionAssignment">
+        <methods>
+          <include name="testAddQuestionAssignment"/>
+        </methods>
+      </class> <!-- Teacher.AddQuestionAssignment -->
+    </classes>
+  </test> <!-- Create Assignment Add Question From QB(failed) -->
+  <test name=" Validate_AssignmentCreation+LAB+DQ(failed)" parallel="methods">
+    <parameter name="AssignmentListFile" value="AssignmentValidation.csv"/>
+    <parameter name="AssignmentType" value="LAB+DQ"/>
+    <classes>
+      <class name="Teacher.ValidateCreateAssignment">
+        <methods>
+          <include name="Validate" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.ValidateCreateAssignment -->
+    </classes>
+  </test> <!--  Validate_AssignmentCreation+LAB+DQ(failed) -->
+  <test name=" Validate_AssignmentCreation+Exam+MCQ+Today+IndIvidualAccessCode(failed)" parallel="methods">
+    <parameter name="AssignmentListFile" value="AssignmentValidation.csv"/>
+    <parameter name="AssignmentType" value="Exam+MCQ+Today+IndIvidualAccessCode"/>
+    <classes>
+      <class name="Teacher.ValidateCreateAssignment">
+        <methods>
+          <include name="Validate" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.ValidateCreateAssignment -->
+    </classes>
+  </test> <!--  Validate_AssignmentCreation+Exam+MCQ+Today+IndIvidualAccessCode(failed) -->
+  <test name=" Validate_AssignmentCreation+Project+SQ+Group Assignment/project:yes;PodGroup_1(failed)" parallel="methods">
+    <parameter name="AssignmentListFile" value="AssignmentValidation.csv"/>
+    <parameter name="AssignmentType" value="Project+SQ+Group Assignment/project:yes;PodGroup_1"/>
+    <classes>
+      <class name="Teacher.ValidateCreateAssignment">
+        <methods>
+          <include name="Validate" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.ValidateCreateAssignment -->
+    </classes>
+  </test> <!--  Validate_AssignmentCreation+Project+SQ+Group Assignment/project:yes;PodGroup_1(failed) -->
+</suite> <!-- Failed suite [Assignment] -->

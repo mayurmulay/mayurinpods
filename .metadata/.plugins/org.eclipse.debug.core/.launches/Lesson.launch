@@ -8,14 +8,7 @@
 </listAttribute>
 <listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
 <listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
-<mapAttribute key="org.testng.eclipse.PARAMETERS">
-<mapEntry key="Chapter" value="not-found"/>
-<mapEntry key="Cos" value="null1"/>
-<mapEntry key="data" value="not-found"/>
-<mapEntry key="lesson" value="not-found"/>
-<mapEntry key="level" value="not-found"/>
-<mapEntry key="type" value="Announcement"/>
-</mapAttribute>
+<mapAttribute key="org.testng.eclipse.PARAMETERS"/>
 <stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
 <intAttribute key="org.testng.eclipse.TYPE" value="1"/>
 </launchConfiguration>

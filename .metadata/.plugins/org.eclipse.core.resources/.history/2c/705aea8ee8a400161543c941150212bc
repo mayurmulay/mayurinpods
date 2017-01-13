@@ -1,0 +1,88 @@
+package otherScript;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+ class GetAnswerforQuestion{
+ 
+	public static void main(String args[]){  
+		
+	try{  
+		
+		//Connection con = DriverManager.getConnection("jdbc:sqlserver://INPOD;user=sa;password=p@ssw0rd000;database=aspnetdb");
+		System.out.println("test");
+		String url = "jdbc:sqlserver://INPOD;databaseName=Somaiya_prodDB";
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+	    String [] Section_name={"IT - Sem V - 2016-17 - Object Oriented Software Engineering - A1","IT - Sem V - 2016-17 - Object Oriented Software Engineering - A2","IT - Sem V - 2016-17 - Object Oriented Software Engineering - A3","IT - Sem V - 2016-17 - Object Oriented Software Engineering - A4","IT - Sem V - 2016-17 - Object Oriented Software Engineering - B1","IT - Sem V - 2016-17 - Object Oriented Software Engineering - B2","IT - Sem V - 2016-17 - Object Oriented Software Engineering - B3","IT - Sem V - 2016-17 - Object Oriented Software Engineering - B4","IT - Sem V - 2016-17 - Web Programming II - A1","IT - Sem V - 2016-17 - Web Programming II - A2","IT - Sem V - 2016-17 - Web Programming II - A3","IT - Sem V - 2016-17 - Web Programming II - A4","IT - Sem V - 2016-17 - Web Programming II - B1","IT - Sem V - 2016-17 - Web Programming II - B2","IT - Sem V - 2016-17 - Web Programming II - B3","IT - Sem V - 2016-17 - Web Programming II - B4","IT - Sem III - 2016-17 - Data Structure - A1","IT - Sem III - 2016-17 - Data Structure - A2","IT - Sem III - 2016-17 - Data Structure - A3","IT - Sem III - 2016-17 - Data Structure - A4","IT - Sem III - 2016-17 - Data Structure - B1","IT - Sem III - 2016-17 - Data Structure - B2","IT - Sem III - 2016-17 - Data Structure - B3","IT - Sem III - 2016-17 - Data Structure - B4","IT - Sem VII - 2016-17 - Software Project Management - A1","IT - Sem VII - 2016-17 - Software Project Management - A2","IT - Sem VII - 2016-17 - Software Project Management - A3","IT - Sem VII - 2016-17 - Software Project Management - A4","IT - Sem VII - 2016-17 - Software Project Management - B1","IT - Sem VII - 2016-17 - Software Project Management - B2","IT - Sem VII - 2016-17 - Software Project Management - B3","IT - Sem VII - 2016-17 - Software Project Management - B4"};
+	   for(int i=0;i<Section_name.length;i++)
+	   {
+		   
+			Connection con = DriverManager.getConnection(url, "sa", "p@ssw0rd000");
+		   Statement stmt=con.createStatement(); 
+	    String str="SELECT Sections.Name, Activities_1.Title AS Expr1, SchoolUsers.UserName, ActivityItems.Question, ActivityItemSubmissions.StudentResponse FROM         Activities INNER JOIN  StudentActivities ON Activities.ActivityId = StudentActivities.ActivityId INNER JOIN  ActivityItemSubmissions ON StudentActivities.StudentActivityId = ActivityItemSubmissions.StudentActivityId INNER JOIN  Sections ON Activities.ActivityScopeId = Sections.SectionId INNER JOIN SchoolUsers ON StudentActivities.AssociationId = SchoolUsers.SchoolUserId INNER JOIN Activities AS Activities_1 ON Activities.ParentActivityId = Activities_1.ActivityId INNER JOIN Activity_ActivityItem ON ActivityItemSubmissions.Activity_ActivityItemId = Activity_ActivityItem.Activity_ActivityItemId INNER JOIN ActivityItems ON Activity_ActivityItem.ActivityItemId = ActivityItems.ActivityItemId WHERE     (Activities.ActivityType = 3) and (ActivityItemSubmissions.StudentResponse is not null) and (ActivityItemSubmissions.StudentResponse <> '') GROUP BY Sections.Name, Activities_1.Title, SchoolUsers.UserName, ActivityItems.Question, ActivityItemSubmissions.StudentResponse HAVING  (dbo.Sections.Name = N'"+Section_name[i]+"')";
+	    ResultSet rs=stmt.executeQuery(str);  
+	    while(rs.next())
+	    {
+	    	//Crete folder of section name
+	    	createFolder("D:\\Answer\\"+rs.getString(1).trim().toLowerCase());
+	    	//Crete folder of Test name
+	    	Thread.sleep(2000);
+	    	createFolder("D:\\Answer\\"+rs.getString(1).trim().toLowerCase()+"\\"+rs.getString(2).trim().toLowerCase());
+	    	String Fname="D:\\Answer\\"+rs.getString(1).trim().toLowerCase()+"\\"+rs.getString(2).trim().toLowerCase()+"\\"+rs.getString(3).trim().toLowerCase()+".doc";
+	    	String answer=rs.getString(5).replaceAll("<p>", " ");
+	          answer=answer.replaceAll("</p>", " ");
+	          answer=answer.replaceAll("<ul>", " ");
+	          answer=answer.replaceAll("</ul>", " ");
+	          answer=answer.replaceAll("&nbsp;", " ");
+	          answer=answer.replaceAll("<strong>", " ");
+	          answer=answer.replaceAll("</strong>", " ");
+	          answer=answer.replaceAll("<li>", " ");
+	          answer=answer.replaceAll("</li>", " ");
+	          answer=answer.replaceAll("-<br />", " ");
+	          answer=answer.replaceAll("</strong>", " ");
+	          answer=answer.replaceAll("<a", " ");
+	          answer=answer.replaceAll("</a>", " ");
+	          answer=answer.replaceAll("<br>", " ");
+	          answer=answer.replaceAll("&lt;", "[");
+	          answer=answer.replaceAll("&gt;", "]");
+	          answer=answer.replaceAll("p&gt;", "[");
+	          answer=answer.replaceAll("/p&gt;", "]");
+	          String Question=rs.getString(4).replaceAll("&nbsp;"," ");
+	          Question=Question.replaceAll("<br />"," ");
+	          
+	    	try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(Fname, true)))) {
+	    	    out.println("\nQuestion= "+Question+" \nAnswer=\n"+answer);
+	    	    out.println("***************************************************************************************************************************************************************************");
+	    	    
+	    	}catch (IOException e) {
+	    	    e.printStackTrace();
+	    	}
+	    //System.out.println("***************************************************************************************************************************************************************************");
+	    System.out.println("Section_name="+rs.getString(1)+" \nTest_name= "+rs.getString(2)+" \n Sttudent_name= "+rs.getString(3)+" \nQuestion= "+Question);  
+	   // System.out.println("***************************************************************************************************************************************************************************");
+	    }
+	    con.close();  
+	   }
+	}catch(Exception e){ System.out.println(e);}  
+	
+	}  
+	public static void createFolder(String name)
+	{
+		File directory = new File(String.valueOf(name));
+		if(!directory.exists()){
+
+            directory.mkdir();
+           
+           }
+}
+	
+	
+
+}

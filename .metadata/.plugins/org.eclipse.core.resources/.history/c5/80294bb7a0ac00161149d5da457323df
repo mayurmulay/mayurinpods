@@ -1,0 +1,64 @@
+package Common;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import Data.ExceptionHndeler;
+
+public class ChangeSection {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		selectSection("B2");
+	}
+	@Test
+	@Parameters("TestData")
+	public static void selectSection(String TestData)
+	{
+		try
+		{
+		System.out.print("Selecting section "+TestData);
+		TestData=TestData.trim();
+		try{
+		LaunchApp.driver.findElement(By.xpath(".//*[@href='/home/mysections']")).click();
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			ExceptionHndeler.Log(TestData,"Section Selection", e);
+			
+		}
+
+		//new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='sectionId']"))).selectByVisibleText(TestData);
+		Thread.sleep(10000);
+		//WebElement element=LaunchApp.driver.findElement(By.xpath(".//*[.='"+TestData+"']")); 
+		
+		WebElement element=LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+TestData+"') and @class='fa fa-book fa-2x']")); ////*[contains(text(),'ABC')]
+		ClickEvent(element);
+		
+		//LaunchApp.driver.findElement(By.id("sectionId")).sendKeys(Keys.ENTER);
+		//LaunchApp.driver.findElement(By.id("Value")).sendKeys(Keys.ENTER);
+		Thread.sleep(100);
+		System.out.print("Selected section "+TestData);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			ExceptionHndeler.Log(TestData,"Section Selection", e);
+			
+		}
+		
+
+	}
+	public static void ClickEvent(WebElement element){
+		JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
+	    jse.executeScript("var evt = document.createEvent('MouseEvents');" + "evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);" + "arguments[0].dispatchEvent(evt);", element);
+		
+	}
+	
+}

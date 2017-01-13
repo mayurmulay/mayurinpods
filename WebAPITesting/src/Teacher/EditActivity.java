@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import Common.LaunchApp;
+import Common.MooveToElement;
 import Data.ExceptionHndeler;
 import Data.Loger;
 import Data.Read_Data;
@@ -28,7 +29,8 @@ public class EditActivity {
 		}
 		catch (Exception e) {
 			System.out.println("in catche model dilog box");
-			new Select(LaunchApp.driver.findElement(By.name("cbxActivityType"))).selectByVisibleText(type);
+			new Select(LaunchApp.driver.findElement(By.xpath(".//*[@name='cbxActivityType']"))).selectByVisibleText(type);
+			MooveToElement.moveToElenment(".//*[@name='cbxActivityType']");
 			ExceptionHndeler.Log("Activity Adding","Assignment Creation", e);
 		}
 			try {

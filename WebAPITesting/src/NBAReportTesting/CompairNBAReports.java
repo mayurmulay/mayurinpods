@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class CompairNBAReports {
-	String [] oldData=new String[1000];
-	String [] newData=new String[1000];
+	static String[] CourseLevelAttainmentReport=new String[1000];
+	
 	public static void main(String str[])
 	{
 		ReportReading();
@@ -24,7 +24,7 @@ public class CompairNBAReports {
 	        for (File file : fList){
 	            System.out.println(file.getName());
 	            try {
-	            	if(i<=3)
+	            	//if(i<=3)
 	            	{
 					Compaire(file.getName());
 					i++;
@@ -38,7 +38,7 @@ public class CompairNBAReports {
 	public static void Compaire(String name) throws IOException
 	{
 		FileInputStream fstream1 = new FileInputStream("D:\\API_Responce\\JSON\\"+name.trim());
-		FileInputStream fstream2 = new FileInputStream("D:\\API_Responce\\JSON - OLD\\"+name.trim());
+		FileInputStream fstream2 = new FileInputStream("D:\\API_Responce\\JSON_OLD\\"+name.trim());
 		 
 		 DataInputStream in1 = new DataInputStream(fstream1);
 		  BufferedReader br1 = new BufferedReader(new InputStreamReader(in1));
@@ -47,10 +47,11 @@ public class CompairNBAReports {
 		 
 		String strLine1;
 		String strLine2 = null;
-		 
+		 int count=0;
 		while ((strLine1 = br1.readLine())  != null)   {
 			
 			try {
+				
 				strLine2=br2.readLine();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -59,9 +60,15 @@ public class CompairNBAReports {
 			strLine1.trim();
 			strLine2.trim();
 		      if(!strLine1.equals(strLine2)  )
-		      { System.out.println("\n\n\nold  "+name+strLine2);System.out.println("new  "+name+strLine1);}
+		      {
+		    	  CourseLevelAttainmentReport[count]="\n old  "+strLine2+"\n new "+strLine1;
+		    	  count++;
+		      System.out.println("\n\n\nold  "+name+strLine2);System.out.println("new  "+name+strLine1);}
 		      
 		}
+		if(count>0)
+		{	ReadAPI.Write(CourseLevelAttainmentReport, "D:\\API_Responce\\Diff\\"+name+".txt");}
+		System.out.println("Count="+count);
 	}
 
 	

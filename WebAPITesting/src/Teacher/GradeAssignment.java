@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import Common.Gototab;
@@ -43,13 +45,23 @@ public class GradeAssignment {
 		int count=2;
 		try
 		{
-		Gototab.execute("Assignments");
-		LaunchApp.driver.findElement(By.xpath(".//*[.='"+data[0]+"']")).click();
+		
 		while(!(data[count].equals("End")))
 		{
 		int len=0;
+		Gototab.execute("Assignments");
+		System.out.println("Assignment page");
+		Thread.sleep(20000);
+		System.out.println(".//*[.='"+data[0].trim()+"' and contains(@href, '/AssignmentList/StudentListForAssignment?')]");
+		LaunchApp.driver.findElement(By.xpath(".//*[.='"+data[0].trim()+"' and contains(@href, '/AssignmentList/StudentListForAssignment?')]")).click();
+		
 		String[] s=data[count].split(":");
-		LaunchApp.driver.findElement(By.xpath(".//*[.='"+s[0]+"']")).click();
+		LaunchApp.driver.findElement(By.xpath(".//*[.='"+s[0].trim()+"']")).click();
+		//LaunchApp.driver.findElement(By.xpath(".//*[.='"+s[0].trim()+"']/../..//*[.='ReGrade']")).click();
+		Thread.sleep(2000);
+		//Alert alert = LaunchApp.driver.switchTo().alert();
+		//alert.accept();
+		Thread.sleep(3000);
 		List <WebElement> li=LaunchApp.driver.findElements(By.xpath(".//*[@name='txtPoints']"));
 		len=li.size();
 		for(int i=0;i<len;i++)
@@ -57,13 +69,26 @@ public class GradeAssignment {
 			li.get(i).clear();
 			li.get(i).sendKeys(s[i+1]);
 		}
-		LaunchApp.driver.findElement(By.xpath(".//*[.='Complete grading']")).click();
+		Thread.sleep(10000);
+		
+		WebElement element = LaunchApp.driver.findElement(By.xpath(".//*[@id='bottomPageNavigationContainer']/table/tbody/tr/td[4]/a"));
+     //   Actions actions = new Actions(LaunchApp.driver);
+      //  actions.moveToElement(element).click().perform();
+        
+        JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
+        jse.executeScript("arguments[0].scrollIntoView()", element); 
+        jse.executeScript("var evt = document.createEvent('MouseEvents');" + "evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);" + "arguments[0].dispatchEvent(evt);", element);
+       // LaunchApp.driver.findElement(By.xpath(".//*[@id='bottomPageNavigationContainer']/table/tbody/tr/td[4]/a")).click();
+
+		Thread.sleep(2000);
 		Alert alert = LaunchApp.driver.switchTo().alert();
 		alert.accept();
+		System.out.println(s[0].trim());
+		Thread.sleep(8000);
 		count++;
 		}
 		}
-		catch(Exception e){ExceptionHndeler.Log(data[count],"GradeAssignment", e);}
+		catch(Exception e){e.printStackTrace();ExceptionHndeler.Log(data[count].substring(0, 5),"GradeAssignment", e);}
 	}
 
 }

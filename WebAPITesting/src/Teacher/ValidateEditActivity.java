@@ -1,6 +1,8 @@
 package Teacher;
 
 
+import junit.framework.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
@@ -19,6 +21,7 @@ public class ValidateEditActivity {
 		try{
 		(new ValidateEditActivity()).editActivity(str[0]);}catch(Exception e){e.printStackTrace();}
 		ValidateEditQuestion.main(args);
+		ExceptionHndeler.getScreen("ValidateEditActivity"+AssignmentCreation.assName);
 	}
 	
 	public void editActivity(String [] str)
@@ -39,6 +42,7 @@ public class ValidateEditActivity {
 		
 		System.out.println("Assignment type="+ValidateCreateAssignment.assType);
         if(!(ValidateCreateAssignment.assType.equals("External")) && !(ValidateCreateAssignment.assType.equals("Lab")))
+        {
 		while(!str[i].equals("End"))
 		{
 			try{
@@ -71,6 +75,7 @@ public class ValidateEditActivity {
 			}
 			catch(Exception e){e.printStackTrace();}
 		}
+        }
 	}
 	public static void AssessmentMode(String []s)
 	{
@@ -84,6 +89,7 @@ public class ValidateEditActivity {
 			Loger.LogEvent("Assessment Mode"+data, "-Fail");
 		}	
 	}
+	@SuppressWarnings("deprecation")
 	public static void DisplayOrder(String [] s)
 	{
 		String []hm=s[1].split(";");
@@ -108,22 +114,27 @@ public class ValidateEditActivity {
 	    if(data1.equals(data.trim()))
 		{
 			Loger.LogEvent("Sequince"+data, "-Pass");
+			 Assert.assertEquals("Pass-Sequince"+data, 1, 1);
 		}
 		else
 		{
 			Loger.LogEvent("Sequince"+data, "-Fail");
+			Assert.fail("Pass- Sequince"+data+" -Fail");
 		}	
 	}
+	@SuppressWarnings("deprecation")
 	public static void Sharing(String [] s)
 	{
 		String data=LaunchApp.driver.findElement(By.xpath(".//*[@name='lblSharing']")).getText();
 		if(data.equals(s[1].trim()))
 		{
 			Loger.LogEvent("Sharing"+data, "-Pass");
+			Assert.assertEquals("Pass- Sharing"+data, 1, 1);
 		}
 		else
 		{
 			Loger.LogEvent("Sharing"+data, "-Fail");
+			Assert.fail("Sharing"+data+" -Fail");
 		}
 		
 	}

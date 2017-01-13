@@ -7,13 +7,16 @@ import java.io.FileReader;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import junit.framework.Assert;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import Common.Gototab;
 import Common.LaunchApp;
@@ -23,15 +26,15 @@ import Data.Loger;
 import Data.Read_Data;
 
 import com.thoughtworks.selenium.SeleneseTestCase;
-
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 
 public class ValidateStudent extends Thread  {
 	public static int i=0;
-	public static String data[][]=Read_Data.ReadData("studentValidate.csv");
+	public static String data[][]=null;
 	 public static String[] b=new String[10]; 
 	 public static String AssignmentName=" ";
 	 public static  String Username="Blank";
@@ -51,18 +54,33 @@ public class ValidateStudent extends Thread  {
 	   if(s[1].trim().equals("NotAvailable"))
 	   {
 		  ValidateStudent.ValidateTest(data[i]);
-		 
 	   }
-	   
-	   
-   }
+	   }
 	}
+	@Test
+	@Parameters({"Filename"})
+	public static void  AssignmentStateForStudent(String Filename)
+	{
+		data=Read_Data.ReadData(Filename);
+		ValidateStudent t= new ValidateStudent();
+		  t.start();
+	for( i = 0; i<data.length; i++)
+	   {
+		  
+		   String []s={"m","n"};
+		   s=data[i][0].split(":");
+		   if(s[1].trim().equals("NotAvailable"))
+		   {
+			  ValidateStudent.ValidateTest(data[i]);
+		   }
+		   }
+		
+	}
+	@SuppressWarnings("deprecation")
 	public static void ValidateTest(String[] str)
 	{
 		try
 		{
-			
-		
 		int i=1;
 		String[] Qid=new String[100];
 		while(!(str[i].equals("End")))
@@ -82,7 +100,7 @@ public class ValidateStudent extends Thread  {
 				{
 					if(!(m[0].trim().equals(Username)))
 					{
-						 LaunchApp.main(b);
+						// LaunchApp.main(b);
 						   Username=m[0];
 				          Login.main(m);
 					}
@@ -112,10 +130,13 @@ public class ValidateStudent extends Thread  {
 					String [] args1=new String[10]; 
 					 args1[0]=(String) "Home";
 					 Gototab.main(args1);
+					 Assert.assertEquals(1, 1);
+					 Assert.assertEquals(s[2]+"  "+AssignmentName, 1, 1);
 					}
 					else
 					{
 						Loger.LogEvent(s[2]+"  "+AssignmentName, "-Fail");
+						 Assert.fail(s[2]+"  "+AssignmentName+ "-Fail");
 						String [] args1=new String[10]; 
 						System.out.println("in asssert fail");
 						args1[0]=(String) "Home";

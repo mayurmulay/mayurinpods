@@ -6,10 +6,24 @@ public class Gototab {
 
 	public static void main(String[] args) {
 		Gototab g=new Gototab();
-		Gototab.execute(args[0]);
+		try {
+			Gototab.execute(args[0]);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-public static void execute(String str)
+public static void execute(String str) throws InterruptedException
 {
-	LaunchApp.driver.findElement(By.linkText(str.trim())).click();
+	try {
+		Thread.sleep(1000);
+		AlertHandling.isAlertPresent();
+		LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+str.trim()+"') and @class='menu-title']")).click();
+	} catch (Exception e) {
+		Thread.sleep(10000);
+		AlertHandling.isAlertPresent();
+		LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+str.trim()+"') and @class='menu-title']")).click();
+	}
+	
 }
 }

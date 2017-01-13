@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="Teacher.GradeAssignment"/>
+      <class name="Teacher.AddQuestionAssignment"/>
+      <class name="StudentAPI.APILogIn"/>
+      <class name="assignment_Student.Attermpt_testTimerOut"/>
+      <class name="Lesson_Student.ViewLesson"/>
+      <class name="assignment_Student.Attempt_test"/>
+      <class name="Com.Ojo.ReadJsonObject"/>
+      <class name="Common.CloseBrowser"/>
+      <class name="Teacher.RgradeStudent"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

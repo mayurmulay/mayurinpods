@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Report]" parallel="methods">
+  <parameter name="username" value="maym@inpods.com"/>
+  <parameter name="TestData" value="http://localhost/"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="Asignment_name" value="Draft Assignment"/>
+  <parameter name="CatgoriName" value="TestLevel_30 - (30)"/>
+  <parameter name="Sectionname" value="AutoTestingMM"/>
+  <parameter name="URL" value="http://localhost/"/>
+  <parameter name="password" value="password"/>
+  <test name="Gradebook Category Map Ass 1(failed)" parallel="methods">
+    <parameter name="Asignment_name" value="Explanation"/>
+    <parameter name="CatgoriName" value="CategoryLevel_30 - (30)"/>
+    <parameter name="Sectionname" value="AutoTestingMM"/>
+    <classes>
+      <class name="Teacher.SelectAssignmnetUnderCat">
+        <methods>
+          <include name="exicute" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.SelectAssignmnetUnderCat -->
+    </classes>
+  </test> <!-- Gradebook Category Map Ass 1(failed) -->
+</suite> <!-- Failed suite [Report] -->

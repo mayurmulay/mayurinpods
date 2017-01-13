@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [LessonCreation (0)]" parallel="methods">
+  <parameter name="Chapter" value="ChapterDemo"/>
+  <parameter name="lesson" value="Upload_ImageWithCO"/>
+  <parameter name="username" value="maym@inpods.com"/>
+  <parameter name="TestData" value="AutoTestingMM"/>
+  <parameter name="Cos" value="AutoCO1;AutoCO2;AutoCO3"/>
+  <parameter name="level" value="Chapter-&gt;Lesson"/>
+  <parameter name="data" value="D:\AutoTestData_Chrome\Upload\Upload.png"/>
+  <parameter name="type" value="Upload"/>
+  <parameter name="URL" value="http://localhost/"/>
+  <parameter name="password" value="password"/>
+  <test name="lesson_Creation_Upload_txt(failed)" parallel="methods">
+    <parameter name="lesson" value="Upload_txt"/>
+    <parameter name="Chapter" value="ChapterDemo"/>
+    <parameter name="level" value="Chapter-&gt;Lesson"/>
+    <parameter name="data" value="D:\AutoTestData_Chrome\Upload\Upload.txt"/>
+    <parameter name="type" value="Upload"/>
+    <classes>
+      <class name="Teacher.Lesson">
+        <methods>
+          <include name="CreateLesson" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.Lesson -->
+    </classes>
+  </test> <!-- lesson_Creation_Upload_txt(failed) -->
+  <test name="lesson_Creation_Upload_Video(failed)" parallel="methods">
+    <parameter name="lesson" value="Upload_Video"/>
+    <parameter name="Chapter" value="ChapterDemo"/>
+    <parameter name="level" value="Chapter-&gt;Lesson"/>
+    <parameter name="data" value="D:\AutoTestData_Chrome\Upload\Upload.mp4"/>
+    <parameter name="type" value="Upload"/>
+    <classes>
+      <class name="Teacher.Lesson">
+        <methods>
+          <include name="CreateLesson" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.Lesson -->
+    </classes>
+  </test> <!-- lesson_Creation_Upload_Video(failed) -->
+</suite> <!-- Failed suite [LessonCreation (0)] -->

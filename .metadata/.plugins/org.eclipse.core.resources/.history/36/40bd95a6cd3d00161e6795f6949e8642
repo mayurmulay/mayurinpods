@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Teacher P0" parallel="methods" thread-count="1">
+ <parameter name="Cos" value="null1"/> 
+   <test name="LaunchApp">
+       
+      <parameter name="TestData" value="http://testing.inpods.com"/> 
+      <classes>
+         <class name="Common.LaunchApp" />
+      </classes>
+   </test>
+   <test name="Login">
+   
+      <parameter name="username" value="teacher1@auto.com"/> 
+      <parameter name="password" value="t1t1t1"/> 
+      <classes>
+         <class name="Common.Login" />
+      </classes>
+      
+   </test>
+   <test name="Change Section">
+      <parameter name="TestData" value="B2"/> 
+      <classes>
+         <class name="Common.ChangeSection" />
+          <class name="Com.Ojo.ReadJsonObject" />
+      </classes>
+   </test>
+   <!-- ****************************** Test cases AssignmentCreation   *********************************************************************-->
+   <test name="AssignmentCreation">
+      <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+      <classes>
+         <class name="Teacher.AssignmentCreation" />
+     
+      </classes>
+   </test>
+ <!--  ****************************** Test cases regarding Announcements  *********************************************************************-->
+  <test name="Back Date Event">
+      <parameter name="type" value="Announcement"/> 
+      <parameter name="title" value="Back Date Event"/> 
+      <parameter name="message" value="Back Date Event"/> 
+      <parameter name="pubDate" value="-2"/> 
+      <parameter name="Enddate" value="2"/> 
+      <parameter name="Important" value="yes"/>
+      <parameter name="Ack" value="yes"/> 
+      <parameter name="AssertString" value="Publish Date should not be less than today's date"/> 
+      <classes>
+         <class name="Teacher.CreateEventsNews" />
+      </classes>
+   </test>
+  <test name="Simple Event">
+      <parameter name="type" value="Announcement"/> 
+      <parameter name="title" value="Simple Event"/> 
+      <parameter name="message" value="Simple Event"/> 
+      <parameter name="pubDate" value="0"/> 
+      <parameter name="Enddate" value="5"/> 
+      <parameter name="Important" value="No"/>
+      <parameter name="Ack" value="NO"/> 
+      <parameter name="AssertString" value="Simple Event"/> 
+      <classes>
+         <class name="Teacher.CreateEventsNews" />
+      </classes>
+   </test>
+    <test name="Ack Event">
+      <parameter name="type" value="Announcement"/> 
+      <parameter name="title" value="Ack Event"/> 
+      <parameter name="message" value="Ack Event"/> 
+      <parameter name="pubDate" value="0"/> 
+      <parameter name="Enddate" value="2"/> 
+      <parameter name="Important" value="No"/>
+      <parameter name="Ack" value="yes"/> 
+      <parameter name="AssertString" value="Ack Event"/> 
+      <classes>
+         <class name="Teacher.CreateEventsNews" />
+      </classes>
+   </test>
+    <test name="Important Event">
+      <parameter name="type" value="Announcement"/> 
+      <parameter name="title" value="Important Event"/> 
+      <parameter name="message" value="Important Event"/> 
+      <parameter name="pubDate" value="2"/> 
+      <parameter name="Enddate" value="2"/> 
+      <parameter name="Important" value="yes"/>
+      <parameter name="Ack" value="yes"/> 
+      <parameter name="AssertString" value="Important Event"/> 
+      <classes>
+         <class name="Teacher.CreateEventsNews" />
+      </classes>
+   </test>
+   
+<!-- ****************************** Test cases regarding Assignments  *********************************************************************-->
+
+
+  
+   
+<!-- ****************************** Test cases regarding Chapter  and Lesson Creation  *********************************************************************-->
+  <!--
+   <test name="lesson_Creation_Upload_txt">
+      <parameter name="Chapter" value="ChapterDemo"/> 
+      <parameter name="lesson" value="Upload_txt"/> 
+      <parameter name="type" value="Upload"/> 
+      <parameter name="data" value="D:\\AutoTestData\\Upload.txt"/> 
+      <parameter name="level" value="Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>
+   <test name="lesson_Creation_Link">
+      <parameter name="Chapter" value="ChapterDemo"/> 
+      <parameter name="lesson" value="lessonDemo"/> 
+      <parameter name="type" value="link"/> 
+      <parameter name="data" value="http://somaiya.inpods.com/"/> 
+      <parameter name="level" value="Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>
+   <test name="lesson_Creation_Upload_Video">
+      <parameter name="Chapter" value="ChapterDemo"/> 
+      <parameter name="lesson" value="Upload_Video"/> 
+      <parameter name="type" value="Upload"/> 
+      <parameter name="data" value="D:\\AutoTestData\\Upload.mp4"/> 
+      <parameter name="level" value="Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>
+   <test name="lesson_Creation_Upload_xlsx">
+      <parameter name="Chapter" value="ChapterDemo"/> 
+      <parameter name="lesson" value="Upload_xlsx"/> 
+      <parameter name="type" value="Upload"/> 
+      <parameter name="data" value="D:\\AutoTestData\\Upload.xlsx"/> 
+      <parameter name="level" value="Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>    
+    <test name="lesson_Creation_Upload_Image">
+      <parameter name="Chapter" value="ChapterDemo"/> 
+      <parameter name="lesson" value="Upload_Image"/> 
+      <parameter name="type" value="Upload"/> 
+      <parameter name="data" value="D:\\AutoTestData\\Upload.png"/> 
+      <parameter name="level" value="Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>
+    <test name="CO mapping">
+       <parameter name="Cos" value="CO1;CO2;CO3"/>
+      <parameter name="Chapter" value="ChapterDemo"/> 
+      <parameter name="lesson" value="Upload_Image"/> 
+      <parameter name="type" value="Upload"/> 
+      <parameter name="data" value="D:\\AutoTestData\\Upload.png"/> 
+      <parameter name="level" value="Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>    
+   <test name="lesson_lesson_chapter"> 
+      <parameter name="Chapter" value="ChapterDemoChapter"/> 
+      <parameter name="lesson" value="lessonDemoChapter"/> 
+      <parameter name="type" value="link"/> 
+      <parameter name="data" value="http://somaiya.inpods.com/"/> 
+      <parameter name="level" value="Chapter->Chapter->Lesson"/> 
+      <classes>
+         <class name="Teacher.Lesson" />
+      </classes>
+   </test>
+   
+   -->
+   </suite>

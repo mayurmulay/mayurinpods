@@ -8,16 +8,7 @@
 </listAttribute>
 <listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
 <listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
-<mapAttribute key="org.testng.eclipse.PARAMETERS">
-<mapEntry key="Ack" value="not-found"/>
-<mapEntry key="AssertString" value="not-found"/>
-<mapEntry key="Enddate" value="not-found"/>
-<mapEntry key="Important" value="not-found"/>
-<mapEntry key="message" value="not-found"/>
-<mapEntry key="pubDate" value="not-found"/>
-<mapEntry key="title" value="not-found"/>
-<mapEntry key="type" value="not-found"/>
-</mapAttribute>
+<mapAttribute key="org.testng.eclipse.PARAMETERS"/>
 <stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
 <intAttribute key="org.testng.eclipse.TYPE" value="1"/>
 </launchConfiguration>

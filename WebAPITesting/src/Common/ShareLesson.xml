@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Teacher P0" parallel="methods" thread-count="1">
+ <parameter name="Cos" value="null1"/> 
+   <parameter name="URL" value="http://ec2-54-167-102-68.compute-1.amazonaws.com/"/> 
+   <test name="LaunchApp">
+       
+      <parameter name="TestData" value="http://testing.inpods.com"/> 
+      <parameter name="URL" value="http://testing.inpods.com"/> 
+      <classes>
+         <class name="Common.LaunchApp" />
+      </classes>
+   </test>
+   <test name="Login">
+   
+      <parameter name="username" value="sharavarid@somaiya.edu"/> 
+      <parameter name="password" value="t1t1t1"/> 
+      <classes>
+         <class name="Common.Login" />
+      </classes>
+      
+   </test>
+   <test name="ShareLesson">
+      <parameter name="Chapter" value="Unit 1"/> 
+      <parameter name="lesson" value="hd1"/> 
+      <parameter name="Department" value="Computer Engineering"/> 
+      <parameter name="Subject" value="Software Engineering - 2015"/> 
+      <parameter name="DestinationCourse" value="Software Engineering - 2015"/> 
+      <parameter name="DestinationSection" value="A - Software Engineering"/> 
+      <parameter name="ShareType" value="Course"/> 
+      
+      <classes>
+      <class name="Teacher.ShareAssignment" />
+      </classes>
+   </test>
+   <test name="Change Section">
+      <parameter name="TestData" value="B - Computer Communication Networks"/> 
+      <classes>
+      <class name="Common.ChangeSection" />
+          <class name="Com.Ojo.ReadJsonObject" />
+      </classes>
+   </test>
+   
+  </suite>

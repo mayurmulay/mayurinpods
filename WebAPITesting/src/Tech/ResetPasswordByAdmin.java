@@ -2,6 +2,8 @@ package Tech;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import Common.LaunchApp;
 import Common.Login;
@@ -43,6 +45,8 @@ public class ResetPasswordByAdmin {
 			
 	}
 	}
+	@Test
+	@Parameters({"name","password"})
     public static void changePassword(String name,String password)
     {
     	try {

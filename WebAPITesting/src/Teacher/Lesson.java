@@ -83,7 +83,8 @@ public class Lesson {
 		   try { if(!(Cos.equals("null1")))  {  Secect_Co(Cos);  }} catch(Exception e) {	ExceptionHndeler.Log("Alert","Create lesson Co mapping ", e);}
 		   
 		   ExceptionHndeler.getScreen("Creating lesson"+lesson);
-			LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).click();
+		//	LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).click();
+			LaunchApp.driver.findElement(By.xpath(".//*[@value='Save']")).click();
 			Thread.sleep(3000);
 		   
 	    }
@@ -101,7 +102,8 @@ public class Lesson {
 			System.out.println("lesson saving");
 			Thread.sleep(300);
 			ExceptionHndeler.getScreen("Creating lesson"+lesson);
-			LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).sendKeys(Keys.ENTER);
+			LaunchApp.driver.findElement(By.xpath(".//*[@value='Save']")).sendKeys(Keys.ENTER);
+			//LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).sendKeys(Keys.ENTER);
 			//LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).click();
 			System.out.println("Uploading");
 			Thread.sleep(10000);
@@ -152,7 +154,7 @@ public class Lesson {
 			Thread.sleep(10000);
 			try{
 		 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblConcept']")).click();}catch(Exception e){}
-		 LaunchApp.driver.findElement(By.xpath("//*[@class='dynatree-expander']")).click();
+			try{ LaunchApp.driver.findElement(By.xpath("//*[@class='dynatree-expander']")).click();}catch(Exception e){}
 		 String []hm={"2","0"};
 		 hm=Cos.split(";");
 		  
@@ -170,7 +172,7 @@ public class Lesson {
 		{
 			ExceptionHndeler.Log("Alert","Create lesson", e);
 			//Assert.fail("Not able to Map CO to create the lesson ");
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		//Assert.assertEquals(CoSelected,LaunchApp.driver.findElement(By.xpath(".//*[@name='lblConcept']")).getText());
 	}

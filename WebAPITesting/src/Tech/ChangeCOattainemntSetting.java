@@ -106,7 +106,7 @@ public class ChangeCOattainemntSetting {
 			LaunchApp.driver.findElement(By.xpath(".//*[@id='program_select']")).click();
 			Thread.sleep(3000);
 			new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='program_select']"))).selectByVisibleText(pgmName.trim());
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 			LaunchApp.driver.findElement(By.xpath(".//*[@id='course_select']")).click();
 			Thread.sleep(5000);
 			new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='course_select']"))).selectByVisibleText(CourseName.trim());
@@ -288,4 +288,17 @@ public class ChangeCOattainemntSetting {
 	    Assert.assertEquals(1, 1);
 		}catch(Exception e){e.printStackTrace();Assert.fail("Not able Edit University Weightage "+e.getMessage());}
 	}
+	@Test
+	@Parameters({"Pgmname","CourseName","type"})
+	public static void changeOBEsetting(String Pgmname,String CourseName, String type)
+	{
+		try{
+		Thread.sleep(5000);
+		settingpage(Pgmname,CourseName);
+		Thread.sleep(5000);
+		Editsetting(type);
+		Assert.assertEquals(1, 1);
+		}catch(Exception e){e.printStackTrace();}
+	}
+    
 }

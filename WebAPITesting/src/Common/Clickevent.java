@@ -6,6 +6,8 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 public class Clickevent {
 
@@ -18,6 +20,8 @@ public class Clickevent {
 		jse.executeScript("var evt = document.createEvent('MouseEvents');" + "evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);" + "arguments[0].dispatchEvent(evt);", element);
 			e.printStackTrace();element.click();}
 	}
+	@Test
+	@Parameters({"href","Xpath"})
 	public static void clickLinkByHref(String href,String Xpath) {
 	    List<WebElement> anchors = LaunchApp.driver.findElements(By.xpath(Xpath));
 	    Iterator<WebElement> i = anchors.iterator();
@@ -28,7 +32,7 @@ public class Clickevent {
 	        {
 	        	String str=anchor.getAttribute("href");
 	        	System.out.println("j="+str);
-	        	 if(str.contains("/Report/Gradebook?sectionId")) {
+	        	 if(str.contains(href)) {
 	    	         anchor.click();
 	    	         break;
 	    	        }

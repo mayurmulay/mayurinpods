@@ -29,6 +29,8 @@ public class Student_SQ_Test {
 	Calendar cal = Calendar.getInstance();
     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
     List <WebElement> li=Common.LaunchApp.driver.findElements(By.xpath(".//*[.='Click here to add Answer !!']"));
+    System.out.println("Total number of Question="+li.size());
+    
     try {
 		Thread.sleep(2000);
 	} catch (InterruptedException e1) {
@@ -46,6 +48,7 @@ public class Student_SQ_Test {
 			currentElement.sendKeys("Answer for Question");
 			Loger.LogEvent("Abale to attempt SQ Question", "-Pass");
 			 Assert.assertEquals(1, 1);
+			 System.out.println("Attempting Question"+li.indexOf(element));
 	    	
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block

@@ -11,6 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import Tech.TechChangeSection;
 import Common.Gototab;
 import Common.LaunchApp;
 import Common.Login;
@@ -23,32 +24,42 @@ public class CreateLesson {
 	{
 		
 	
-		LaunchApp.Execute("http://testing.inpods.com:88/");
-		Login.LoginD("sd@inpods.com","t1t1t1");
+		LaunchApp.Execute("http://training.inpods.com:8000");
+		Login.LoginD("inpodssa@amritablrtraining.edu","amritaipds");
 		
 		String[][] Lesson=Read_Data.ReadData("lesson.csv");
 		
-		for(int i=0;i<1000;i++)
+		for(int i=54;i<151;i++)
 		{
+			String sectionId=i+"";
+			TechChangeSection.TechChangeSectionById(sectionId);
 			String Chapter[]=Lesson[i];
 			String[] args=new String[10]; 
 		   args[0]=(String) "Lessons";
 		    Gototab.main(args);
 		    
 			int j=0;
-			while(true)	
+			//while(true)	
 			{
+				TechChangeSection.TechChangeSectionById(sectionId);
+				Gototab.main(args);
 				String[] data=Chapter[j].split("@");
-				if(data[0].equals("Lesson"))
+			/*	if(data[0].equals("Lesson"))
 				{
-					CreateLesson(data[1].trim(),"link","http://demo.inpods.com/");
+					CreateLesson(data[1].trim(),"Upload","http://demo.inpods.com/");
 					break;
 				}
 				else
 				{
 					CreateChapter(data[0].trim());
+				}*/
+				try{
+				CreateChapter("InPods Training 2017");
+				CreateLesson("InPods Training 2017","Upload","D:\\Lesson.pdf");
+				j++;}
+				catch(Exception e ){System.out.println("Error while Exicuting data"+i);
+				continue;
 				}
-				j++;
 			}
 			
 		}
@@ -142,7 +153,8 @@ public class CreateLesson {
 			Thread.sleep(300);
 			MooveToElement.moveToElenment(".//*[@name='UploadFile1']");
 			ExceptionHndeler.getScreen("Creating lesson"+lesson);
-			LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).sendKeys(Keys.ENTER);
+			LaunchApp.driver.findElement(By.xpath(".//*[@value='Save']")).sendKeys(Keys.ENTER);
+			//LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).sendKeys(Keys.ENTER);
 			//LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).click();
 			System.out.println("Uploading");
 			Thread.sleep(10000);
@@ -160,12 +172,13 @@ public class CreateLesson {
 		        System.out.println("Uploading data ");
 		     }
 			WebDriverWait wait = new WebDriverWait(LaunchApp.driver, 6000);
-			WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.linkText(lesson.trim())));
-			MooveToElement.moveToElenment(".//*[.='"+lesson.trim()+"']");
+		//	WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.linkText(lesson.trim())));
+		//	MooveToElement.moveToElenment(".//*[.='"+lesson.trim()+"']");
 			ExceptionHndeler.getScreen("Lesson_Created"+lesson);
 			if(LaunchApp.driver.findElements(By.linkText(lesson.trim())).size() > 0)
 			{
-				Assert.assertTrue(true, "User able to create");
+				//Assert.assertTrue(true, "User able to create");
+				System.out.println("\n lesson created");
 			}
 		  // LaunchApp.driver.findElement(By.linkText("Enable")).click();
 		   try
@@ -175,13 +188,14 @@ public class CreateLesson {
 		    catch(Exception e)
 	     	{
 			ExceptionHndeler.Log("Alert","Create lesson", e);
+			System.out.println("\n Error while creating lesson");
 			//e.printStackTrace();
 	    	}
 		}
 		catch(Exception e)
 		{
 			ExceptionHndeler.Log("Alert","Create lesson", e);
-			Assert.fail("Not able to create the lesson "+lesson);
+		//	Assert.fail("Not able to create the lesson "+lesson);
 		//	e.printStackTrace();
 		}
 		

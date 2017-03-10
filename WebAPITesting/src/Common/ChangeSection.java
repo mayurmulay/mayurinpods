@@ -56,6 +56,7 @@ public class ChangeSection {
 		//LaunchApp.driver.findElement(By.id("Value")).sendKeys(Keys.ENTER);
 		Thread.sleep(100);
 		System.out.print("Selected section "+TestData);
+		Uservarification();
 		}
 		catch(Exception e)
 		{
@@ -72,4 +73,18 @@ public class ChangeSection {
 		
 	}
 	
+	public static void Uservarification()
+	{
+		try
+		{
+			Thread.sleep(10000);
+			//LaunchApp.driver.findElement(By.xpath(".//*[@name='email']")).sendKeys("mayur.mulay@inpods.com");
+			//Thread.sleep(5000);
+			//LaunchApp.driver.findElement(By.xpath(".//*[@name='confirmEmail']")).sendKeys("mayur.mulay@inpods.com");
+		//	Thread.sleep(5000);
+			WebElement e=LaunchApp.driver.findElement(By.xpath(".//*[@ng-click='cancel()']"));
+			ClickEvent(e);
+			//LaunchApp.driver.findElement(By.xpath(".//*[@ng-click='sendEmailVerification(email)']")).click();
+	    }catch(Exception e){}
+	}
 }

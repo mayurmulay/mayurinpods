@@ -35,7 +35,7 @@ public class Student_MCQ_Test {
 			{
 				break;
 			}
-         	if(s[0].startsWith("Q"))
+         	if(s[0].startsWith("Q") && !s[0].startsWith("Question"))
 	         {
          		Qcount++;
          		System.out.println("in question="+(Qcount));
@@ -52,7 +52,7 @@ public class Student_MCQ_Test {
 					}
 					else
 					{
-					String m=Qid[(Qcount-1)]+"_"+"0";
+					String m=Qid[(Qcount-1)]+"_"+s[1];
 					System.out.println("option selected id"+m+"time"+sdf.format(cal.getTime()));
 					Common.LaunchApp.driver.findElement(By.xpath(".//*[@id='"+m+"']")).click();
 					Loger.LogEvent("Abale to attempt SQ Question="+m, "-Pass");

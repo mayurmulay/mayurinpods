@@ -31,7 +31,7 @@ public class CreateRubric {
 	Gototab.main(args1);
 	JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
 	jse.executeScript("window.scrollTo(50, 50)", "");
-	LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Manage Rubrics')]")).click();
+	LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Manage Rubric')]")).click();
 	LaunchApp.driver.findElement(By.xpath(".//*[@name='createRubric']")).click();
 	//Wait.until(ExpectedConditions.alertIsPresent());
 	Thread.sleep(10000);

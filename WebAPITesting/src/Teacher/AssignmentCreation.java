@@ -59,7 +59,7 @@ public class AssignmentCreation {
 	
        String[][] Ass=Read_Data.ReadData(AssignmentListFile);
 	       int j=0;
-		  int no=18;
+		  int no=19;
 		  try{
 		 while(!Ass[j][0].equals("End") && j<no)//Code for creating assignment and open it in edit mode 
 		  {
@@ -293,7 +293,7 @@ public class AssignmentCreation {
 			if(s[0].equals("IsUniversity"))
 			{
 				
-				if(s[1].trim().equals("yes"))
+				if(s[1].trim().equals("Yes"))
 				{
 					Loger.LogEvent("IsUniversity","IsUniversity is true");
 					LaunchApp.driver.findElement(By.xpath(".//*[@name='isUniversity' and @id='Yes']")).click(); 

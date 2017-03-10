@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import Common.AlertHandling;
 import Common.Gototab;
 import Common.LaunchApp;
 import Data.ExceptionHndeler;
@@ -50,9 +51,9 @@ public class GradeAssignment {
 		{
 		int len=0;
 		Gototab.execute("Assignments");
-		System.out.println("Assignment page");
+		System.out.println("Opening Assignment page");
 		Thread.sleep(20000);
-		System.out.println(".//*[.='"+data[0].trim()+"' and contains(@href, '/AssignmentList/StudentListForAssignment?')]");
+		//System.out.println(".//*[.='"+data[0].trim()+"' and contains(@href, '/AssignmentList/StudentListForAssignment?')]");
 		LaunchApp.driver.findElement(By.xpath(".//*[.='"+data[0].trim()+"' and contains(@href, '/AssignmentList/StudentListForAssignment?')]")).click();
 		
 		String[] s=data[count].split(":");
@@ -81,8 +82,7 @@ public class GradeAssignment {
        // LaunchApp.driver.findElement(By.xpath(".//*[@id='bottomPageNavigationContainer']/table/tbody/tr/td[4]/a")).click();
 
 		Thread.sleep(2000);
-		Alert alert = LaunchApp.driver.switchTo().alert();
-		alert.accept();
+		AlertHandling.waitForAlert();
 		System.out.println(s[0].trim());
 		Thread.sleep(8000);
 		count++;

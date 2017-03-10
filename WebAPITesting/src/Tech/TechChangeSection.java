@@ -77,6 +77,8 @@ public class TechChangeSection {
 		}
 		
 	}
+	@Test
+	@Parameters({"SectionId"})
 	public static void TechChangeSectionById(String SectionId)
 	{
 		LaunchApp.driver.get(LaunchApp.URL1+"/home/selectsection?id="+SectionId.trim());

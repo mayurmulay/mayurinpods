@@ -22,7 +22,7 @@ public class CreateAssignment {
 	  
 		try {
 			Gototab.execute("Manage Course");
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

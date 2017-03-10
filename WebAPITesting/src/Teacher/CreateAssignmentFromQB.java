@@ -31,7 +31,7 @@ public class CreateAssignmentFromQB {
 		 
 	     LaunchApp.driver.findElement(By.xpath(".//*[@id='QuestionBank']")).click(); //QuestionBank
 	     //new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='QuestionBank']"))).selectByVisibleText(QBname.trim());
-	     LaunchApp.driver.findElement(By.xpath(".//*[@id='QuestionBank']//*[contains(text(),'AutoTestQB')]")).click();
+	     LaunchApp.driver.findElement(By.xpath(".//*[@id='QuestionBank']//*[contains(text(),'"+QBname.trim()+"')]")).click();
 	     LaunchApp.driver.findElement(By.xpath(".//*[@id='QuestionBank']")).sendKeys(QBname.trim());
 	     LaunchApp.driver.findElement(By.xpath(".//*[@id='QuestionBank']")).sendKeys(Keys.ENTER);
 	     

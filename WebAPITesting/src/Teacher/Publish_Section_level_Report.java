@@ -1,11 +1,16 @@
 package Teacher;
 
 
+import java.util.List;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import Tech.PublishSectionLevelReport;
 import Common.AlertHandling;
@@ -23,6 +28,7 @@ public class Publish_Section_level_Report {
 		Execute();
 		}catch (Exception e) {}
 	}
+	@Test
 	public  static void Execute()
 	{
 		String[] args = new String[10];
@@ -30,16 +36,23 @@ public class Publish_Section_level_Report {
 		Gototab.main(args);
 		LaunchApp.driver.findElement(By.xpath(".//*[@href='/Report/SectionConceptsReport']")).click();
 		try {
-			Unpublish();
+			selectAllAssignmentAndRecompute();
+			ExceptionHndeler.getScreen("SectionLevelReport");
+			LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-id-5']")).click();
+			Thread.sleep(1000);
+			ExceptionHndeler.getScreen("SectionLevelReportTabular");
+			try{ Unpublish();}catch (Exception e) {}
 			 Thread.sleep(1000);
 			// UnpublishIndirect();
 			 Thread.sleep(1000);
-			Recompute();
+			//Recompute();
+			 
 			Thread.sleep(1000);
 			//ExceptionHndeler.getScreen("SectionLevel"+PublishSectionLevelReport.SectionId);
 			Thread.sleep(1000);
 			publish();
-			
+			Thread.sleep(6000);
+			ExceptionHndeler.getScreen("CourseLevelReportAfterPublish");
 		} catch (InterruptedException e) {
 			
 			AlertHandling.isAlertPresent();
@@ -105,7 +118,7 @@ public class Publish_Section_level_Report {
 	public static void waitForAlert()
 	{
 	   int i=0;
-	   while(i++<100000)
+	   while(i++<100)
 	   {
 	        try
 	        {
@@ -121,7 +134,33 @@ public class Publish_Section_level_Report {
 	        }
 	   }
 	}
-	
+	public static void selectAllAssignmentAndRecompute()
+    {
+		try{
+		WebElement element=LaunchApp.driver.findElement(By.xpath(".//*[@name='lnkCOAssessments']")); 
+		ClickEvent(element);
+		Thread.sleep(3000);
+		
+		 List <WebElement> li=LaunchApp.driver.findElements(By.xpath(".//*[@type='checkbox']"));
+		   	for(int j=0;j<li.size();j++)
+			  {
+				  WebElement e = li.get(j);
+				  if ( !e.isSelected() )
+				  {
+					  Thread.sleep(1000);
+				       e.click();
+				       Thread.sleep(1000);
+				  }
+				  System.out.println(li.get(j).getAttribute("id"));
+			  }
+		   	Thread.sleep(3000);
+		   	element=LaunchApp.driver.findElement(By.xpath(".//*[@class='uploadAssignmentsClass']")); 
+			ClickEvent(element);
+			Thread.sleep(40000);
+		}
+		catch(Exception e){}
+    	
+    }
 
 }
 

@@ -18,10 +18,10 @@ import java.sql.Statement;
 		
 		//Connection con = DriverManager.getConnection("jdbc:sqlserver://INPOD;user=sa;password=p@ssw0rd000;database=aspnetdb");
 		System.out.println("test");
-		String url = "jdbc:sqlserver://INPOD;databaseName=Somaiya_prodDB";
+		String url = "jdbc:sqlserver://USER-PC;databaseName=SARTierII_ProdDB";
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
-		 String [] Section_name={"IT - Sem V - 2016-17 - Advance Database Management Systems - A1","IT - Sem V - 2016-17 - Advance Database Management Systems - A3","IT - Sem V - 2016-17 - Advance Database Management Systems - A4","IT - Sem V - 2016-17 - Advance Database Management Systems - B2","IT - Sem V - 2016-17 - Advance Database Management Systems - A2","IT - Sem V - 2016-17 - Advance Database Management Systems - B3","IT - Sem V - 2016-17 - Advance Database Management Systems - B4"};
+		 String [] Section_name={"AutoTestingMM","IT - Sem V - 2016-17 - Advance Database Management Systems - A3","IT - Sem V - 2016-17 - Advance Database Management Systems - A4","IT - Sem V - 2016-17 - Advance Database Management Systems - B2","IT - Sem V - 2016-17 - Advance Database Management Systems - A2","IT - Sem V - 2016-17 - Advance Database Management Systems - B3","IT - Sem V - 2016-17 - Advance Database Management Systems - B4"};
 		for(int i=0;i<Section_name.length;i++)
 	   {
 		   
@@ -29,6 +29,7 @@ import java.sql.Statement;
 		   Statement stmt=con.createStatement(); 
 	    String str="SELECT dbo.Sections.Name, Activities_1.Title AS Expr1, dbo.SchoolUsers.UserName, dbo.ActivityItems.Question, dbo.ActivityItemSubmissions.StudentResponse FROM  dbo.Activities INNER JOIN dbo.StudentActivities ON dbo.Activities.ActivityId = dbo.StudentActivities.ActivityId INNER JOIN  dbo.ActivityItemSubmissions ON dbo.StudentActivities.StudentActivityId = dbo.ActivityItemSubmissions.StudentActivityId INNER JOIN   dbo.Sections ON dbo.Activities.ActivityScopeId = dbo.Sections.SectionId INNER JOIN  dbo.SchoolUsers ON dbo.StudentActivities.AssociationId = dbo.SchoolUsers.SchoolUserId INNER JOIN dbo.Activities AS Activities_1 ON dbo.Activities.ParentActivityId = Activities_1.ActivityId INNER JOIN dbo.Activity_ActivityItem ON dbo.ActivityItemSubmissions.Activity_ActivityItemId = dbo.Activity_ActivityItem.Activity_ActivityItemId INNER JOIN                      dbo.ActivityItems ON dbo.Activity_ActivityItem.ActivityItemId = dbo.ActivityItems.ActivityItemId WHERE      (dbo.ActivityItemSubmissions.StudentResponse is not null) and (dbo.ActivityItemSubmissions.StudentResponse <> '') GROUP BY dbo.Sections.Name, Activities_1.Title, dbo.SchoolUsers.UserName, dbo.ActivityItems.Question, dbo.ActivityItemSubmissions.StudentResponse HAVING (dbo.Sections.Name = N'"+Section_name[i]+"')";
 	    ResultSet rs=stmt.executeQuery(str);  
+	    System.out.println("test");
 	    while(rs.next())
 	    {
 	    	//Crete folder of section name

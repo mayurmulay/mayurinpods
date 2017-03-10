@@ -44,7 +44,7 @@ public class ErrorpageForAssignment {
 				ChangeSection.selectSection(data[count][SectionCount].trim());//select section
 				 try {
 					Gototab.execute(tabname);
-				} catch (InterruptedException e) {
+				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}//Go to assgnment tab
@@ -78,7 +78,7 @@ public class ErrorpageForAssignment {
 			  catch(Exception e){System.out.println("Error page Exception");}
 			  try {
 				Gototab.execute(tabname);
-			} catch (InterruptedException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -101,7 +101,7 @@ public class ErrorpageForAssignment {
 				  catch(Exception e){System.out.println("Error page Exception");}
 				  try {
 					Gototab.execute(tabname);
-				} catch (InterruptedException e) {
+				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}

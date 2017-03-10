@@ -1,28 +1,28 @@
 package Common;
 
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
+import org.testng.annotations.Parameters;
 
 public class Gototab {
 
 	public static void main(String[] args) {
 		Gototab g=new Gototab();
-		try {
-			Gototab.execute(args[0]);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Gototab.execute(args[0]);
 	}
-public static void execute(String str) throws InterruptedException
+@Test
+@Parameters({"tabname"})
+public static void execute(String tabname) 
 {
 	try {
+		System.out.println("Chanaging tab"+tabname);
 		Thread.sleep(1000);
 		AlertHandling.isAlertPresent();
-		LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+str.trim()+"') and @class='menu-title']")).click();
+		LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+tabname.trim()+"') and @class='menu-title']")).click();
 	} catch (Exception e) {
-		Thread.sleep(10000);
+	
 		AlertHandling.isAlertPresent();
-		LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+str.trim()+"') and @class='menu-title']")).click();
+		LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+tabname.trim()+"') and @class='menu-title']")).click();
 	}
 	
 }

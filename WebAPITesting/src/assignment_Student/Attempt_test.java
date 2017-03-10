@@ -17,6 +17,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import Common.AlertHandling;
 import Common.ChangeSection;
 import Common.Gototab;
 import Common.LaunchApp;
@@ -34,11 +35,11 @@ import org.testng.annotations.Test;
 public class Attempt_test extends Thread  {
 	public static int i=0;
 	public static String URL1=" ";
-	public static String data[][]=Read_Data.ReadData("studentAttend100.csv");
+	public static String data[][]=Read_Data.ReadData("studentAttendAuto.csv");
 	// @Test(threadPoolSize = 2, invocationCount = 2, timeOut = 1000000000)
 	 public void testMethod()
 	 {
-		 String data[][]=Read_Data.ReadData("studentAttend.csv");
+		 String data[][]=Read_Data.ReadData("studentAttendAuto.csv");
 		   String []s={"m","n"};
 		   String[] b=new String[10];
 		   s=data[i][0].split(":");
@@ -67,6 +68,10 @@ public class Attempt_test extends Thread  {
 	   Calendar cal = Calendar.getInstance();
        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 	   String []s={"m","n"};
+	   if(data[i][0].equals("End"))
+	   {
+		   break;
+	   }
 	   s=data[i][0].split(":");
 	   if(!s[1].equals("Not Started"))
 	   {
@@ -92,6 +97,8 @@ public class Attempt_test extends Thread  {
 			   }catch(Exception e){System.out.println("Error in submit"+e.getMessage());e.printStackTrace();LaunchApp.driver.findElement(By.xpath(".//*[@id='bottomPageNavigationContainer']/table/tbody/tr/td[4]/a")).click();}
 			   Thread.sleep(9000);
 			
+			   AlertHandling.isAlertPresent();  //This line has added due to bug nymber IN-4192 should be removed once bug get fix 
+			   Thread.sleep(4000);
 			   LaunchApp.driver.findElement(By.xpath(".//*[@class='ajs-button ajs-ok']")).click();   
 			   
 			 
@@ -145,8 +152,8 @@ public class Attempt_test extends Thread  {
 				Thread.sleep(100);
 			String []s={"m","n"};
 			s=str[i].split(":");
-			System.out.println("attemptTest1"+s[0]);
-			System.out.println("attemptTest1"+s[1]);
+			System.out.println("attemptTest"+s[0]);
+			System.out.println("attemptTest"+s[1]);
 			if(s[0].equals("Username"))
 			{
 				String[]m=s[1].split(";");
@@ -196,7 +203,9 @@ public class Attempt_test extends Thread  {
 				Thread.sleep(5000);
 				}
 				System.out.println("Test started time Enterd key"+sdf.format(cal.getTime()));
-				String Assname=data[i][1].substring(10, 20)+"_"+data[i][3].substring(10, 15)+"Before";
+				System.out.println("Data"+" "+str[1]+""+str[1].substring(10, 20));
+				System.out.println("Data"+" "+str[3]+""+str[3].substring(10, str[3].length()));
+				String Assname=str[1].substring(10, 20)+"_"+str[3].substring(15,str[3].length()-1)+"Before";
 				
 				ExceptionHndeler.getScreen(Assname);
 				}catch(Exception e){e.printStackTrace();}

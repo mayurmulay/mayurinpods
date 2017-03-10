@@ -36,6 +36,8 @@ public class UploadFile {
 		String fname="";
 		System.out.println("in upload file  ");
 		LaunchApp.driver.findElement(By.xpath(".//*[@name='uploadAssignmentMarks']")).click();//click here to upload file
+		
+		downloadgradebook(name);//Download gradebook
 	 	LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-id-6']")).click();  //upload
 	 	
 	 	Thread.sleep(100);
@@ -104,4 +106,27 @@ public class UploadFile {
 	     
 	 }
 	
+	public static void downloadgradebook(String assignmnetname)
+	{
+		try{
+		
+ 		List<WebElement> list = LaunchApp.driver.findElements(By.tagName("option"));
+ 		Iterator<WebElement> i1 = list.iterator();
+ 		String id=" ";
+ 		while(i1.hasNext()) {
+ 		    WebElement wel = i1.next(); 
+ 		    if(wel.getText().trim().equals(assignmnetname.trim()))
+ 		    {
+ 		    	id=wel.getAttribute("value");
+ 		    }
+ 		    	
+ 		    }
+ 		System.out.println("value="+id);
+ 	new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='asgnName']"))).selectByValue(id);; 
+ 	Thread.sleep(5000);
+ 	LaunchApp.driver.findElement(By.xpath(".//*[@id='downloadGradeBook']")).click();
+		}
+		
+		catch(Exception e){}
+	}
 }

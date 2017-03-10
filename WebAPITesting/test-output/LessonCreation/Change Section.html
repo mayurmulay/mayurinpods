@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Change Section</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/1</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Jan 11 14:49:19 IST 2017</td>
+<td>Started on:</td><td>Wed Mar 08 10:11:56 IST 2017</td>
 </tr>
-<tr><td>Total time:</td><td>12 seconds (12034 ms)</td>
+<tr><td>Total time:</td><td>12 seconds (12445 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,15 +75,44 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Com.Ojo.ReadJsonObject.aptTesting()'><b>aptTesting</b><br>Test class: Com.Ojo.ReadJsonObject</td>
+<td title='Tech.TechChangeSection.TechChangeSectionById()'><b>TechChangeSectionById</b><br>Test class: Tech.TechChangeSection<br>Parameters: 1</td>
 <td></td>
-<td>0</td>
-<td>Com.Ojo.ReadJsonObject@6d45ca41</td></tr>
+<td>12</td>
+<td>Tech.TechChangeSection@308f3911</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
 <tr>
-<td title='Common.ChangeSection.selectSection()'><b>selectSection</b><br>Test class: Common.ChangeSection<br>Parameters: AutoTestingMM</td>
-<td></td>
-<td>11</td>
-<td>Common.ChangeSection@2af9aaf1</td></tr>
+<td title='Tech.TechChangeSection.TechChangeSection()'><b>TechChangeSection</b><br>Test class: Tech.TechChangeSection</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;TestData&apos; is required by @Test on method TechChangeSection but has not been marked @Optional or defined
+in D:\Xml_to_Run\CopyCourse.xml
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+... Removed 8 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace309502543", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace309502543'><pre>org.testng.TestNGException: 
+Parameter &apos;TestData&apos; is required by @Test on method TechChangeSection but has not been marked @Optional or defined
+in D:\Xml_to_Run\CopyCourse.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:154)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:361)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:451)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1243)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:992)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1082)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+</pre></div></td>
+<td>0</td>
+<td>Tech.TechChangeSection@308f3911</td></tr>
 </table><p>
 </body>
 </html>

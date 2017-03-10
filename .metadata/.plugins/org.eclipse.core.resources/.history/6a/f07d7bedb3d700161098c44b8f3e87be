@@ -1,9 +1,0 @@
-package Common;
-
-public class MooveToElement {
-	public static void moveToElenment(String xpath)
-	{
-		
-	}
-
-}

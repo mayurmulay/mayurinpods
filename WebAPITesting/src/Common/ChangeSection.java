@@ -31,8 +31,8 @@ public class ChangeSection {
 		LaunchApp.driver.findElement(By.xpath(".//*[@href='/home/mysections']")).click();
 		}catch(Exception e)
 		{
-			e.printStackTrace();
-			ExceptionHndeler.Log(TestData,"Section Selection", e);
+			//e.printStackTrace();
+			//ExceptionHndeler.Log(TestData,"Section Selection", e);
 			
 		}
 

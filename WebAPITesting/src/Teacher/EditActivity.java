@@ -54,7 +54,7 @@ public class EditActivity {
 		while(!str[i].equals("End"))
 		{
 			try{
-			System.out.println("mayur"+str[i]);
+			
 			try {
 				Thread.sleep(100);
 				 s=str[i].split(":");

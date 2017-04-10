@@ -24,16 +24,16 @@ public class CreateLesson {
 	{
 		
 	
-		LaunchApp.Execute("http://training.inpods.com:8000");
-		Login.LoginD("inpodssa@amritablrtraining.edu","amritaipds");
+		LaunchApp.Execute("http://autraining.inpods.com:8000");
+		Login.LoginD("inpodssa@amritatraining.edu","techone");
 		
-		String[][] Lesson=Read_Data.ReadData("lesson.csv");
+		//String[][] Lesson=Read_Data.ReadData("lesson.csv");
 		
-		for(int i=54;i<151;i++)
+		for(int i=901;i<965;i++)
 		{
 			String sectionId=i+"";
 			TechChangeSection.TechChangeSectionById(sectionId);
-			String Chapter[]=Lesson[i];
+		//	String Chapter[]=Lesson[i];
 			String[] args=new String[10]; 
 		   args[0]=(String) "Lessons";
 		    Gototab.main(args);
@@ -41,9 +41,9 @@ public class CreateLesson {
 			int j=0;
 			//while(true)	
 			{
-				TechChangeSection.TechChangeSectionById(sectionId);
-				Gototab.main(args);
-				String[] data=Chapter[j].split("@");
+			//	TechChangeSection.TechChangeSectionById(sectionId);
+			//	Gototab.main(args);
+			//	String[] data=Chapter[j].split("@");
 			/*	if(data[0].equals("Lesson"))
 				{
 					CreateLesson(data[1].trim(),"Upload","http://demo.inpods.com/");
@@ -55,7 +55,7 @@ public class CreateLesson {
 				}*/
 				try{
 				CreateChapter("InPods Training 2017");
-				CreateLesson("InPods Training 2017","Upload","D:\\Lesson.pdf");
+				CreateLesson("InPods Training 2017","link","https://s3.amazonaws.com/inpodsv2_ro/Help_videos/Amrita+training/Transcripts/Ettimadai+Lesson.pdf");
 				j++;}
 				catch(Exception e ){System.out.println("Error while Exicuting data"+i);
 				continue;
@@ -69,7 +69,7 @@ public class CreateLesson {
 	{
 		
 		
-		if(LaunchApp.driver.findElements(By.linkText(Chapter.trim())).size() == 0)
+	//	if(LaunchApp.driver.findElements(By.linkText(Chapter.trim())).size() == 0)
 		{
 			try {
 		         LaunchApp.driver.findElement(By.linkText("Add New Chapter")).click();
@@ -134,7 +134,7 @@ public class CreateLesson {
 		//   try { if(!(Cos.equals("null1")))  {  Secect_Co(Cos);  }} catch(Exception e) {	ExceptionHndeler.Log("Alert","Create lesson Co mapping ", e);}
 		   MooveToElement.moveToElenment(".//*[@id='LinkAddress1']");
 		   ExceptionHndeler.getScreen("Creating lesson"+lesson);
-			LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).click();
+		   LaunchApp.driver.findElement(By.xpath(".//*[@value='Save']")).sendKeys(Keys.ENTER);
 			Thread.sleep(3000);
 		   
 	    }

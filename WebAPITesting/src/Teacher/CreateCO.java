@@ -47,8 +47,24 @@ public class CreateCO {
 		    	LaunchApp.driver.navigate().refresh();   Thread.sleep(20000);
 				new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='program_select']"))).selectByVisibleText(Program.trim());
 			     Thread.sleep(15000);
-		    new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='course_select']"))).selectByVisibleText(Course.trim());
+		        new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='course_select']"))).selectByVisibleText(Course.trim());
 			     Thread.sleep(3000);
+		    	}
+		    	else
+		    	{
+		    		if(LaunchApp.driver.findElements(By.xpath(".//*[contains(text(),'Revise') and @class='btn']")).size() != 0)
+			    	{	
+			    	LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Revise') and @class='btn']")).click();
+			    	Loger.LogEvent("Update CO","CO  updated"); 
+			    	Thread.sleep(2000);
+			    //	AlertHandling.waitForAlert();
+			    	Thread.sleep(5000);
+			    	LaunchApp.driver.navigate().refresh();   Thread.sleep(20000);
+					new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='program_select']"))).selectByVisibleText(Program.trim());
+				     Thread.sleep(15000);
+			        new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='course_select']"))).selectByVisibleText(Course.trim());
+				     Thread.sleep(3000);
+			    	}
 		    	}
 		    }catch(Exception e){Loger.LogEvent("Update CO","CO not updated"); 
 		    Assert.fail("Not able to click on Update CO");

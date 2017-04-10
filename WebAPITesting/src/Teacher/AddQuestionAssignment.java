@@ -82,7 +82,7 @@ public class AddQuestionAssignment {
     try
     {Thread.sleep(5000);
     List <WebElement> li=LaunchApp.driver.findElements(By.xpath(".//input[@name='checkbox']"));
-    for(int i=0;i<8 && i<li.size();i++){
+    for(int i=0;i<6 && i<li.size();i++){
 		try
 		{
 			Clickevent.ClickEvent(li.get(i));

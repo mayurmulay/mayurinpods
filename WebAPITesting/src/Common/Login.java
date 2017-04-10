@@ -16,7 +16,9 @@ public class Login {
 	{
 	try
 	{
-	    LaunchApp.driver.findElement(By.xpath(".//*[@id='topbar']/div[2]/ul/li/a")).click();
+		 Thread.sleep(4000);
+	   LaunchApp.driver.findElement(By.xpath(".//*[@id='topbar']/div[2]/ul/li/a")).click();
+		// LaunchApp.driver.findElement(By.xpath(".//*[.='Sign In']")).click();
 	    Thread.sleep(2000);
 		LaunchApp.driver.findElement(By.xpath(".//*[@id='UserName']")).sendKeys(username.trim());
 		 Thread.sleep(2000);
@@ -27,6 +29,7 @@ public class Login {
 	}
 	catch(Exception ex)
 	{
+		ex.printStackTrace();
 		System.out.println(ex.getLocalizedMessage());
 		org.testng.Assert.assertEquals(false, true,"Login Failed for:"+username);
 		ExceptionHndeler.Log(username,"Log IN", ex);

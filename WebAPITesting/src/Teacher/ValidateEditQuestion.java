@@ -158,7 +158,7 @@ public class ValidateEditQuestion {
 			else
 			{
 				String Message="CO Selected "+data+" CO Expected"+str.trim();
-			//	Assert.fail("CO Selected "+data+" CO Expected "+str.trim() + "-Fail");
+			//	//Assert.fail("CO Selected "+data+" CO Expected "+str.trim() + "-Fail");
 			}	
 			
 			
@@ -182,7 +182,7 @@ public class ValidateEditQuestion {
 			else
 			{
 				String Message="Bloom Selected "+data+" Bloom Expected"+str.trim();
-				//	Assert.fail("Bloom Selected "+data+" Bloom Expected"+str.trim()+ "-Fail");
+				//	//Assert.fail("Bloom Selected "+data+" Bloom Expected"+str.trim()+ "-Fail");
 			}
 	}
 	
@@ -206,7 +206,7 @@ public class ValidateEditQuestion {
 			{
 				String Message="Rubric Selected "+data+" Rubric Expected"+str.trim();
 				Loger.LogEvent( Message, "-Fail");
-				//	Assert.fail(Message+ "-Fail");
+				//	//Assert.fail(Message+ "-Fail");
 				
 			}
 		}
@@ -222,7 +222,7 @@ public class ValidateEditQuestion {
 			else
 			{
 				Loger.LogEvent("points "+data, "-Fail");
-				//	Assert.fail("points "+data+ "-Fail");
+				//	//Assert.fail("points "+data+ "-Fail");
 			}
 		
 	}
@@ -239,7 +239,7 @@ public class ValidateEditQuestion {
 		else
 		{
 			Loger.LogEvent("negative points "+data, "-Fail");
-			//	Assert.fail("Negative points "+data+ "-Fail");
+			//	//Assert.fail("Negative points "+data+ "-Fail");
 		}
 	}
 	public static void NegativeUnattempted(String [] s,String Qid)
@@ -253,7 +253,7 @@ public class ValidateEditQuestion {
 			else
 			{
 				Loger.LogEvent("Negative Unattempted"+data, "-Fail");
-				//	Assert.fail("Negative points "+data+ "-Fail");
+				//	//Assert.fail("Negative points "+data+ "-Fail");
 			}	  
 	}
 	

@@ -38,7 +38,9 @@ public class UploadFile {
 		LaunchApp.driver.findElement(By.xpath(".//*[@name='uploadAssignmentMarks']")).click();//click here to upload file
 		
 		downloadgradebook(name);//Download gradebook
-	 	LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-id-6']")).click();  //upload
+		Thread.sleep(10000);
+		try{
+	 	LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-id-6']")).click();}catch(Exception e){LaunchApp.driver.findElement(By.xpath(".//*[@href='#tabs-2']")).click();}  //upload   #tabs-2
 	 	
 	 	Thread.sleep(100);
 	 	try

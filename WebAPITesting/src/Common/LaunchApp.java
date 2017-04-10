@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.annotations.Parameters;
@@ -25,28 +26,21 @@ public class LaunchApp {
 		
 		try
 		{
-			//TestData="http://testing.inpods.com/";
-				//---Create Firefox Profile Object
-				//FirefoxProfile fp=new FirefoxProfile();
-				//---disable Browser Cache
-				//fp.setPreference("browser.cache.disk.enable", false);
-				//---initialize the driver object     D:\InpodsAutomation\WebAPITesting\JAR
-				//driver=new FirefoxDriver(fp);
+			
 			String[][] URl=Read_Data.ReadData("URL.csv");
 			TestData=URl[0][0].trim();
 			 URL1=TestData;
 			System.setProperty("webdriver.chrome.driver","D:\\InpodsAutomation\\WebAPITesting\\JAR\\chromedriver.exe.");
 			System.out.println(System.getProperty("user.dir")+"/AllDrivers/chromedriver_v_2.21.exe");
-			  driver = new ChromeDriver();
-				//synchronization timeout for all objects here we will set it for 20
-				driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-				
-				//--launch the URL
-				driver.get(TestData);
-				driver.manage().window().maximize();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("start-maximized");
+            driver = new ChromeDriver(options);
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			driver.get(TestData);
 		}//end of try
 		catch(Exception ex)
 		{
+			ex.printStackTrace();
 			ExceptionHndeler.Log("launchApp","Execute", ex);
 			System.out.println(ex.getLocalizedMessage());
 			org.testng.Assert.assertEquals(false, true,"Launch Applicatin Failed for:"+TestData);

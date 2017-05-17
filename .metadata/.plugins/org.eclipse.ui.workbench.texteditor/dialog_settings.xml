@@ -2,8 +2,8 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="305" key="DIALOG_WIDTH"/>
-		<item value="205" key="DIALOG_Y_ORIGIN"/>
-		<item value="1111" key="DIALOG_X_ORIGIN"/>
+		<item value="397" key="DIALOG_Y_ORIGIN"/>
+		<item value="1131" key="DIALOG_X_ORIGIN"/>
 		<item value="442" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
@@ -13,26 +13,26 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value=";" key="selection"/>
+		<item value="chromedriver_v_2.21.exe" key="selection"/>
 		<list key="findhistory">
-			<item value=";"/>
-			<item value="”"/>
-			<item value="IsUniversity"/>
-			<item value="start"/>
-			<item value="Not able to Create CO"/>
-			<item value="assert"/>
-			<item value="CourseLevel"/>
-			<item value="CourseLevelReports"/>
+			<item value="lbl"/>
+			<item value="chromedriver_v_2.21.exe"/>
+			<item value="ReturnArray"/>
+			<item value="flag"/>
+			<item value=" flag"/>
+			<item value="Data"/>
+			<item value="CO_Description"/>
+			<item value="CO_name"/>
 		</list>
 		<list key="replacehistory">
+			<item value="FirstScriptData"/>
+			<item value="PO_Description"/>
+			<item value="PO_name"/>
+			<item value="//USER_PC\\SQLExpress"/>
+			<item value=".\SQLExpress"/>
 			<item value="&quot;"/>
 			<item value=""/>
 			<item value="1000"/>
-			<item value="500"/>
-			<item value="Min"/>
-			<item value=" "/>
-			<item value="Assignment"/>
-			<item value="AssignmentName"/>
 		</list>
 	</section>
 </section>

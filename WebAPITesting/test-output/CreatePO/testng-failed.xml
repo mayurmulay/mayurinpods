@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [CreatePO]" parallel="methods">
+  <parameter name="Rubric" value="mayur_rubric"/>
+  <parameter name="Program" value="MayurProgram"/>
+  <parameter name="TestData" value="http://localhost/"/>
+  <parameter name="COName" value="AutoCO1"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="TLOname" value="AutoCO1_Tlo1"/>
+  <parameter name="CODescr" value="AutoCO1_TLO_descr"/>
+  <parameter name="URL" value="http://localhost/"/>
+  <parameter name="password" value="techone"/>
+  <parameter name="Blooms" value="Bloom3"/>
+  <parameter name="Course" value="CourseAutoTesting"/>
+  <parameter name="SectionId" value="1"/>
+  <parameter name="username" value="inpodssa@sar.com"/>
+  <test name="Select Section(failed)" parallel="methods">
+    <parameter name="SectionId" value="1"/>
+    <classes>
+      <class name="Tech.TechChangeSection">
+        <methods>
+          <include name="TechChangeSection"/>
+        </methods>
+      </class> <!-- Tech.TechChangeSection -->
+    </classes>
+  </test> <!-- Select Section(failed) -->
+  <test name="Create TLO(failed)" parallel="methods">
+    <parameter name="Rubric" value="mayur_rubric"/>
+    <parameter name="Program" value="MayurProgram"/>
+    <parameter name="COName" value="AutoCO1"/>
+    <parameter name="Blooms" value="Bloom3"/>
+    <parameter name="TLOname" value="AutoCO1_Tlo1"/>
+    <parameter name="CODescr" value="AutoCO1_TLO_descr"/>
+    <parameter name="Course" value="CourseAutoTesting"/>
+    <classes>
+      <class name="Teacher.CreateTLO">
+        <methods>
+          <include name="CreateTLO" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.CreateTLO -->
+    </classes>
+  </test> <!-- Create TLO(failed) -->
+</suite> <!-- Failed suite [CreatePO] -->

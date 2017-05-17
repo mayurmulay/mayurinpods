@@ -14,6 +14,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import com.gargoylesoftware.htmlunit.javascript.host.Element;
+
 import Common.Clickevent;
 import Common.LaunchApp;
 import Common.MooveToElement;
@@ -24,6 +26,7 @@ import Data.Read_Data;
 
 public class EditQuestion {
 	public String CORubricData[][]=Read_Data.ReadData("CoBloomRubric.csv");
+	public static int EditCounter=0;
 
 	public static void main(String[] args) {
 		
@@ -39,7 +42,7 @@ public class EditQuestion {
 		   LaunchApp.driver.findElement(By.xpath(".//*[@name='btnAddQuestion']")).click();
 		   LaunchApp.driver.findElement(By.xpath(".//*[@name='btnAddQuestion']")).click();
 		}
-	   List <WebElement> li=LaunchApp.driver.findElements(By.xpath("//*[@value='points']"));
+	    List <WebElement> li=LaunchApp.driver.findElements(By.xpath("//*[@value='points']"));
 		ArrayList<String> Qid= new ArrayList<String>();
 		int i=0,count=0;
 		String[][] Ass=Read_Data.ReadData(AssignmentCreation.AssignmentQueDoc);
@@ -124,6 +127,9 @@ public class EditQuestion {
 		 if(str.length>1)
 		while(!str[i].equals("End"))
 		{
+			
+			try{
+			LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();} catch(Exception e){}
 			System.out.println(str[i]+"   "+Qid);
 			try {
 				Thread.sleep(2000);
@@ -134,35 +140,42 @@ public class EditQuestion {
 			} catch (InterruptedException e) {
 				ExceptionHndeler.Log("Data read","Question Editing", e);
 			}
+			Thread.sleep(2000);
 			if(s[0].equals("Points"))
 			{
+				EditCounter=0;
 				Points(s,Qid);
 			}
 			if(s[0].equals("Negative Mark Points"))
 			{
+				EditCounter=0;
 				NegativeMarks(s,Qid);
 			
 			}///preceding-sibling::input  name="lblmcqQuestionNegativeMarkPoints"
 			if(s[0].equals("Bloom's Category"))
 			{
-				if(!((AssignmentCreation.assType).equals("Lab")||(AssignmentCreation.assType).equals("External")))
+				if(!AssignmentCreation.IsUniversity.equals("True"))
 				{
+					EditCounter=0;
 				 MapBloom(s[1],Qid);	
 				}
 		    }
 			if(s[0].equals("Negative Mark Points for Unattempted"))
 			{
+				EditCounter=0;
 				NegativeUnattempted(s,Qid);
 			}
 			if(s[0].equals("CorrectAnswer"))
 			{
+				EditCounter=0;
 				CorrectAns(s,Qid);
 		
 			}
 			if(s[0].equals("Course Outcome"))  
 			{
-				if(!AssignmentCreation.IsUniversity.equals("yes"))
+				if(!AssignmentCreation.IsUniversity.equals("True"))
 				{
+					EditCounter=0;
 				System.out.println("Selecing CO");
 				mapCO(s[1],Qid);	
 				System.out.println("Selecing CO  Selected");
@@ -172,6 +185,7 @@ public class EditQuestion {
 			{ 
 				if((AssignmentCreation.assType).equals("Lab"))
 				{
+					EditCounter=0;
 				   MapRubric(s[1],Qid);	
 				}
 		    }
@@ -180,8 +194,9 @@ public class EditQuestion {
 		}
 		catch(Exception e)
 		{
-			ExceptionHndeler.Log(str[i],"Question Editing", e); 
 			e.printStackTrace();
+			ExceptionHndeler.Log(str[i],"Question Editing", e); 
+			
 		}
 		
 	}
@@ -198,30 +213,81 @@ public class EditQuestion {
 		    {
 		    	int i=Integer.parseInt(hm[c]);
 		    	 System.out.println("Co="+hm[c]);
-		    	LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@title='"+CORubricData[i][0].trim()+"']")).click();  
+		    	//LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@title='"+CORubricData[i][0].trim()+"']")).click(); 
+		    	
+		    	WebElement e=LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@title='"+CORubricData[i][0].trim()+"']"));
+		    	boolean isChecked = e.isSelected();
+		    	if(!isChecked)
+		    	{
+		    		e.click();
+		    	}
+		    	LaunchApp.driver.findElement(By.xpath("//*[@id='"+Qid+"']/tr[3]/td[2]/button")).click();  
 		    }
 			LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@class='dynatree-expander']")).click(); 
 			}catch (Exception e) {
 				ExceptionHndeler.Log("Map Co","Question Editing", e);
+				LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+				if(EditCounter<3)
+				{
+					EditCounter++;
+					mapCO(co_name,Qid);
+					
+				}
+				
 			}
 	}
 	public void MapBloom(String co_name,String Qid)
 	{
 		//*[@id='2275']//*[@class='ui-multiselect ui-widget ui-state-default ui-corner-all' ]
 		try{
-			LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@class='ui-multiselect ui-widget ui-state-default ui-corner-all' ]")).click();
+			Thread.sleep(2000);
+			WebElement e1;
+			//System.out.println(".//*[@id='"+Qid+"']//*[@name='cmbBlooms']//following-sibling::*[@class='ui-multiselect ui-widget ui-state-default ui-corner-all' ]");
+		   if(AssignmentCreation.AssignmentQueDoc.equalsIgnoreCase("MCQQues.csv"))
+			{
+			   e1=LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='cmbBlooms']//following-sibling::*[@class='ui-multiselect ui-widget ui-state-default ui-corner-all' ]"));
+			
+			}
+		   else
+		   {
+			   e1=LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='cmbBlooms']//following-sibling::*[@class='ui-multiselect ui-widget ui-state-default ui-corner-all' ]"));
+				 
+		   }
+			Clickevent.ClickEvent(e1);
 			String []hm={"2","0"};
 		    hm=co_name.split(";");
 		    for(int c=0;c<hm.length;c++)
 		    {
 		    	int i=Integer.parseInt(hm[c]);
-		    	LaunchApp.driver.findElement(By.xpath("//*[@name='multiselect_"+Qid+"' and @title='"+CORubricData[i][1].trim()+"']")).click();  
-		    	LaunchApp.driver.findElement(By.xpath("//*[@id='"+Qid+"']/tr[3]/td[2]/button")).click();  
+		    //	LaunchApp.driver.findElement(By.xpath("//*[@name='multiselect_"+Qid+"' and @title='"+CORubricData[i][1].trim()+"']")).click();  
+		    	WebElement e;
+		    	if(AssignmentCreation.AssignmentQueDoc.equalsIgnoreCase("MCQQues.csv"))
+				{
+		    	    e=LaunchApp.driver.findElement(By.xpath("//*[@name='multiselect_"+Qid+"' and @title='"+CORubricData[i][1].trim()+"']"));
+				}
+		    	else
+		    	{
+		    		e=LaunchApp.driver.findElement(By.xpath("//*[@name='multiselect_bloom_"+Qid+"' and @title='"+CORubricData[i][1].trim()+"']"));
+				}
+		    	boolean isChecked = e.isSelected();
+		    	if(!isChecked)
+		    	{
+		    		Clickevent.ClickEvent(e);
+		    	}
+		    	Clickevent.ClickEvent(e1);
 		    	
 		    }
 		 
 			}catch (Exception e) {
-				ExceptionHndeler.Log("Map Bloom","Question Editing", e);
+				ExceptionHndeler.Log("MapBloom","Question Editing", e);
+				e.printStackTrace();
+				LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+				if(EditCounter<3)
+				{
+					EditCounter++;
+					MapBloom(co_name,Qid);
+					
+				}
 			}
 		//LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@class='ui-multiselect ui-widget ui-state-default ui-corner-all ui-state-active ui-state-focus' ]")).click();
 		}
@@ -229,6 +295,8 @@ public class EditQuestion {
 	public void MapRubric(String co_name,String Qid)
 	{
 		
+		if(!co_name.equalsIgnoreCase("NA"))
+		{
 		try{
 			LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']/tr[3]/td[2]/button")).click();
 			String []hm={"2","0"};
@@ -236,13 +304,27 @@ public class EditQuestion {
 		    for(int c=0;c<hm.length;c++)
 		    {
 		    	int i=Integer.parseInt(hm[c]);
-		    	LaunchApp.driver.findElement(By.xpath("//*[@name='multiselect_"+Qid+"' and @title='"+CORubricData[i][2].trim()+"']")).click();  
-		    }
+		    	WebElement e=LaunchApp.driver.findElement(By.xpath("//*[@name='multiselect_"+Qid+"' and @title='"+CORubricData[i][2].trim()+"']"));
+		    	boolean isChecked = e.isSelected();
+		    	if(!isChecked)
+		    	{
+		    		e.click();
+		    	}
+		   }
 		 
 			}catch (Exception e) {
-				ExceptionHndeler.Log("Map Rubric","Question Editing", e);
+				ExceptionHndeler.Log("MapRubric","Question Editing", e);
+				e.printStackTrace();
+				LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+				if(EditCounter<3)
+				{
+					EditCounter++;
+					MapRubric(co_name,Qid);
+					
+				}
 			}
 		LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']/tr[3]/td[2]/button")).click();
+		}
 		}
 	public static void Points(String [] s,String Qid)
 	{
@@ -257,33 +339,76 @@ public class EditQuestion {
 		System.out.println(".//*[@id='"+Qid+"']//*[@name='lbl"+AssignmentCreation.QuestionType+"QuestionPoints']="+s[1]);
         LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='value']")).sendKeys(s[1]);
         Loger.LogEvent("Points","Points selected "+s[1]);
-		}catch(Exception e){e.printStackTrace();}
+		}catch(Exception e){
+			e.printStackTrace();
+			LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+			ExceptionHndeler.Log("Points","Question Editing", e);
+			if(EditCounter<3)
+			{
+				EditCounter++;
+				Points(s,Qid);
+				
+			}
+		}
 	}
 	public static void NegativeMarks(String [] s,String Qid)
 	{
-		
+		try{
 		Loger.LogEvent("Negative Mark Points","Negative Mark Points selecting");
 		LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lblmcqQuestionNegativeMarkPoints']")).click();
 		LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lblmcqQuestionNegativeMarkPoints']//*[@name='value']")).clear();
 		//LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lblmcqQuestionNegativeMarkPoints']/child::input")).clear();
 		LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lblmcqQuestionNegativeMarkPoints']//*[@name='value']")).sendKeys(s[1]);
 		Loger.LogEvent("Negative Mark Points","Negative Mark Points selected "+s[1]);
+		}catch(Exception e){
+			ExceptionHndeler.Log("NegativeMarks","Question Editing", e);
+			e.printStackTrace();
+			LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+			if(EditCounter<3)
+			{
+				EditCounter++;
+				NegativeMarks(s,Qid);
+				
+			}
+		}
 	}
 	public static void NegativeUnattempted(String [] s,String Qid)
 	{
-		
+		try{
 		Loger.LogEvent("Negative Mark Points for Unattempted","Negative Mark Points for Unattempted selecting");
 		  LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lblmcqQuestionNegativeMarkPointsforunattempted']")).click();
 		  LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lblmcqQuestionNegativeMarkPointsforunattempted']//*[@name='value']")).clear();
 		  LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@name='lblmcqQuestionNegativeMarkPointsforunattempted']//*[@name='value']")).sendKeys(s[1]);
 		  Loger.LogEvent("Negative Mark Points for Unattempted","Negative Mark Points for Unattempted selected"+s[1]);
+		 }catch(Exception e){
+			ExceptionHndeler.Log("NegativeUnattempted","Question Editing", e);
+			e.printStackTrace();
+			LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+			if(EditCounter<3)
+			{
+				EditCounter++;
+				NegativeUnattempted(s,Qid);
+				
+			}
+		}
 	}
 	public static void CorrectAns(String [] s,String Qid)
 	{
-		
+		 try{
 		Loger.LogEvent("CorrectAnswer","CorrectAnswer selecting");
 		 LaunchApp.driver.findElement(By.xpath(".//*[@id='"+Qid+"']//*[@choice='"+s[1]+"']")).click();
 		 Loger.LogEvent("CorrectAnswer","CorrectAnswer selected"+s[1]);
+		 }catch(Exception e){
+				ExceptionHndeler.Log("CorrectAns","Question Editing", e);
+				e.printStackTrace();
+				LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+				if(EditCounter<3)
+				{
+					EditCounter++;
+					CorrectAns(s,Qid);
+					
+				}
+			}
 	}
 	
 	

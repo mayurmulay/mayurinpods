@@ -59,19 +59,25 @@ public class AddQuestionAssignment {
     
       }catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
       
-      LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+      try
+      { LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
 		 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
-		 
+      }catch(Exception e){}
+       
     try
     {Thread.sleep(5000);EditActivity.createActivity("Multiple Choice");}catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
       
-    LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
-	 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+    try
+    { LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+		 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+    }catch(Exception e){}
 	 
     try
-    {Thread.sleep(5000);
+    {Thread.sleep(5000);   //lblActivitySubTypeName
+    LaunchApp.driver.findElement(By.name("lblActivitySubTypeName")).click();
+    Thread.sleep(5000);
     LaunchApp.driver.findElement(By.name("btnAddQBQuestion")).click();}catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
-    new Select(LaunchApp.driver.findElement(By.id("questionBank"))).selectByVisibleText("AutoTestQB");
+    new Select(LaunchApp.driver.findElement(By.id("questionBank"))).selectByVisibleText("Abc");
     
     try
     {Thread.sleep(5000);}catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}

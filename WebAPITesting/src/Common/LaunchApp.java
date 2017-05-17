@@ -1,14 +1,18 @@
 package Common;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Parameters;
 
 import Data.ExceptionHndeler;
@@ -17,6 +21,7 @@ import Data.Read_Data;
 public class LaunchApp {
 
 	public static String URL1=null;
+	
 	public static WebDriver driver=null;
 	
 	@Test
@@ -26,18 +31,25 @@ public class LaunchApp {
 		
 		try
 		{
-			
 			String[][] URl=Read_Data.ReadData("URL.csv");
 			TestData=URl[0][0].trim();
 			 URL1=TestData;
+		/*	 //
+			 DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+			 capabilities.setBrowserName("Chrome");
+			 capabilities.setPlatform(Platform.WINDOWS);
+			 String nodeURL="http://10.10.2.8:5566/wd/hub";
+			 System.setProperty("webdriver.chrome.driver","D:\\InpodsAutomation\\WebAPITesting\\JAR\\chromedriver.exe.");
+			 driver= new RemoteWebDriver(new URL(nodeURL),capabilities);  */
+			 //
 			System.setProperty("webdriver.chrome.driver","D:\\InpodsAutomation\\WebAPITesting\\JAR\\chromedriver.exe.");
 			System.out.println(System.getProperty("user.dir")+"/AllDrivers/chromedriver_v_2.21.exe");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("start-maximized");
-            driver = new ChromeDriver(options);
+            driver = new ChromeDriver(options);            
 			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			driver.get(TestData);
-		}//end of try
+			}//end of try
 		catch(Exception ex)
 		{
 			ex.printStackTrace();

@@ -37,7 +37,7 @@ public class ChangeSection {
 		}
 
 		//new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='sectionId']"))).selectByVisibleText(TestData);
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 		//WebElement element=LaunchApp.driver.findElement(By.xpath(".//*[.='"+TestData+"']")); 
 		
 		List <WebElement> element=LaunchApp.driver.findElements(By.xpath(".//*[@ng-click='sectionSelected(section.section.id)']")); ////*[contains(text(),'ABC')]
@@ -77,7 +77,7 @@ public class ChangeSection {
 	{
 		try
 		{
-			Thread.sleep(10000);
+			Thread.sleep(3000);
 			//LaunchApp.driver.findElement(By.xpath(".//*[@name='email']")).sendKeys("mayur.mulay@inpods.com");
 			//Thread.sleep(5000);
 			//LaunchApp.driver.findElement(By.xpath(".//*[@name='confirmEmail']")).sendKeys("mayur.mulay@inpods.com");

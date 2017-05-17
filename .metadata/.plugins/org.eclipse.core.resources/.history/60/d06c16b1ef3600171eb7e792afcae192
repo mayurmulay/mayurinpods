@@ -1,0 +1,37 @@
+package Teacher;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
+
+public class CreateTLO {
+	
+	public static void CreateTLO(String COName,String TLOname,String CODescr)
+	{
+		
+		
+		try
+		{
+		 
+	     driver.findElement(By.xpath(".//*[contains(text(),'"+COName+"')]/following-sibling::*[2]/*[1]/div[3]/span/a")).click();
+	     Thread.sleep(5000);
+	     driver.findElement(By.xpath("html/body/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[4]/div/div/div[2]/div[1]/div/input[2]")).sendKeys(COName+"_"+TLOname);
+	     Thread.sleep(50);
+	     driver.findElement(By.xpath(".//*[@id='obj_content']")).sendKeys(CODescr);
+	     Thread.sleep(50);
+	     new Select(driver.findElement(By.xpath("html/body/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[4]/div/div/div[2]/div[3]/div/div/select"))).selectByIndex(2);
+	    // driver.findElement(By.xpath(".//*[@class='icon-save']")).click(); .//*[@name='rubric']
+	     Thread.sleep(50);
+	     driver.findElement(By.xpath("html/body/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[4]/div/div/div[3]/button[2]")).click();//save button
+	 
+	     //  System.out.println("size="+li.size());
+	  //   li.get(2).click();
+	    
+		 coCount++;
+		 System.out.println("TLO created no="+coCount+"  name"+TLOname);
+		
+		}
+		catch(Exception e){System.out.print("Error   ="+COName);
+		//e.printStackTrace(); 
+		}
+	}
+}

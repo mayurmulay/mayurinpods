@@ -25,11 +25,11 @@ public class CreateLesson {
 		
 	
 		LaunchApp.Execute("http://autraining.inpods.com:8000");
-		Login.LoginD("inpodssa@amritatraining.edu","techone");
+		Login.LoginD("inpodssa@sar.com","techone");
 		
 		//String[][] Lesson=Read_Data.ReadData("lesson.csv");
 		
-		for(int i=901;i<965;i++)
+		for(int i=955;i<1005;i++)
 		{
 			String sectionId=i+"";
 			TechChangeSection.TechChangeSectionById(sectionId);
@@ -54,8 +54,8 @@ public class CreateLesson {
 					CreateChapter(data[0].trim());
 				}*/
 				try{
-				CreateChapter("InPods Training 2017");
-				CreateLesson("InPods Training 2017","link","https://s3.amazonaws.com/inpodsv2_ro/Help_videos/Amrita+training/Transcripts/Ettimadai+Lesson.pdf");
+				CreateChapter("InPods Training");
+				CreateLesson("InPods_Training","link","http://d180sla506zv4w.cloudfront.net/2017/ACE_Kerala/ACE+Lesson.pdf");
 				j++;}
 				catch(Exception e ){System.out.println("Error while Exicuting data"+i);
 				continue;

@@ -18,7 +18,8 @@ public class Clickevent {
 		}
 		catch(Exception e){JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
 		jse.executeScript("var evt = document.createEvent('MouseEvents');" + "evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);" + "arguments[0].dispatchEvent(evt);", element);
-			e.printStackTrace();element.click();}
+			e.printStackTrace();//element.click();
+			}
 	}
 	@Test
 	@Parameters({"href","Xpath"})

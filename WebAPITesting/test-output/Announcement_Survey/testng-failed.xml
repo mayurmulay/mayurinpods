@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Announcement_Survey]" parallel="methods">
+  <parameter name="pubDate" value="2"/>
+  <parameter name="TestData" value="AutoTestingMM"/>
+  <parameter name="Important" value="yes"/>
+  <parameter name="Enddate" value="2"/>
+  <parameter name="type" value="CourseFeedback"/>
+  <parameter name="password" value="password"/>
+  <parameter name="CountofQuestion" value="6"/>
+  <parameter name="message" value="Important Announcement"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="username" value="maym@inpods.com"/>
+  <parameter name="AssertString" value="Important Announcement"/>
+  <parameter name="title" value="Important Announcement"/>
+  <parameter name="name" value="NewSurvey"/>
+  <parameter name="URL" value="http://localhost/"/>
+  <parameter name="Ack" value="yes"/>
+  <parameter name="COmapping" value="Q1,1;Q2,2;Q3,3;Q4,4;Q5,5;Q6,4:5;Q7,4:3"/>
+  <test name="Login(failed)" parallel="methods">
+    <parameter name="username" value="maym@inpods.com"/>
+    <parameter name="password" value="password"/>
+    <classes>
+      <class name="Common.Login">
+        <methods>
+          <include name="LoginD" invocation-numbers="0 0 0"/>
+        </methods>
+      </class> <!-- Common.Login -->
+    </classes>
+  </test> <!-- Login(failed) -->
+  <test name="Create Survey(failed)" parallel="methods">
+    <parameter name="CountofQuestion" value="6"/>
+    <parameter name="name" value="NewSurvey"/>
+    <parameter name="type" value="CourseFeedback"/>
+    <parameter name="COmapping" value="Q1,1;Q2,2;Q3,3;Q4,4;Q5,5;Q6,4:5;Q7,4:3"/>
+    <classes>
+      <class name="Teacher.SurveyCreation">
+        <methods>
+          <include name="main" invocation-numbers="0 0 0"/>
+        </methods>
+      </class> <!-- Teacher.SurveyCreation -->
+    </classes>
+  </test> <!-- Create Survey(failed) -->
+</suite> <!-- Failed suite [Announcement_Survey] -->

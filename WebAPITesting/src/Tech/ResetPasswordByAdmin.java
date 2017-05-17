@@ -26,8 +26,8 @@ public class ResetPasswordByAdmin {
 	//URL=Read_Data.ReadData("URL.csv");
 	
 	//Path=URL[0][0].trim();
-	Path="http://demo.inpods.com/";
-	String[][] Data=Read_Data.ReadData("PasswordChangeInBulk\\change.csv");
+	Path="http://localhost/";
+	String[][] Data=Read_Data.ReadData("PasswordChangeInBulk\\Usernamechange.csv");
 	LaunchApp.main(URL[0]);
 	Login.main(Data[0]);
 	//LaunchApp.driver.findElement(By.xpath("//*[contains(text(),'Admin')]")).click();

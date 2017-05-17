@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import Tech.PublishSectionLevelReport;
 import Common.AlertHandling;
+import Common.Clickevent;
 import Common.Gototab;
 import Common.LaunchApp;
 import Common.MooveToElement;
@@ -90,11 +91,19 @@ public class Publish_Section_level_Report {
 	}
 	public static void publish()
 	{
+		try {
+		LaunchApp.driver.findElement(By.xpath(".//*[@href='/Report/DownloadConceptReport']")).click();	
+		Thread.sleep(40000);
+	
 		LaunchApp.driver.findElement(By.linkText("Publish Outcomes Data")).click();
 		Alert alert = LaunchApp.driver.switchTo().alert();
+		LaunchApp.driver.findElement(By.xpath(".//*[@data-ng-click='downloadCOAttainmentReport()']']")).click();	
 		waitForAlert();
 	    waitForAlert();
-	     
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public static void UnpublishIndirect()
 	{
@@ -141,24 +150,29 @@ public class Publish_Section_level_Report {
 		ClickEvent(element);
 		Thread.sleep(3000);
 		
-		 List <WebElement> li=LaunchApp.driver.findElements(By.xpath(".//*[@type='checkbox']"));
+		 List <WebElement> li=LaunchApp.driver.findElements(By.xpath(".//*[@type='checkbox' and @ancestor='false']"));
+		 List <WebElement> li1=LaunchApp.driver.findElements(By.xpath(".//*[@type='checkbox' and @ancestor='true']"));
+		 li.addAll(li1);
+		 
 		   	for(int j=0;j<li.size();j++)
 			  {
 				  WebElement e = li.get(j);
+				  System.out.println(li.get(j).getAttribute("id"));
 				  if ( !e.isSelected() )
 				  {
 					  Thread.sleep(1000);
-				       e.click();
+					 Clickevent.ClickEvent(e); //First element is not clickable
+                       
 				       Thread.sleep(1000);
 				  }
-				  System.out.println(li.get(j).getAttribute("id"));
+				  
 			  }
 		   	Thread.sleep(3000);
 		   	element=LaunchApp.driver.findElement(By.xpath(".//*[@class='uploadAssignmentsClass']")); 
 			ClickEvent(element);
 			Thread.sleep(40000);
 		}
-		catch(Exception e){}
+		catch(Exception e){e.printStackTrace();}
     	
     }
 

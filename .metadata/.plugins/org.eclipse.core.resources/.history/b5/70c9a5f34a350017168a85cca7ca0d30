@@ -1,0 +1,21 @@
+package Teacher;
+
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import Common.Gototab;
+
+public class ResumitTheAssignment {
+
+	@Test
+	@Parameters({"Student_name","Assignemnt_Name"})
+	public static void RResubmit(String Student_name,String Assignemnt_Name)
+	{
+		try
+		{
+			Gototab.execute("Assignments");
+			
+		}catch (Exception e){}
+		
+	}
+}

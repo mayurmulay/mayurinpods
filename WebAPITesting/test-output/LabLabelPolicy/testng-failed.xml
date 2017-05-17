@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [LabLabelPolicy]" parallel="methods">
+  <parameter name="Picname" value="LabLabelPolicy"/>
+  <parameter name="text" value="String:ImportMarks"/>
+  <parameter name="Value" value="Lab"/>
+  <parameter name="username" value="inpodssa@sar.com"/>
+  <parameter name="TestData" value="http://testing.inpods.com:88/"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="type1" value="yes"/>
+  <parameter name="PolicyName" value="LabLabel"/>
+  <parameter name="tabname" value="Manage Course"/>
+  <parameter name="URL" value="http://testing.inpods.com:88/"/>
+  <parameter name="password" value="techone"/>
+  <test name="ValiDate Lab Label(failed)" parallel="methods">
+    <parameter name="Picname" value="LabLabelPolicy"/>
+    <parameter name="text" value="String:ImportMarks"/>
+    <parameter name="type1" value="yes"/>
+    <classes>
+      <class name="Common.ValidateAndSnap">
+        <methods>
+          <include name="ValidateStringYes" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Common.ValidateAndSnap -->
+    </classes>
+  </test> <!-- ValiDate Lab Label(failed) -->
+</suite> <!-- Failed suite [LabLabelPolicy] -->

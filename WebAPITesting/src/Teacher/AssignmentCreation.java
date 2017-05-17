@@ -39,6 +39,7 @@ public class AssignmentCreation {
 	@Parameters({"AssignmentListFile","AssignmentType"})
 	public static void AssignmentCreationDataCreation(String AssignmentListFile,String AssignmentType)
 	{
+		 IsUniversity="false";
 		String[] args1 = new String[10];
 		  args1[0]=(String) "Manage Course";
 		 Gototab.main(args1);
@@ -156,7 +157,7 @@ public class AssignmentCreation {
 			
 			if(s[0].equals("Start Date"))
 			{
-				 
+				LaunchApp.driver.navigate().refresh();
 				 String []hm=s[1].split(";");
 				 Loger.LogEvent("Start Date","Start date Selecting");   
 				 System.out.println("in start date date="+s[1]);
@@ -168,7 +169,7 @@ public class AssignmentCreation {
 				  Thread.sleep(1000);
 				  try
 				  {
-					  if(hm[0].startsWith("00"))
+					  if(!hm[0].startsWith("00"))
 					  {
 				         setStartdate(hm[0],"Start");
 					  }
@@ -195,6 +196,7 @@ public class AssignmentCreation {
 			}
 			if(s[0].equals("Due Date"))
 			{
+				LaunchApp.driver.navigate().refresh();
 				 position="top: 325";
 				 String []hm=s[1].split(";");
 				 Loger.LogEvent("Due date","Due date Selecting");   
@@ -298,9 +300,9 @@ public class AssignmentCreation {
 					Loger.LogEvent("IsUniversity","IsUniversity is true");
 					LaunchApp.driver.findElement(By.xpath(".//*[@name='isUniversity' and @id='Yes']")).click(); 
 					if(s[2].trim().equals("NoCO"))
-					IsUniversity="true";
+					{IsUniversity="True";}
 					else
-					LaunchApp.driver.findElement(By.xpath(".//*[@name='showCourseOutcome' and @id='Yes']")).click();
+					{LaunchApp.driver.findElement(By.xpath(".//*[@name='showCourseOutcome' and @id='Yes']")).click();}
 					Loger.LogEvent("IsUniversity","IsUniversity is true"); 
 				}
 				
@@ -313,7 +315,7 @@ public class AssignmentCreation {
 		  }
 		  i++;
 		}
-		EditActivity.main(str);
+		EditActivity.main(str);     //Str is assignment Data 
 		
 	}
 	private void Weightage(String s) {
@@ -350,24 +352,24 @@ public class AssignmentCreation {
 	{
 		try
 		{
-		 Date date1;
 		 GregorianCalendar date = new GregorianCalendar();
-	     int  month = date.get(Calendar.MONTH);
+	     int  month = (date.get(Calendar.MONTH))+1;
 	     int  year = date.get(Calendar.YEAR);
 	     int day1= date.get(Calendar.DAY_OF_MONTH);
 	     System.out.println("Current month="+month);
-	     String todayDate=(month+1)+"/"+day1+"/"+year;
-	     if(Tdate.equals("Due"))
+	     String todayDate=(month)+"/"+day1+"/"+year;
+	     if(Tdate.equals("Due"))                                   //validating change in month 
 	     {
 	    	 String Mdate1=GetNextdate(todayDate,15);
 	    	 String[] div1=Mdate1.split("/");
 	    	 month=Integer.parseInt(div1[0]);
 	    	 System.out.println("Demo"+month);
 	     }
+	
 	     String[] div1=Mdate.split("/");
 	     int MD=Integer.parseInt(div1[0]);
 	     Mdate=GetNextdate(todayDate,MD);
-	     System.out.println("dayte="+Mdate);
+	     System.out.println("Date To set after calculation="+Mdate);
 	     div1=Mdate.split("/");
 	     System.out.println("Month to set before cal"+month);
 		 month=(Integer.parseInt(div1[0]))-(month);
@@ -421,14 +423,22 @@ public class AssignmentCreation {
 			 System.out.println("Day="+day3+"month="+month+"year="+year);
 		        List  <WebElement> datedemo = LaunchApp.driver.findElements(By.xpath("//*[ (contains(@style,'display: block;'))]//*[@class='day' and .='"+day3+"']"));
 		        System.out.println(datedemo.size());
-		        try
+		     /*   try
 		        {
 		        	
 		        	ClickEvent(datedemo.get(0));
 		        	System.out.println("datedemo=0");
 		        }
 		        catch(Exception e){try{ClickEvent(datedemo.get(1));System.out.println("datedemo=1");}catch(Exception e1)
-		        {System.out.println("in cache demo");  ClickEvent(datedemo.get(2));System.out.println("datedemo=2");}}
+		        {System.out.println("in cache demo");  ClickEvent(datedemo.get(2));System.out.println("datedemo=2");}}   */
+		        if(Tdate.equals("Due"))
+		        {
+		        	ClickEvent(datedemo.get(2));
+		        }
+		        else
+		        {
+		        	ClickEvent(datedemo.get(1));
+		        }
 		         
 		 }
 		 else
@@ -437,17 +447,24 @@ public class AssignmentCreation {
 		       // List  <WebElement> datedemo = LaunchApp.driver.findElements(By.xpath(".//*[@class='day' and .='"+day+"']"));
 		        List  <WebElement> datedemo = LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@class='day' and .='"+day+"']"));
 			       
-		        System.out.println(datedemo.size());
-		        try
+		        System.out.println("size of datedemo"+datedemo.size());
+		    /*    try
 		        {
-		        	
 		        	ClickEvent(datedemo.get(0));
-		        	
 		        }
 		        catch(Exception e){
-		        	try{ClickEvent(datedemo.get(1));}
+		        	try{System.out.println("in click 2");ClickEvent(datedemo.get(1));}
 		        catch(Exception e1)
-		        {  System.out.println("in cache demo");  ClickEvent(datedemo.get(2));}}
+		        {  System.out.println("in click 3");  ClickEvent(datedemo.get(2));}
+		        	}    */
+		        if(Tdate.equals("Due"))
+		        {
+		        	ClickEvent(datedemo.get(2));
+		        }
+		        else
+		        {
+		        	ClickEvent(datedemo.get(1));
+		        }
 		         
 		 }
 		 
@@ -459,10 +476,13 @@ public class AssignmentCreation {
 	}
 	public static void SetTime(int hr,int Min)
 	{
+		try
+		{
+		Thread.sleep(10000);
 		
 		List <WebElement> timebtn=LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@class='picker-switch accordion-toggle']"));
 		try{ClickEvent(timebtn.get(0));System.out.println("timebtn=0");}catch(Exception e){try{ClickEvent(timebtn.get(1));System.out.println("timebtn=1");}catch(Exception e1){try{ClickEvent(timebtn.get(2));System.out.println("timebtn=1");}catch(Exception e2){ClickEvent(timebtn.get(3));}}}
-		
+		Thread.sleep(10000);
 		// Code to select Hour 
 		//List <WebElement> Hrbtn=LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@data-action='showHours' and .='00']"));
 		//try{Hrbtn.get(0).click();System.out.println("Hrbtn=0");}catch(Exception e){try{Hrbtn.get(1).click();System.out.println("Hrbtn=0");}catch(Exception e2){try{Hrbtn.get(2).click();System.out.println("Hrbtn=0");}catch(Exception e3){}}}
@@ -511,11 +531,16 @@ public class AssignmentCreation {
 		}
 		}
 		}
+		}catch(Exception e){}
 	}
 	public static void ClickEvent(WebElement element){
-		JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
-	    jse.executeScript("var evt = document.createEvent('MouseEvents');" + "evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);" + "arguments[0].dispatchEvent(evt);", element);
-		
+		try
+		{
+			element.click();
+		}
+		catch(Exception e){JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
+		jse.executeScript("var evt = document.createEvent('MouseEvents');" + "evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);" + "arguments[0].dispatchEvent(evt);", element);
+			e.printStackTrace();element.click();}
 	}
 	public static void Name(String[] s)
 	{

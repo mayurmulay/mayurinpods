@@ -1,0 +1,49 @@
+package MainPackage;
+
+import java.util.Scanner;
+
+import Read_Data.Readxlsx;
+import Read_Data.WriteData;
+
+public class ProcessICTData {
+	static Scanner scanner = new Scanner(System.in);
+	public static void ProcessData()
+	{
+		//String [][]data=Readxlsx.ReadData("BSc(IT)_Students_withDivision.csv");
+		System.out.println("Enter the file name which has student data in following format\n");
+		System.out.println("Sr No|Roll No. or username|Student Name|First Name|Middle Name|Last Name |Degree+Institute+CurrentSemester+DIV |Email|Mobile No|Birth Date");
+		String StudentFileName= scanner.nextLine();
+		String [][]data=Readxlsx.ReadData(StudentFileName.trim());
+		String [][] StudentData= new String[10000][10];
+		int count=0;
+		while(data[count][0]!=null)
+			{
+			StudentData[count][0]=data[count][6];
+			StudentData[count][1]=data[count][1];
+			System.out.println("StudentListforDivisinmaking"+data[count][1]);
+			count++;
+		    }
+		WriteData.WriteCSV(StudentData,"StudentListforDivisinmaking",count);
+	   count=0;
+		while(data[count][0]!=null)
+		{
+			StudentData[count][0]="Student";
+			StudentData[count][1]=data[count][1];
+			StudentData[count][2]=data[count][7];
+			StudentData[count][3]="dummy.user@inpods.com";
+			StudentData[count][4]=data[count][3].trim();
+			StudentData[count][5]=data[count][5].trim();
+			StudentData[count][6]=" ";
+			StudentData[count][7]=data[count][1];
+			count++;
+			System.out.println("StudentListforDivisinmaking"+data[count][1]);
+		}
+		
+		WriteData.WriteCSV(StudentData,"StudentCreation",count);
+	}
+	public static void main(String [] str)
+	{
+		ProcessData();
+	}
+
+}

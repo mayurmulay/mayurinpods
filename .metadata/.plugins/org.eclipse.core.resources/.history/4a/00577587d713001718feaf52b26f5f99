@@ -1,0 +1,25 @@
+package otherScript;
+
+import Common.ChangeSection;
+import Common.LaunchApp;
+import Common.Login;
+import Data.Read_Data;
+
+public class DownloadGradebook {
+	public static void main(String str[])
+	{
+		
+	String[][] Data=Read_Data.ReadData("AssgmentAprove.csv");
+	int i=0;
+	while(Data[i][0]!=null)
+	{
+		try
+		{
+		 LaunchApp.Execute("Data is present in URL file");
+		 Login.LoginD(Data[i][0].trim(),Data[i][1].trim());
+		 ChangeSection.selectSection(Data[i][1].trim());
+		}catch(Exception e){e.printStackTrace();}
+	}
+	}
+	
+}

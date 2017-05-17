@@ -87,7 +87,7 @@ public class UploadFile {
 		Thread.sleep(10000);
 	    Alert alert = LaunchApp.driver.switchTo().alert();
 	    String Data=alert.getText();
-	    if(Data.contains("Marks Uploaded Successfully"))
+	    if(Data.contains("Marks Uploading Inprogess, Please check the results after 10 mins."))
 	       {
 	    	   Assert.assertEquals(1, 1);
 	       }
@@ -100,7 +100,7 @@ public class UploadFile {
 		 MooveToElement.moveToElenment();
 		 ExceptionHndeler.getScreen("SAO_Report"+name.trim());
 		 Thread.sleep(3000);
-		        
+		 LaunchApp.driver.findElement(By.xpath(".//*[.='Download Excel']")).click();
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					ExceptionHndeler.Log("Upload","Upload", e);

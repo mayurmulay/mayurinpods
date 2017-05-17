@@ -22,9 +22,9 @@ public static void main(String[] args) {
 TestNG runner=new TestNG();
 
 List<String> suitefiles=new ArrayList<String>();
- // RestoreDB.ConnectDB("SARTierII_ProdDB","E:\\SARTierII_ProdDB.bak");
- //  RestoreDB.ConnectDB("inpodsdb","E:\\inpodsdb.bak");
- //  RestoreDB.ConnectDB("aspnetdb","E:\\aspnetdb.bak");
+RestoreDB.ConnectDB("SARTierII_ProdDB","E:\\SARTierII_ProdDB.bak");
+RestoreDB.ConnectDB("inpodsdb","E:\\inpodsdb.bak");
+RestoreDB.ConnectDB("aspnetdb","E:\\aspnetdb.bak");
  if(args.length>0)
  {
 	 for(int i=0;i<args.length;i++)

@@ -11,13 +11,14 @@ import Common.ChangeSection;
 import Common.Gototab;
 import Common.LaunchApp;
 import Common.Login;
+import Data.ExceptionHndeler;
 import Data.Read_Data;
 
 public class DownloadGradebook {
 	public static void main(String str[])
 	{
 		
-	String[][] Data=Read_Data.ReadData("AssgmentAprove.csv");
+	String[][] Data=Read_Data.ReadData("06052017_KLU duplicate marks uplaed assignment list.csv");
 	int i=1;
 	while(Data[i][0]!=null)
 	{
@@ -25,31 +26,35 @@ public class DownloadGradebook {
 		{
 		 LaunchApp.Execute("Data is present in URL file");
 		 Thread.sleep(3000);
-		 Login.LoginD(Data[i][0].trim(),Data[i][1].trim());
+		 //Login.LoginD(Data[i][0].trim(),Data[i][1].trim());
+		 Login.LoginD(Data[i][0].trim(),Data[i][1].trim(),"KL University");
 		 Thread.sleep(3000);
 		 ChangeSection.selectSection(Data[i][2].trim());
 		 Thread.sleep(3000);
 		 Gototab.execute("Manage Course");
 		 Thread.sleep(3000);
-		 DownloadGradebook();
-		 
+		 DownloadGradebook(Data[i][4].trim());
+		 Thread.sleep(5000);
+		 ExceptionHndeler.getScreen(Data[i][0].trim()+"_"+Data[i][4].trim());
 		 LaunchApp.driver.close();
 		 i++;
 		}catch(Exception e){e.printStackTrace();}
 		
 	}
 	}
-	public static void DownloadGradebook()
+	public static void DownloadGradebook(String Ass_name)
 	{
 		try
 		{
 		LaunchApp.driver.findElement(By.xpath(".//*[@name='uploadAssignmentMarks']")).click();
 		Thread.sleep(3000);
-		downloadgradebook("Mid Test 2");
+		downloadgradebook(Ass_name);
 		
-		downloadgradebook("End Sem Exam");
+		Thread.sleep(3000);
 		
-		downloadgradebook("Mid Test 1");
+		//downloadgradebook("End Sem Exam");
+		
+		//downloadgradebook("Mid Test 1");
 		
 		}catch(Exception e){e.printStackTrace();}
 	}

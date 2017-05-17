@@ -182,7 +182,7 @@ public class Attempt_test extends Thread  {
 			{
 				try
 				{
-				if(s[1].equals("no"))
+				if(s[1].equalsIgnoreCase("no"))
 				{
 					try
 					{

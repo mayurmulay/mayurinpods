@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [OptQuestionMarksUpload]" parallel="methods">
+  <parameter name="INputDatapath" value="Flavour 7-8"/>
+  <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\Set1OrSet2Set3Comp_Mayur Mulay_AutoTestingMM.xlsx"/>
+  <parameter name="password" value="techone"/>
+  <parameter name="filename" value="OptionalAssignmentLevelCOattanmentValidation.csv"/>
+  <parameter name="TestData" value="http://testing.inpods.com:88/"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="PolicyName" value="IsNotSubmitted"/>
+  <parameter name="Value" value="True"/>
+  <parameter name="name" value="Set1OrSet2Set3Comp"/>
+  <parameter name="SectionId" value="1"/>
+  <parameter name="URL" value="http://testing.inpods.com:88/"/>
+  <parameter name="username" value="inpodssa@sar.com"/>
+  <listeners>
+    <listener class-name="ReportGenration.RetryListener"/>
+  </listeners>
+  <test name="Set policy_Select Section(failed)" parallel="methods">
+    <parameter name="SectionId" value="1"/>
+    <classes>
+      <class name="Tech.TechChangeSection">
+        <methods>
+          <include name="TechChangeSection"/>
+        </methods>
+      </class> <!-- Tech.TechChangeSection -->
+    </classes>
+  </test> <!-- Set policy_Select Section(failed) -->
+  <test name="Upload QP 2 - M1 - Assignment 7(failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\QP 2 - M1 - Assignment 7_Mayur Mulay_AutoTestingMMB.xlsx"/>
+    <parameter name="TestData" value="AutoTestingMM_B"/>
+    <parameter name="name" value="QP 2 - M1 - Assignment 7"/>
+    <classes>
+      <class name="Teacher.UploadFile">
+        <methods>
+          <include name="upload_gradebook" invocation-numbers="0 0 0"/>
+        </methods>
+      </class> <!-- Teacher.UploadFile -->
+    </classes>
+  </test> <!-- Upload QP 2 - M1 - Assignment 7(failed) -->
+  <test name="Upload Lab - SetOptionalDiffCO(failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\Lab - SetOptionalDiffCO_Mayur Mulay_AutoTestingMMB.xlsx"/>
+    <parameter name="TestData" value="AutoTestingMM_B"/>
+    <parameter name="name" value="Lab - SetOptionalDiffCO"/>
+    <classes>
+      <class name="Teacher.UploadFile">
+        <methods>
+          <include name="upload_gradebook" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.UploadFile -->
+    </classes>
+  </test> <!-- Upload Lab - SetOptionalDiffCO(failed) -->
+  <test name="Upload OptAssignment2 mm(failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\OptAssignment2_Mayur Mulay_AutoTestingMM.xlsx"/>
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="name" value="OptAssignment2"/>
+    <classes>
+      <class name="Teacher.UploadFile">
+        <methods>
+          <include name="upload_gradebook" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.UploadFile -->
+    </classes>
+  </test> <!-- Upload OptAssignment2 mm(failed) -->
+  <test name="Upload Set1OptionalSet2Comp mm(failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\Set1OptionalSet2Comp_Mayur Mulay_AutoTestingMM.xlsx"/>
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="name" value="Set1OptionalSet2Comp"/>
+    <classes>
+      <class name="Teacher.UploadFile">
+        <methods>
+          <include name="upload_gradebook" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.UploadFile -->
+    </classes>
+  </test> <!-- Upload Set1OptionalSet2Comp mm(failed) -->
+  <test name="Upload  Set1OrSet2(DiffCountofQ)mm (failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\Set1OrSet2(DiffCountofQ)_Mayur Mulay_Lab1AutoTestingMM.xlsx"/>
+    <parameter name="TestData" value="Lab1_AutoTestingMM"/>
+    <parameter name="name" value="Set1OrSet2(DiffCountofQ)"/>
+    <classes>
+      <class name="Teacher.UploadFile">
+        <methods>
+          <include name="upload_gradebook" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.UploadFile -->
+    </classes>
+  </test> <!-- Upload  Set1OrSet2(DiffCountofQ)mm (failed) -->
+  <test name="Upload Set1OrSet2 mm(failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\Set1OrSet2_Mayur Mulay_AutoTestingMM.xlsx"/>
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="name" value="Set1OrSet2"/>
+    <classes>
+      <class name="Teacher.UploadFile">
+        <methods>
+          <include name="upload_gradebook" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.UploadFile -->
+    </classes>
+  </test> <!-- Upload Set1OrSet2 mm(failed) -->
+  <test name="Set1OrSet2Set3Comp mm(failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\Set1OrSet2Set3Comp_Mayur Mulay_AutoTestingMM.xlsx"/>
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="name" value="Set1OrSet2Set3Comp"/>
+    <classes>
+      <class name="Teacher.UploadFile">
+        <methods>
+          <include name="upload_gradebook" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.UploadFile -->
+    </classes>
+  </test> <!-- Set1OrSet2Set3Comp mm(failed) -->
+  <test name="Validate Marks and CO attainment(failed)" parallel="methods">
+    <parameter name="filename" value="OptionalAssignmentLevelCOattanmentValidation.csv"/>
+    <classes>
+      <class name="Teacher.ValidateAssignmentLevelCOAttainment">
+        <methods>
+          <include name="exicute" invocation-numbers="0 0 0"/>
+        </methods>
+      </class> <!-- Teacher.ValidateAssignmentLevelCOAttainment -->
+    </classes>
+  </test> <!-- Validate Marks and CO attainment(failed) -->
+  <test name="Reset policy Select Section(failed)" parallel="methods">
+    <parameter name="SectionId" value="1"/>
+    <classes>
+      <class name="Tech.TechChangeSection">
+        <methods>
+          <include name="TechChangeSection"/>
+        </methods>
+      </class> <!-- Tech.TechChangeSection -->
+    </classes>
+  </test> <!-- Reset policy Select Section(failed) -->
+</suite> <!-- Failed suite [OptQuestionMarksUpload] -->

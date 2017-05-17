@@ -23,16 +23,85 @@ public class CreateCO {
 	{
 		try
 		{
+			PutCOsinDraftMode(Program,Course);
+		  Thread.sleep(10000);
+		    
+		 LaunchApp.driver.findElement(By.xpath(".//*[@ng-click='createCourseObj()']")).click();
+		 Thread.sleep(2000);
+
+		 Thread.sleep(2000);
+		 LaunchApp.driver.findElement(By.xpath(".//*[@id='courseObj_name']")).sendKeys(CO_name);
+		 Thread.sleep(2000);
+	     LaunchApp.driver.findElement(By.xpath(".//*[@id='courseObj_content']")).sendKeys(CO_Description);
+	     Thread.sleep(2000);
+	     if(!Rubric.contains("none"))
+	     {
+	     LaunchApp.driver.findElement(By.xpath(".//*[@name='rubric']")).click();
+	     Thread.sleep(1000);
+	     new Select(LaunchApp.driver.findElement(By.xpath(".//*[@name='rubric']"))).selectByVisibleText(Rubric.trim());
+	     LaunchApp.driver.findElement(By.xpath(".//*[@name='rubric']")).sendKeys(Rubric.trim());
+	     Thread.sleep(2000);
+	     }
+	     if(!Blooms.contains("none"))
+	     { LaunchApp.driver.findElement(By.xpath(".//*[@name='bloom']")).click();
+	     Thread.sleep(1000);
+	     new Select(LaunchApp.driver.findElement(By.xpath(".//*[@name='bloom']"))).selectByVisibleText(Blooms.trim());
+	     LaunchApp.driver.findElement(By.xpath(".//*[@name='bloom']")).sendKeys(Blooms.trim());
+	     Thread.sleep(2000);
+	     }
+	    
+	     LaunchApp.driver.findElement(By.xpath(".//*[@ng-click='saveCourseObj()']")).click();
+	     Thread.sleep(2000);
+	     try{
+	    	 AlertHandling.waitForAlert();}catch(Exception e){}
+	     Thread.sleep(3000);
+	     
+	     LaunchApp.driver.findElement(By.xpath(".//*[@data-ng-model='submitForApproval']")).click();
+	     Thread.sleep(2000);
+	     LaunchApp.driver.findElement(By.xpath(".//*[@data-ng-click='submitCourseObj(submitForApproval)']")).click();
+	     Thread.sleep(20000);
+	     String Text= LaunchApp.driver.findElement(By.xpath(".//*[@id='tblCourseObjectives']")).getText();
+	     WebElement element=LaunchApp.driver.findElement(By.xpath(".//*[@data-ng-click='approve()']"));
+	     LaunchApp.ClickEvent(element);
+	     
+	     
+	     ExceptionHndeler.getScreen("CO_created"+CO_name.substring(0,CO_name.length()-1 ));
+	      if(Text.contains(CO_name.trim()) && Text.contains(CO_Description.trim()))
+	     {
+	    	 Assert.assertTrue(true, "User able to create CO");
+	     }
+	     else
+	     {
+	    	 Assert.fail("Not able to Create CO table=\n"+Text);
+	     }
+	     Thread.sleep(1000);
+	    // LaunchApp.driver.findElement(By.xpath(".//*[@ng-click='saveCourseObj()']")).click();
+	     
+	     
+	     }
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			ExceptionHndeler.Log("Alert","Create CO", e);
+			 Assert.fail("Not able to Create CO"+ e.getMessage());
+			
+		}
+	}
+	
+  public static void PutCOsinDraftMode( String Program, String Course)
+  {
+	  try
+		{
 			Thread.sleep(3000);
-		LaunchApp.driver.findElement(By.xpath("//.//*[@id='side-menu']/li[9]/a")).click();
+		    LaunchApp.driver.findElement(By.xpath("//.//*[@id='side-menu']/li[9]/a")).click();
 		    Thread.sleep(3000);
-	WebElement e1=	LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'COs')]"));
-	LaunchApp.ClickEvent(e1);
-		     Thread.sleep(3000);
-		new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='program_select']"))).selectByVisibleText(Program.trim());
-		     Thread.sleep(15000);
-	    new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='course_select']"))).selectByVisibleText(Course.trim());
-		     Thread.sleep(3000);
+	        WebElement e1=	LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'COs')]"));
+	        LaunchApp.ClickEvent(e1);
+		    Thread.sleep(3000);
+		    new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='program_select']"))).selectByVisibleText(Program.trim());
+		    Thread.sleep(15000);
+	        new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='course_select']"))).selectByVisibleText(Course.trim());
+		    Thread.sleep(3000);
 		    Thread.sleep(3000);
 		    try
 		    {
@@ -66,72 +135,12 @@ public class CreateCO {
 				     Thread.sleep(3000);
 			    	}
 		    	}
-		    }catch(Exception e){Loger.LogEvent("Update CO","CO not updated"); 
-		    Assert.fail("Not able to click on Update CO");
-		    }
-		    
-		    Thread.sleep(10000);
-		    
-		 LaunchApp.driver.findElement(By.xpath(".//*[@ng-click='createCourseObj()']")).click();
-		 Thread.sleep(2000);
-
-		 Thread.sleep(2000);
-		 LaunchApp.driver.findElement(By.xpath(".//*[@id='courseObj_name']")).sendKeys(CO_name);
-		 Thread.sleep(2000);
-	     LaunchApp.driver.findElement(By.xpath(".//*[@id='courseObj_content']")).sendKeys(CO_Description);
-	     Thread.sleep(2000);
-	     if(!Rubric.contains("none"))
-	     {
-	     LaunchApp.driver.findElement(By.xpath(".//*[@name='rubric']")).click();
-	     Thread.sleep(1000);
-	     new Select(LaunchApp.driver.findElement(By.xpath(".//*[@name='rubric']"))).selectByVisibleText(Rubric.trim());
-	     LaunchApp.driver.findElement(By.xpath(".//*[@name='rubric']")).sendKeys(Rubric.trim());
-	     Thread.sleep(2000);
-	     }
-	     if(!Blooms.contains("none"))
-	     { LaunchApp.driver.findElement(By.xpath(".//*[@name='bloom']")).click();
-	     Thread.sleep(1000);
-	     new Select(LaunchApp.driver.findElement(By.xpath(".//*[@name='bloom']"))).selectByVisibleText(Blooms.trim());
-	     LaunchApp.driver.findElement(By.xpath(".//*[@name='bloom']")).sendKeys(Blooms.trim());
-	     Thread.sleep(2000);
-	     }
-	    
-	     LaunchApp.driver.findElement(By.xpath(".//*[@ng-click='saveCourseObj()']")).click();
-	     Thread.sleep(2000);
-	     try{
-	    	 AlertHandling.waitForAlert();}catch(Exception e){}
-	     Thread.sleep(1000);
-	     
-	     LaunchApp.driver.findElement(By.xpath(".//*[@data-ng-model='submitForApproval']")).click();
-	     Thread.sleep(2000);
-	     LaunchApp.driver.findElement(By.xpath(".//*[@data-ng-click='submitCourseObj(submitForApproval)']")).click();
-	     Thread.sleep(20000);
-	     String Text= LaunchApp.driver.findElement(By.xpath(".//*[@id='tblCourseObjectives']")).getText();
-	     WebElement element=LaunchApp.driver.findElement(By.xpath(".//*[@data-ng-click='approve()']"));
-	     LaunchApp.ClickEvent(element);
-	     
-	     ExceptionHndeler.getScreen("CO_created"+CO_name.substring(0,CO_name.length()-1 ));
-	      if(Text.contains(CO_name.trim()) && Text.contains(CO_Description.trim()))
-	     {
-	    	 Assert.assertTrue(true, "User able to create CO");
-	     }
-	     else
-	     {
-	    	 Assert.fail("Not able to Create CO table=\n"+Text);
-	     }
-	     Thread.sleep(1000);
-	    // LaunchApp.driver.findElement(By.xpath(".//*[@ng-click='saveCourseObj()']")).click();
-	     
-	     
-	     }
-		catch(Exception e)
-		{
-			e.printStackTrace();
-			ExceptionHndeler.Log("Alert","Create lesson", e);
-			 Assert.fail("Not able to Create CO"+ e.getMessage());
-			
-		}
-	}
-	
-
+		      }catch(Exception e){Loger.LogEvent("Update CO","CO not updated");  e.printStackTrace();
+		                          Assert.fail("Not able to click on Update CO");
+		                          }
+		  }catch(Exception e){Loger.LogEvent("Update CO","CO not updated"); e.printStackTrace();
+		                       Assert.fail("Not able to click on Update CO");
+		                       }
+  }
+	  
 }

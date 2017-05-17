@@ -5,20 +5,31 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import Data.Read_Data;
+
 public class RestoreDB {
 
 	public static void main(String[] args) {
 		
 		//ConnectDB("SARTierII_ProdDB","E:\\SARTierII_ProdDB.bak");
-		//ConnectDB("inpodsdb","E:\\inpodsdb.bak");
-		//ConnectDB("aspnetdb","E:\\aspnetdb.bak");
+	//	ConnectDB("inpodsdb","E:\\inpodsdb.bak");
+	//	ConnectDB("aspnetdb","E:\\aspnetdb.bak");
 		DropDB("Mayur24012017_TestDB");
 	}
   public static void ConnectDB(String DBname,String path)
   {
 	 
+	  String[][] URl=Read_Data.ReadData("URL.csv");
+		String URL1=URl[0][0].trim();
+		URL1=URL1.replace("http","");
+		URL1=URL1.replace("/","");
+		URL1=URL1.replace(":","");
+		URL1=URL1.replace("8","");
+		URL1=URL1.replace("1","");
+		URL1=URL1.replace("0","");
+		URL1=URL1.replace("9","");
 	  try {
-		  String url = "jdbc:sqlserver://USER-PC;databaseName=master";
+		  String url = "jdbc:sqlserver://"+URL1.trim()+";databaseName=master";
 		  Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		  Connection con = DriverManager.getConnection(url, "sa", "p@ssw0rd000");
 		  Statement stmt=con.createStatement(); 
@@ -28,12 +39,16 @@ public class RestoreDB {
 		  String sql7="\nRESTORE DATABASE ["+DBname+"]\n";  String sql8="FROM DISK = N'"+path+"'\n";   String sql9="WITH FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 10 \n";
 		  str=sql7+sql8+sql9;
 		  stmt.addBatch(str); stmt.executeBatch();
-		  sql3="ALTER DATABASE [SARTierII_ProdDB] \n"; sql4="SET online\n"; sql5="WITH ROLLBACK IMMEDIATE\n";
+		  sql3="ALTER DATABASE ["+DBname+"] \n"; sql4="SET online\n"; sql5="WITH ROLLBACK IMMEDIATE\n";
 		  str=sql1+sql3+sql4+sql5;
 		  stmt.addBatch(str);
 		  System.out.println(str);
 		  stmt.executeBatch();  
-		  System.out.println(DBname+"Database Restored Successfully...");
+		  System.out.println("Database:"+DBname+"  Restored Successfully...");
+		  
+		  Runtime.getRuntime().exec("runas /profile /user:Administrator \"cmd.exe net stop mssqlserver\"");
+		 // Process p = Runtime.getRuntime().exec("net stop mssqlserver");
+		 //  p.wait();
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

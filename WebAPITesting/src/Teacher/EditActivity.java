@@ -33,14 +33,7 @@ public class EditActivity {
 			MooveToElement.moveToElenment(".//*[@name='cbxActivityType']");
 			ExceptionHndeler.Log("Activity Adding","Assignment Creation", e);
 		}
-			try {
-			Thread.sleep(100);
-			LaunchApp.driver.findElement(By.name("lblActivitySubTypeName")).click();
-		} catch (Exception e) {
-			System.out.println("in catche model dilog box");
-			LaunchApp.driver.findElement(By.name("lblActivitySubTypeName")).click();
-			ExceptionHndeler.Log("Sub Activity Adding","Assignment Creation", e);
-		}
+			
 	}
 	public void editActivity(String [] str)
 	{
@@ -49,6 +42,16 @@ public class EditActivity {
 		String [] s={"m","mk"};
 		str[0].trim();
 		(new EditActivity()).createActivity(str[0]);
+		
+		try {
+			Thread.sleep(100);
+			LaunchApp.driver.findElement(By.name("lblActivitySubTypeName")).click();
+		} catch (Exception e) {
+			System.out.println("in catche model dilog box");
+			LaunchApp.driver.findElement(By.name("lblActivitySubTypeName")).click();
+			ExceptionHndeler.Log("Sub Activity Adding","Assignment Creation", e);
+		}
+		
 		System.out.println("Assignment type="+AssignmentCreation.assType);
         if(!(AssignmentCreation.assType.equals("External")) && !(AssignmentCreation.assType.equals("Lab")))
 		while(!str[i].equals("End"))

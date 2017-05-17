@@ -29,11 +29,11 @@ public class CreateAssignment {
 		CreateAssignment c=new CreateAssignment();
 		System.out.println("ma"+args[0]);
 		
-		c.execute(type);
+		execute(type);
 		
 
 	}
-  public void execute(String type) 
+  public static void execute(String type) 
   {
 	  
 	  try

@@ -25,7 +25,6 @@
 <fullyQualifiedTypeName name="org.openqa.selenium.Keys"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.JavascriptExecutor"/>
 <fullyQualifiedTypeName name="Tech.PublishSectionLevelReport"/>
-<fullyQualifiedTypeName name="Data.Read_Data"/>
 <fullyQualifiedTypeName name="Common.Login"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.support.ui.Select"/>
 <fullyQualifiedTypeName name="org.apache.bcel.verifier.structurals.ExceptionHandler"/>
@@ -33,7 +32,6 @@
 <fullyQualifiedTypeName name="Common.CloseBroser"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.interactions.Actions"/>
 <fullyQualifiedTypeName name="Common.MooveToElement"/>
-<fullyQualifiedTypeName name="Common.Clickevent"/>
 <fullyQualifiedTypeName name="Common.LaunchApp"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.Alert"/>
@@ -41,14 +39,21 @@
 <fullyQualifiedTypeName name="org.apache.commons.lang.ArrayUtils"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="Data.ExceptionHndeler"/>
-<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
 <fullyQualifiedTypeName name="junit.framework.Assert"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
 <fullyQualifiedTypeName name="java.io.Console"/>
 <fullyQualifiedTypeName name="Common.ValidateAndSnap"/>
 <fullyQualifiedTypeName name="org.junit.BeforeClass"/>
 <fullyQualifiedTypeName name="org.testng.annotations.Optional"/>
-<fullyQualifiedTypeName name="Common.AlertHandling"/>
 <fullyQualifiedTypeName name="otherScript.RestoreDB"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeOptions"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.remote.DesiredCapabilities"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.Platform"/>
+<fullyQualifiedTypeName name="com.gargoylesoftware.htmlunit.javascript.host.URL"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="Data.Read_Data"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+<fullyQualifiedTypeName name="Common.AlertHandling"/>
+<fullyQualifiedTypeName name="Common.Clickevent"/>
 </qualifiedTypeNameHistroy>

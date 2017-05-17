@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Grade Students and validate marks]" parallel="methods">
+  <parameter name="username" value="maym@inpods.com"/>
+  <parameter name="TestData" value="AutoTestingMM"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="filename" value="AssignmentLevelCOattanmentValidation.csv"/>
+  <parameter name="URL" value="http://localhost/"/>
+  <parameter name="password" value="password"/>
+  <test name="Login(failed)" parallel="methods">
+    <parameter name="username" value="maym@inpods.com"/>
+    <parameter name="password" value="password"/>
+    <classes>
+      <class name="Common.Login">
+        <methods>
+          <include name="LoginD" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Common.Login -->
+    </classes>
+  </test> <!-- Login(failed) -->
+  <test name="Validate Marks and CO attainment(failed)" parallel="methods">
+    <parameter name="filename" value="AssignmentLevelCOattanmentValidation.csv"/>
+    <classes>
+      <class name="Teacher.ValidateAssignmentLevelCOAttainment">
+        <methods>
+          <include name="exicute" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.ValidateAssignmentLevelCOAttainment -->
+    </classes>
+  </test> <!-- Validate Marks and CO attainment(failed) -->
+</suite> <!-- Failed suite [Grade Students and validate marks] -->

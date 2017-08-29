@@ -10,6 +10,9 @@ import java.util.List;
 
 
 
+
+
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -39,7 +42,12 @@ public class ErrorpageForAssignment {
 			 {
 				 Sectionname=data[count][SectionCount].trim();
 				ChangeSection.selectSection(data[count][SectionCount].trim());//select section
-				 Gototab.execute(tabname);//Go to assgnment tab
+				 try {
+					Gototab.execute(tabname);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}//Go to assgnment tab
 				 CheckForErrorPage();
 				 SectionCount++;
 				 
@@ -68,7 +76,12 @@ public class ErrorpageForAssignment {
 				  }
 			  }
 			  catch(Exception e){System.out.println("Error page Exception");}
-			  Gototab.execute(tabname);
+			  try {
+				Gototab.execute(tabname);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		  }
 		 }
 		else
@@ -86,7 +99,12 @@ public class ErrorpageForAssignment {
 					  }
 				  }
 				  catch(Exception e){System.out.println("Error page Exception");}
-				  Gototab.execute(tabname);
+				  try {
+					Gototab.execute(tabname);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			  }
 		}
 	}

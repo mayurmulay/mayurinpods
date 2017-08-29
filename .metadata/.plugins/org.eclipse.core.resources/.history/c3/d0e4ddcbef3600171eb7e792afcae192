@@ -1,0 +1,33 @@
+package Teacher;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
+
+import Common.LaunchApp;
+
+public class CreateTLO {
+	
+	public static void CreateTLO(String Program, String Course,String COName,String TLOname,String CODescr)
+	{
+		
+		
+		try
+		{
+		 
+	      LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+COName+"')]/following-sibling::*[2]/*[1]/div[3]/span/a")).click();
+	     Thread.sleep(5000);
+	      LaunchApp.driver.findElement(By.xpath("html/body/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[4]/div/div/div[2]/div[1]/div/input[2]")).sendKeys(COName+"_"+TLOname);
+	     Thread.sleep(500);
+	      LaunchApp.driver.findElement(By.xpath(".//*[@id='obj_content']")).sendKeys(CODescr);
+	     Thread.sleep(500);
+	     new Select( LaunchApp.driver.findElement(By.xpath("html/body/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[4]/div/div/div[2]/div[3]/div/div/select"))).selectByIndex(2);
+	     Thread.sleep(500);
+	      LaunchApp.driver.findElement(By.xpath("html/body/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[4]/div/div/div[3]/button[2]")).click();//save button
+		
+		
+		}
+		catch(Exception e){System.out.print("Error   ="+COName);
+		//e.printStackTrace(); 
+		}
+	}
+}

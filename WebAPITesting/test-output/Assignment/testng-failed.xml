@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Assignment]" parallel="methods">
+  <parameter name="username" value="maym@inpods.com"/>
+  <parameter name="TestData" value="Copy Corse Section - Testing"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="Asscount" value="2"/>
+  <parameter name="QBname" value="AutoTestQB"/>
+  <parameter name="Assname" value="QbAssignment"/>
+  <parameter name="QCount" value="10"/>
+  <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+  <parameter name="URL" value="http://localhost/"/>
+  <parameter name="password" value="password"/>
+  <parameter name="AssignmentType" value="Exam+CI"/>
+  <test name="Create Random Assignment (failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="Asscount" value="AutoTestingMM"/>
+    <parameter name="QCount" value="5"/>
+    <parameter name="Assname" value="RandomDemo"/>
+    <parameter name="QBname" value="Abc"/>
+    <classes>
+      <class name="Teacher.AddQuestionAssignment">
+        <methods>
+          <include name="testAddQuestionAssignment"/>
+        </methods>
+      </class> <!-- Teacher.AddQuestionAssignment -->
+    </classes>
+  </test> <!-- Create Random Assignment (failed) -->
+  <test name="Create Assignment Add Question From QB(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <classes>
+      <class name="Teacher.AddQuestionAssignment">
+        <methods>
+          <include name="testAddQuestionAssignment"/>
+        </methods>
+      </class> <!-- Teacher.AddQuestionAssignment -->
+    </classes>
+  </test> <!-- Create Assignment Add Question From QB(failed) -->
+  <test name="AssignmentCreation+Exam+MCQ+Today+IndIvidualAccessCode(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="Exam+MCQ+Today+IndIvidualAccessCode"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+Exam+MCQ+Today+IndIvidualAccessCode(failed) -->
+  <test name="AssignmentCreation+LAB+DQ(failed)" parallel="methods">
+    <parameter name="TestData" value="Lab1_AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="LAB+DQ"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+LAB+DQ(failed) -->
+  <test name="AssignmentCreation+Lab+SQ(failed)" parallel="methods">
+    <parameter name="TestData" value="Lab2_AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="Lab+SQ"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+Lab+SQ(failed) -->
+  <test name="AssignmentCreation+Test+MCQ+Today+GroopAccessCode(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="Test+MCQ+Today+GroopAccessCode"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+Test+MCQ+Today+GroopAccessCode(failed) -->
+  <test name="AssignmentCreation+Test+DQ+PastStartDate+GroopAccessCode(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="Test+DQ+PastStartDate+GroopAccessCode"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+Test+DQ+PastStartDate+GroopAccessCode(failed) -->
+  <test name="AssignmentCreation+Exam+SQ+featureDate+IndIvidualAccessCode(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="Exam+SQ+featureDate+IndIvidualAccessCode"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+Exam+SQ+featureDate+IndIvidualAccessCode(failed) -->
+  <test name="AssignmentCreation+Homework+MCQ+Show answers after due date:yes(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="Homework+MCQ+Show answers after due date:yes"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+Homework+MCQ+Show answers after due date:yes(failed) -->
+  <test name="AssignmentCreation+Homework+DQ+Show answers after due date:no(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="Homework+DQ+Show answers after due date:no"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+Homework+DQ+Show answers after due date:no(failed) -->
+  <test name="AssignmentCreation+External+SQ(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="External+SQ"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+External+SQ(failed) -->
+  <test name="AssignmentCreation+External+DQ(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="External+DQ"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+External+DQ(failed) -->
+  <test name="AssignmentCreation+Project+SQ+Group Assignment/project:yes;PodGroup_1(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="Project+SQ+Group Assignment/project:yes;PodGroup_1"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+Project+SQ+Group Assignment/project:yes;PodGroup_1(failed) -->
+  <test name="AssignmentCreation+Test+MTC(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="Test+MTC"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+Test+MTC(failed) -->
+  <test name="AssignmentCreation+Test+FIB(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="Test+FIB"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+Test+FIB(failed) -->
+  <test name="AssignmentCreation+Exam+CI(failed)" parallel="methods">
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+    <parameter name="AssignmentType" value="Exam+CI"/>
+    <classes>
+      <class name="Teacher.AssignmentCreation">
+        <methods>
+          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.AssignmentCreation -->
+    </classes>
+  </test> <!-- AssignmentCreation+Exam+CI(failed) -->
+  <test name="Assignment Creation From QB (failed)" parallel="methods">
+    <parameter name="TestData" value="Copy Corse Section - Testing"/>
+    <parameter name="Asscount" value="2"/>
+    <parameter name="QCount" value="10"/>
+    <parameter name="Assname" value="QbAssignment"/>
+    <parameter name="QBname" value="AutoTestQB"/>
+    <classes>
+      <class name="Teacher.CreateAssignmentFromQB">
+        <methods>
+          <include name="CreateAssignmentQB" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.CreateAssignmentFromQB -->
+    </classes>
+  </test> <!-- Assignment Creation From QB (failed) -->
+</suite> <!-- Failed suite [Assignment] -->

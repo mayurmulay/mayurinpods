@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [New Institutetype 1_1 testing]" parallel="methods">
+  <parameter name="CO_name" value="AutoCO4"/>
+  <parameter name="Rubric" value="mayur_rubric"/>
+  <parameter name="QuestionCount" value="Question Count:5"/>
+  <parameter name="TestData" value="Automation Testing-B"/>
+  <parameter name="data" value="D:\AutoTestData_Chrome\Upload\Upload.png"/>
+  <parameter name="COName" value="AutoCO2"/>
+  <parameter name="Activitytype" value="Activity type:SQ"/>
+  <parameter name="Blooms_name" value="Bloom3"/>
+  <parameter name="CODescr" value="AutoCO2_TLO_descr"/>
+  <parameter name="type" value="Upload"/>
+  <parameter name="URL" value="http://testing.inpods.com:88/"/>
+  <parameter name="CO_Description" value="AutoCO4"/>
+  <parameter name="path" value="D:\AutoTestData_Chrome\Upload\NewInstitute\External1_type1.xlsx"/>
+  <parameter name="password" value="s1s1s1"/>
+  <parameter name="PO_Description" value="AutoPO4"/>
+  <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+  <parameter name="Course" value="Automation Testing"/>
+  <parameter name="CourseName" value="Automation Testing"/>
+  <parameter name="UserName" value="Inpods Schooltech [inpodssa@institutetype1.in]"/>
+  <parameter name="Program" value="Automation Testing Program"/>
+  <parameter name="PO_name" value="AutoPO4"/>
+  <parameter name="level" value="Chapter-&gt;Lesson"/>
+  <parameter name="Cos" value="AutoCO1;AutoCO2"/>
+  <parameter name="Chapter" value="ChapterDemo"/>
+  <parameter name="lesson" value="Upload_ImageWithCO"/>
+  <parameter name="AccessCode" value="Access Code:ABC123!@"/>
+  <parameter name="TLOname" value="AutoCO2_Tlo2"/>
+  <parameter name="ProgramName" value="Automation Testing Program"/>
+  <parameter name="EmployeeType" value="SchoolTech"/>
+  <parameter name="Answer" value="Q1:2;Q2:0;Q3:2;Q4:2;Q5:1;End"/>
+  <parameter name="Blooms_Description" value="Bloom Digital Cognitive Level 3: APPLYING Implementing carrying out using executing running loading playing operating hacking uploading sharing editing"/>
+  <parameter name="Blooms" value="Bloom3"/>
+  <parameter name="Testname" value="Test name:Test 1"/>
+  <parameter name="PolicyName" value="IsUniversity"/>
+  <parameter name="AssignmentType" value="Test+DQ+PastStartDate+GroopAccessCode"/>
+  <parameter name="name" value="External1"/>
+  <parameter name="Value" value="True"/>
+  <parameter name="SectionId" value="1"/>
+  <parameter name="username" value="student1@institutetype1.in"/>
+  <listeners>
+    <listener class-name="ReportGenration.RetryListener"/>
+  </listeners>
+  <test name="Select Section(failed)" parallel="methods">
+    <parameter name="SectionId" value="1"/>
+    <classes>
+      <class name="Tech.TechChangeSection">
+        <methods>
+          <include name="TechChangeSection"/>
+        </methods>
+      </class> <!-- Tech.TechChangeSection -->
+    </classes>
+  </test> <!-- Select Section(failed) -->
+  <test name="Create TLO1(failed)" parallel="methods">
+    <parameter name="Rubric" value="mayur_rubric"/>
+    <parameter name="Program" value="Automation Testing Program"/>
+    <parameter name="COName" value="AutoCO1"/>
+    <parameter name="Blooms" value="Bloom3"/>
+    <parameter name="TLOname" value="AutoCO1_Tlo1"/>
+    <parameter name="CODescr" value="AutoCO1_TLO_descr"/>
+    <parameter name="Course" value="Automation Testing"/>
+    <classes>
+      <class name="Teacher.CreateTLO">
+        <methods>
+          <include name="CreateTLO" invocation-numbers="0 0 0"/>
+        </methods>
+      </class> <!-- Teacher.CreateTLO -->
+    </classes>
+  </test> <!-- Create TLO1(failed) -->
+  <test name="Create TLO2(failed)" parallel="methods">
+    <parameter name="Rubric" value="mayur_rubric"/>
+    <parameter name="Program" value="Automation Testing Program"/>
+    <parameter name="COName" value="AutoCO1"/>
+    <parameter name="Blooms" value="Bloom3"/>
+    <parameter name="TLOname" value="AutoCO1_Tlo2"/>
+    <parameter name="CODescr" value="AutoCO1_TLO_descr"/>
+    <parameter name="Course" value="Automation Testing"/>
+    <classes>
+      <class name="Teacher.CreateTLO">
+        <methods>
+          <include name="CreateTLO" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.CreateTLO -->
+    </classes>
+  </test> <!-- Create TLO2(failed) -->
+  <test name="Create TLO3(failed)" parallel="methods">
+    <parameter name="Rubric" value="mayur_rubric"/>
+    <parameter name="Program" value="Automation Testing Program"/>
+    <parameter name="COName" value="AutoCO2"/>
+    <parameter name="Blooms" value="Bloom3"/>
+    <parameter name="TLOname" value="AutoCO2_Tlo1"/>
+    <parameter name="CODescr" value="AutoCO2_TLO_descr"/>
+    <parameter name="Course" value="Automation Testing"/>
+    <classes>
+      <class name="Teacher.CreateTLO">
+        <methods>
+          <include name="CreateTLO" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.CreateTLO -->
+    </classes>
+  </test> <!-- Create TLO3(failed) -->
+  <test name="Create TLO4(failed)" parallel="methods">
+    <parameter name="Rubric" value="mayur_rubric"/>
+    <parameter name="Program" value="Automation Testing Program"/>
+    <parameter name="COName" value="AutoCO2"/>
+    <parameter name="Blooms" value="Bloom3"/>
+    <parameter name="TLOname" value="AutoCO2_Tlo2"/>
+    <parameter name="CODescr" value="AutoCO2_TLO_descr"/>
+    <parameter name="Course" value="Automation Testing"/>
+    <classes>
+      <class name="Teacher.CreateTLO">
+        <methods>
+          <include name="CreateTLO" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.CreateTLO -->
+    </classes>
+  </test> <!-- Create TLO4(failed) -->
+  <test name="Attempt TestData Student(failed)" parallel="methods">
+    <parameter name="QuestionCount" value="Question Count:5"/>
+    <parameter name="Answer" value="Q1:2;Q2:0;Q3:2;Q4:2;Q5:1;End"/>
+    <parameter name="Testname" value="Test name:Test4"/>
+    <parameter name="Activitytype" value="Activity type:Multiple Choice"/>
+    <parameter name="AccessCode" value="Access Code:ab1"/>
+    <classes>
+      <class name="assignment_Student.StudentStartTest">
+        <methods>
+          <include name="AttemptTestBySingleUser" invocation-numbers="0 0 0"/>
+        </methods>
+      </class> <!-- assignment_Student.StudentStartTest -->
+    </classes>
+  </test> <!-- Attempt TestData Student(failed) -->
+  <test name="Attempt TestData Student DQ(failed)" parallel="methods">
+    <parameter name="QuestionCount" value="Question Count:5"/>
+    <parameter name="Answer" value="Q1:2;Q2:0;Q3:2;Q4:2;Q5:1;End"/>
+    <parameter name="Testname" value="Test name:Test 1"/>
+    <parameter name="Activitytype" value="Activity type:SQ"/>
+    <parameter name="AccessCode" value="Access Code:ABC123!@"/>
+    <classes>
+      <class name="assignment_Student.StudentStartTest">
+        <methods>
+          <include name="AttemptTestBySingleUser" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- assignment_Student.StudentStartTest -->
+    </classes>
+  </test> <!-- Attempt TestData Student DQ(failed) -->
+</suite> <!-- Failed suite [New Institutetype 1_1 testing] -->

@@ -3,11 +3,13 @@ package Teacher;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Scanner;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -15,6 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import Common.AlertHandling;
 import Common.Gototab;
 import Common.LaunchApp;
 import Data.ExceptionHndeler;
@@ -28,16 +31,20 @@ public class AssignmentCreation {
 	public static String QuestionType;
 	public static String AssignmentQueDoc;
 	public static String assType="mayur";
+	public static String assName="Name";
+	public static String IsUniversity="false";
+	static String position=" ";
 	
 	@Test
-	@Parameters("AssignmentListFile")
-	public static void AssignmentCreationDataCreation(String AssignmentListFile)
+	@Parameters({"AssignmentListFile","AssignmentType"})
+	public static void AssignmentCreationDataCreation(String AssignmentListFile,String AssignmentType)
 	{
+		 IsUniversity="false";
 		String[] args1 = new String[10];
 		  args1[0]=(String) "Manage Course";
 		 Gototab.main(args1);
 			 AssignmentCreation e=new AssignmentCreation();
-           e.create(AssignmentListFile);
+           e.create(AssignmentListFile,AssignmentType);
 	}
 	public static void main(String[] args) {
 		String[] args1 = new String[10];
@@ -45,19 +52,21 @@ public class AssignmentCreation {
 			// Gototab.main(args1);
 			 AssignmentCreation e=new AssignmentCreation();
 			 String AssignmentListFile="AssignmentCreation.csv";
-             e.create(AssignmentListFile);
+			 String AssignmentType="AssignmentType";
+             e.create(AssignmentListFile,"Exam+CI");
 	}
-	public void create(String AssignmentListFile)
+	public void create(String AssignmentListFile,String AssignmentType)
 	{
 	
        String[][] Ass=Read_Data.ReadData(AssignmentListFile);
 	       int j=0;
-		//  System.out.println("Enter number of lesson you want to create");
-		//  Scanner sc=new Scanner(System.in);
-		//  int no=sc.nextInt();
-		  int no=18;
+		  int no=19;
+		  try{
 		 while(!Ass[j][0].equals("End") && j<no)//Code for creating assignment and open it in edit mode 
 		  {
+			 System.out.println("Creating assignment"+Ass[j][0]);
+			 if(Ass[j][0].trim().equals(AssignmentType.trim()))
+			 {
 			 try
 			 {
 			  System.out.println("Creating assignment ="+j+" of type"+Ass[j][0]);
@@ -71,45 +80,29 @@ public class AssignmentCreation {
 			      } catch (InterruptedException e) {
 			    	  ExceptionHndeler.Log("String reading","Assignment Editing", e);
 			      }
-//**************************code bellow is to find and open the newlly created assignment which commented due to new feature *************************************** 
-	    /*  List <WebElement> li=LaunchApp.driver.findElements(By.name("assignmentEdit"));
-		  for(int i=0;i<li.size();i++)
-		  {
-			  id[i]=Integer.parseInt(li.get(i).getAttribute("id"));//getting all assignment ID 
-		  }
-		  Arrays.sort(id);
-		 
-		  int m=(id.length)-1;//picking most recent Id
-			 str=Integer.toString((id[m]));
-			 try {
-					Thread.sleep(50);
-				} catch (InterruptedException e) {
-					//e.printStackTrace();
-					}
-			 LaunchApp.driver.findElement(By.xpath(".//*[@id='"+str+"']//*[contains(text(),'Edit')]")).click();
-			 try {
-					Thread.sleep(50);
-				} catch (InterruptedException e) {
-					//e.printStackTrace();
-				}*/
-//***********************************************************************end*********************************************************************************			  
-			 execute(Ass[j]);
-		     
-		     
-		  }
+             execute(Ass[j]); }
 			 catch(Exception e){
 				 System.out.println("Error="+j);
 				 ExceptionHndeler.Log("Assignment Creation","Assignment Editing", e);
 				 e.printStackTrace();
 			 }
-			 j++;
+			 
 		  }
+			 j++;
+		  }} catch(Exception e){}
 	}
 	void execute(String str[])
 	{
-		
+		try
+		{
+			Thread.sleep(1000);
+			AlertHandling.isAlertPresent();
+			AlertHandling.isAlertPresent();
+		}catch (Exception e) {
+			ExceptionHndeler.Log("String reading","Assignment Editing", e);
+		}
 		System.out.println("in exicute=");
-		int i=0;
+		int i=1;
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -117,35 +110,44 @@ public class AssignmentCreation {
 		}
 		while(!str[i].equals("End"))
 		{
-			
+			try
+			{
+				AlertHandling.isAlertPresent();
+				AlertHandling.isAlertPresent();
+			}catch (Exception e) {
+				ExceptionHndeler.Log("String reading","Assignment Editing", e);
+			}
 			try {
-				Thread.sleep(500);
+				Thread.sleep(500);                            
 				 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
 				 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
 				// LaunchApp.driver.findElement(By.xpath(".//*[@id='middle']/div[3]/h3")).click();
 				// LaunchApp.driver.findElement(By.xpath(".//*[@id='middle']/div[3]/h3")).click();
 				
 			} catch (InterruptedException e) {
-				ExceptionHndeler.Log("String reading","Assignment Editing", e);
+				//ExceptionHndeler.Log("String reading","Assignment Editing", e);
+				//e.printStackTrace();
 			}
 			System.out.println("in while="+i+" "+str[i]);
 		  try
 		  {
 			String[] s=str[i].split(":");
+			try{
 			 s[0].trim();
 			 s[1].trim();
 			 System.out.println("in sdfkswhile="+i+" "+s[1]);
 			 System.out.println("insdkl while="+i+" "+s[0]);
+			 }catch (Exception e) {}
+			
 			if(s[0].equals("Name"))
 			{
+				assName=s[1].trim();
 				Name(s);
-		     
-			}
+		    }
 			if(s[0].equals("AddQuestion"))
 			{
 				AddQuestion(s);
-		     
-			}
+		    }
 			if(s[0].equals("Assignment Type"))
 			{
 				 assType=s[1];
@@ -155,17 +157,22 @@ public class AssignmentCreation {
 			
 			if(s[0].equals("Start Date"))
 			{
+				LaunchApp.driver.navigate().refresh();
 				 String []hm=s[1].split(";");
 				 Loger.LogEvent("Start Date","Start date Selecting");   
 				 System.out.println("in start date date="+s[1]);
 				 if(AssignmentCreation.assType.equals("Test")||AssignmentCreation.assType.equals("Exam"))
 				 {
+				
 				  LaunchApp.driver.findElement(By.xpath(".//*[@name='startDate']")).click();
+				 
 				  Thread.sleep(1000);
-				 // LaunchApp.driver.findElement(By.xpath(".//*[@class='datepicker']")).click();
 				  try
 				  {
-				   setStartdate(hm[0]);
+					  if(!hm[0].startsWith("00"))
+					  {
+				         setStartdate(hm[0],"Start");
+					  }
 				  
 				  }catch(Exception e){ExceptionHndeler.Log("Satrt Date","Assignment Editing", e);e.printStackTrace();}
 				  String[] tim=hm[1].split("-");
@@ -182,8 +189,6 @@ public class AssignmentCreation {
 				 else
 				 {
 					 LaunchApp.driver.findElement(By.xpath(".//*[@name='assignedDate']")).click();
-					// LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']")).click();
-				//	 setStartdate(s[1]);
 				 }
 			    System.out.println("date="+s[1]);
 			    Loger.LogEvent("Start Date ","Start Date Saved="+s[1]);
@@ -191,25 +196,28 @@ public class AssignmentCreation {
 			}
 			if(s[0].equals("Due Date"))
 			{
+				LaunchApp.driver.navigate().refresh();
+				 position="top: 325";
 				 String []hm=s[1].split(";");
 				 Loger.LogEvent("Due date","Due date Selecting");   
 				 System.out.println("in start date date="+s[1]);
 				 if(AssignmentCreation.assType.equals("Test")||AssignmentCreation.assType.equals("Exam"))
 				 {
+					
 				  LaunchApp.driver.findElement(By.xpath(".//*[@name='dueDate']")).click();
-				  //LaunchApp.driver.findElement(By.xpath(".//*[@class='datepicker-days']")).click();
 				  try
 				  {
-				    setStartdate(hm[0]);
+				    setStartdate(hm[0],"Due");
 				  
 				  }catch(Exception e){ExceptionHndeler.Log("Due date","Assignment Editing", e);e.printStackTrace();}
-				  String[] tim=hm[1].split("-");
-				  System.out.println("print data "+hm[1]);
+				
 				 
 				  try
 				  {
+					  String[] tim=hm[1].split("-");
+					  System.out.println("print data "+hm[1]);
 					  System.out.println("print data hr "+tim[0]+" Min "+tim[1]);
-					 SetTime(Integer.parseInt(tim[0]),Integer.parseInt(tim[1]));
+					  SetTime(Integer.parseInt(tim[0]),Integer.parseInt(tim[1]));
 				  }catch(Exception e){ExceptionHndeler.Log("Due date","Assignment Editing", e);e.printStackTrace();}
 				 
 				  System.out.println("print data "+hm[0]);
@@ -217,8 +225,7 @@ public class AssignmentCreation {
 				 else
 				 {
 					 LaunchApp.driver.findElement(By.xpath(".//*[@name='dueDate']")).click();
-					//; LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-datepicker']")).click();
-					 setStartdate(s[1]);
+					// setStartdate(s[1]);
 				 }
 			    System.out.println("date="+s[1]);
 			    Loger.LogEvent("Due Date ","Due Date Saved="+s[1]);
@@ -259,6 +266,11 @@ public class AssignmentCreation {
 				AcceptLate(s);
 				
 			}
+			if(s[0].equals("Weightage"))
+			{
+				Weightage(s[1]);
+				
+			}
 			if(s[0].equals("AssignmentTypeDoc"))
 			{
 				Loger.LogEvent("Doc","AssignmentTypeDoc Selecting"); 
@@ -280,6 +292,21 @@ public class AssignmentCreation {
 				AssignmentCreation.QuestionType=s[1].trim();
 				Loger.LogEvent("Question Type","Question Type Selected"+s[1]); 
 			}
+			if(s[0].equals("IsUniversity"))
+			{
+				
+				if(s[1].trim().equals("Yes"))
+				{
+					Loger.LogEvent("IsUniversity","IsUniversity is true");
+					LaunchApp.driver.findElement(By.xpath(".//*[@name='isUniversity' and @id='Yes']")).click(); 
+					if(s[2].trim().equals("NoCO"))
+					{IsUniversity="True";}
+					else
+					{LaunchApp.driver.findElement(By.xpath(".//*[@name='showCourseOutcome' and @id='Yes']")).click();}
+					Loger.LogEvent("IsUniversity","IsUniversity is true"); 
+				}
+				
+			}
 			
 		  }
 		  catch(Exception e)
@@ -288,7 +315,22 @@ public class AssignmentCreation {
 		  }
 		  i++;
 		}
-		EditActivity.main(str);
+		EditActivity.main(str);     //Str is assignment Data 
+		
+	}
+	private void Weightage(String s) {
+		
+		try
+		{
+			LaunchApp.driver.findElement(By.xpath(".//*[@name='assignmentWeightage']")).click();  //lblAssignmentWeightage
+			Thread.sleep(1000);
+			LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentWeightage']")).click();
+			Thread.sleep(1000);
+			LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentWeightage']//*[@name='value']")).sendKeys(s);
+		                                                     
+		}catch (Exception e) {
+			ExceptionHndeler.Log("String reading","Assignment Editing", e);
+		}
 		
 	}
 	public void mapCO(String co_name)
@@ -306,172 +348,199 @@ public class AssignmentCreation {
 			}
 		}
 	}
-	public static void setStartdate(String Mdate)
+	public static void setStartdate(String Mdate,String Tdate)
 	{
 		try
 		{
-		System.out.println("in date creation mayur"+Mdate);
 		 GregorianCalendar date = new GregorianCalendar();
-	     int  month = date.get(Calendar.MONTH);
+	     int  month = (date.get(Calendar.MONTH))+1;
 	     int  year = date.get(Calendar.YEAR);
 	     int day1= date.get(Calendar.DAY_OF_MONTH);
-	     String todayDate=(month+1)+"/"+day1+"/"+year;
+	     System.out.println("Current month="+month);
+	     String todayDate=(month)+"/"+day1+"/"+year;
+	     if(Tdate.equals("Due"))                                   //validating change in month 
+	     {
+	    	 String Mdate1=GetNextdate(todayDate,15);
+	    	 String[] div1=Mdate1.split("/");
+	    	 month=Integer.parseInt(div1[0]);
+	    	 System.out.println("Demo"+month);
+	     }
+	
 	     String[] div1=Mdate.split("/");
 	     int MD=Integer.parseInt(div1[0]);
-	     
 	     Mdate=GetNextdate(todayDate,MD);
-	     System.out.println("dayte="+Mdate);
-	      div1=Mdate.split("/");
+	     System.out.println("Date To set after calculation="+Mdate);
+	     div1=Mdate.split("/");
+	     System.out.println("Month to set before cal"+month);
 		 month=(Integer.parseInt(div1[0]))-(month);
+		 System.out.println("Month to set"+month);
 		 String  day =div1[1];
 		 year=(Integer.parseInt(div1[2])-(year));
 		 month=month+(year*12);
-		 System.out.println("End date= "+Mdate);
-	//	 LaunchApp.driver.switchTo().frame(LaunchApp.driver.findElement(By.name("iFrameTitle")));
-		 
-		// List <WebElement>li=LaunchApp.driver.findElements(By.xpath("html/body/div[8]/ul/li[1]/div/div[1]/table/tbody/tr/td"));
-		 //LaunchApp.driver.findElement(By.xpath(".//*[@class='next']")).click();
+		 System.out.println("Day="+day+"month="+month+"year="+year);
 		 if(month>0)
 		 {
-		 for(int i=0;i<month-1;i++)
-		 {
-			 LaunchApp.driver.findElement(By.xpath("html/body/div[8]/ul/li[1]/div/div[1]/table/thead/tr[1]/th[3]")).click();
-		 }
+			 System.out.println("In change month next month");
+			 List  <WebElement> monthnext = LaunchApp.driver.findElements(By.xpath(".//div[(contains(@style,'display: block;'))]/table/thead/tr[1]//*[@class='next']"));
+			    
+		     for(int i=0;i<monthnext.size();i++)
+		      {
+		    	 try
+		    	 {
+		    		 for(int j=0;j<month-1;j++)
+		    		 {
+		    			 monthnext.get(i).click();
+		    		 }
+		    		 break;
+		    	 }
+		    	 catch(Exception e){}
+		      }
 		 }
 		 if(month<0)
 		 {
-		 for(int i=0;i<month;i++)
-		 {
-			 LaunchApp.driver.findElement(By.xpath("html/body/div[6]/ul/li[1]/div/div[1]/table/thead/tr[1]/th[1]")).click();
-		 }
+			 System.out.println("In change month prev month"+month);
+			 List  <WebElement> monthprv= LaunchApp.driver.findElements(By.xpath(".//div[(contains(@style,'display: block;'))]/table/thead/tr[1]//*[@class='prev']"));
+			 System.out.println(monthprv.size());
+			 for(int i=0;i<monthprv.size();i++)
+		      {
+				 System.out.println("before try "+i);
+		    	 try
+		    	 {
+		    		 for(int j=0;j>month;j--)
+		    		 {
+		    			 monthprv.get(i).click();
+		    		 }
+		    		 break;
+		    	 }
+		    	 catch(Exception e){System.out.println(i);}
+		      }
 		 }                                                           
-		// List <WebElement>li=LaunchApp.driver.findElements(By.xpath("html/body/div[8]/ul/li[1]/div/div[1]/table/tbody/tr/td"));
-       //   int i=0;	
-         // System.out.println("size"+li.size());
 		 int tempDate=Integer.parseInt(day.trim());
 		 StringBuilder day3=new StringBuilder("0");
 		 if(tempDate<10)
 		 {
 			 day3.setCharAt(0,day.charAt(1));
+			 System.out.println("Day="+day3+"month="+month+"year="+year);
+		        List  <WebElement> datedemo = LaunchApp.driver.findElements(By.xpath("//*[ (contains(@style,'display: block;'))]//*[@class='day' and .='"+day3+"']"));
+		        System.out.println(datedemo.size());
+		     /*   try
+		        {
+		        	
+		        	ClickEvent(datedemo.get(0));
+		        	System.out.println("datedemo=0");
+		        }
+		        catch(Exception e){try{ClickEvent(datedemo.get(1));System.out.println("datedemo=1");}catch(Exception e1)
+		        {System.out.println("in cache demo");  ClickEvent(datedemo.get(2));System.out.println("datedemo=2");}}   */
+		        if(Tdate.equals("Due"))
+		        {
+		        	ClickEvent(datedemo.get(2));
+		        }
+		        else
+		        {
+		        	ClickEvent(datedemo.get(1));
+		        }
+		         
 		 }
-          System.out.println(".//*[@class='day' and .='"+day.trim()+"']");
-        List  <WebElement> datedemo = LaunchApp.driver.findElements(By.xpath(".//*[@class='day' and .='"+day3+"']"));
-        
-        System.out.println(datedemo.size());
-        try
-        {
-        	datedemo.get(0).click();
-        }
-        catch(Exception e){try{datedemo.get(1).click();}catch(Exception e1){System.out.println("in cache demo");  datedemo.get(2).click();}}
-         
-          
-		/* for(WebElement element : li)  
+		 else
 		 {
-			 //System.out.println("text= "+i+"   "+element.getText().trim());
-			
-				try
-				{
-					System.out.println("Before if text= "+i+"   "+(li.get(i)).getText().trim());
-					String Tdate=li.get(i).getText().trim();
-					if(i==10)
-					{
-						li.get(i).click();
-					}
-					if(!Tdate.equals(""))
-					{
-						System.out.println("text= "+i+"   "+li.get(i).getText().trim());
-					  int tempDate=Integer.parseInt(Tdate);
-				    	/*if(tempDate<10)
-					    {
-						Tdate="0"+Tdate;       the Code is removed becouse of new UI which do not appent singile characto with "0"
-					    }/
-					
-					   if(Tdate.equals(day.trim()))
-					   {
-						String str=li.getClass().toString();
-						System.out.println("class="+ str);
-						
-						if(str.trim().equals("day"))
-						{
-						li.get(i).click();
-						System.out.println("mayur date set"+day);
-						break;
-						}
-					   }
-					}
-					
-				}
-				catch(Exception e)
-				{
-					ExceptionHndeler.Log("String reading","Assignment Editing", e);
-					e.printStackTrace();
-				}
-				i++;
-		 }*/  // Code is commented becouse of new UI Date time picker is changed 
+			 System.out.println("Day="+day+"month="+month+"year="+year);
+		       // List  <WebElement> datedemo = LaunchApp.driver.findElements(By.xpath(".//*[@class='day' and .='"+day+"']"));
+		        List  <WebElement> datedemo = LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@class='day' and .='"+day+"']"));
+			       
+		        System.out.println("size of datedemo"+datedemo.size());
+		    /*    try
+		        {
+		        	ClickEvent(datedemo.get(0));
+		        }
+		        catch(Exception e){
+		        	try{System.out.println("in click 2");ClickEvent(datedemo.get(1));}
+		        catch(Exception e1)
+		        {  System.out.println("in click 3");  ClickEvent(datedemo.get(2));}
+		        	}    */
+		        if(Tdate.equals("Due"))
+		        {
+		        	ClickEvent(datedemo.get(2));
+		        }
+		        else
+		        {
+		        	ClickEvent(datedemo.get(1));
+		        }
+		         
+		 }
+		 
+        
 		 Thread.sleep(1000);
 		 
 	}
 	catch(Exception e){e.printStackTrace();}
 	}
-	public void SetTime(int hr,int min)
+	public static void SetTime(int hr,int Min)
 	{
-		/*System.out.println("time is settting  hr"+hr+"min"+min);  //
-		LaunchApp.driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-time']")).click();
+		try
+		{
+		Thread.sleep(10000);
 		
-		
-		WebElement slider = LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[2]/dl/dd[2]/div"));
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Actions moveSlider = new Actions(LaunchApp.driver);
-		Action action = moveSlider.dragAndDropBy(slider, hr, 5).build();
-		action.perform();
-		WebElement slider1 = LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[2]/dl/dd[3]/div"));
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Actions moveSlider1 = new Actions(LaunchApp.driver);
-		Action action1 = moveSlider1.dragAndDropBy(slider1, min, 5).build();
-		action1.perform();
-		System.out.println("time is set ");
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		LaunchApp.driver.findElement(By.xpath("html/body/div[6]/div[3]/button[2]")).click();*/  //Old code before changing new UI
-		List <WebElement> timebtn=LaunchApp.driver.findElements(By.xpath(".//*[@class='picker-switch accordion-toggle']"));
-		try{timebtn.get(0).click();}catch(Exception e){timebtn.get(1).click();}
-		
-		List <WebElement> Hrbtn=LaunchApp.driver.findElements(By.xpath(".//*[@data-action='showHours' and .='00']"));
-		try{Hrbtn.get(0).click();}catch(Exception e){Hrbtn.get(1).click();}
-		
-		LaunchApp.driver.findElement(By.xpath("html/body/div[7]/ul/li[3]/div/div[2]/table/tbody/tr[1]/td[1]")).click();//change 
-		
-		try{List <WebElement> Hrbtn1=LaunchApp.driver.findElements(By.xpath(".//*[@class='timepicker-hour' and .='00']"));
-		try{Hrbtn1.get(0).click();}catch(Exception e){Hrbtn1.get(1).click();}
-		}catch(Exception e)
-		       { List <WebElement> Hrbtn1=LaunchApp.driver.findElements(By.xpath(".//*[@class='timepicker-hour' and .='23']"));
-		    		   try{Hrbtn1.get(0).click();}catch(Exception e1){Hrbtn1.get(1).click();}
+		List <WebElement> timebtn=LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@class='picker-switch accordion-toggle']"));
+		try{ClickEvent(timebtn.get(0));System.out.println("timebtn=0");}catch(Exception e){try{ClickEvent(timebtn.get(1));System.out.println("timebtn=1");}catch(Exception e1){try{ClickEvent(timebtn.get(2));System.out.println("timebtn=1");}catch(Exception e2){ClickEvent(timebtn.get(3));}}}
+		Thread.sleep(10000);
+		// Code to select Hour 
+		//List <WebElement> Hrbtn=LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@data-action='showHours' and .='00']"));
+		//try{Hrbtn.get(0).click();System.out.println("Hrbtn=0");}catch(Exception e){try{Hrbtn.get(1).click();System.out.println("Hrbtn=0");}catch(Exception e2){try{Hrbtn.get(2).click();System.out.println("Hrbtn=0");}catch(Exception e3){}}}
+		List <WebElement> Hrbtn1 = null;
+		try{Hrbtn1=LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@class='timepicker-hour' and .='00']"));}catch(Exception e3){}
+		if(Hrbtn1.size()>0)
+		{try{ClickEvent(Hrbtn1.get(0));}catch(Exception e){try{ClickEvent(Hrbtn1.get(1));}catch(Exception e2){try{ClickEvent(Hrbtn1.get(2));}catch(Exception e3){ClickEvent(Hrbtn1.get(3));}}}}
+		else
+		       { System.out.println("In 23");
+		       try{  Hrbtn1=LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@class='timepicker-hour' and .='23']"));
+		       ClickEvent(Hrbtn1.get(0));System.out.println("In 23_1");}catch(Exception e1){try{ClickEvent(Hrbtn1.get(1));System.out.println("In 23_2");}catch(Exception e2){try{ClickEvent(Hrbtn1.get(2));System.out.println("In 23_3");}catch(Exception e3){ClickEvent(Hrbtn1.get(3));}}}
 		       }
-		 List <WebElement> Hr=LaunchApp.driver.findElements(By.xpath(".//*[@class='hour' and .='01']"));
-		try{Hr.get(0).click();}
-		catch(Exception e){try{Hr.get(1).click();}
-		catch(Exception e1){try{Hr.get(2).click();}
-		catch(Exception e2){Hr.get(3).click();}}}
-		
-		//Code has to 
-		
-		
-		
-		
+		String hr1;
+		if(hr<10)
+		{
+			 hr1='0'+Integer.toString(hr);
+		}
+		else
+		{
+			 hr1=Integer.toString(hr);
+		}
+		 List <WebElement> Hr=LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@class='hour' and .='"+hr1+"']"));
+		try{ClickEvent(Hr.get(0));} catch(Exception e){try{ClickEvent(Hr.get(1));} catch(Exception e1){try{ClickEvent(Hr.get(2));}catch(Exception e2){ClickEvent(Hr.get(3));}}}
+	
+	    //Code to select min 
+		//List <WebElement> Minbtn=LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@data-action='showMinutes' and .='00']"));
+		//try{Minbtn.get(0).click();System.out.println("Minbtn=0");}catch(Exception e){try{Minbtn.get(1).click();System.out.println("Minbtn=1");}catch(Exception e2){try{Minbtn.get(2).click();System.out.println("Minbtn=3");}catch(Exception e3){}}}
+		{List <WebElement> Minbtn1=null;
+		try{Minbtn1=LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@class='timepicker-minute' and .='00']"));}catch(Exception e){}
+		if(Minbtn1.size()>0){try{ClickEvent(Minbtn1.get(0));}catch(Exception e){try{ClickEvent(Minbtn1.get(1));}catch(Exception e2){try{ClickEvent(Minbtn1.get(2));}catch(Exception e3){ClickEvent(Minbtn1.get(3));}}}}
+		else
+		       {  Minbtn1=LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@class='timepicker-minute' and .='59']"));
+		         try{ClickEvent(Minbtn1.get(0));}catch(Exception e){try{ClickEvent(Minbtn1.get(1));}catch(Exception e2){try{ClickEvent(Minbtn1.get(2));}catch(Exception e3){ClickEvent(Minbtn1.get(3));}}}
+		       }
+		String Min1;
+		if(Min<10)
+		{
+			 Min1='0'+Integer.toString(Min);
+		}
+		else
+		{
+			 Min1=Integer.toString(Min); 
+		}
+		 List <WebElement> Min11=LaunchApp.driver.findElements(By.xpath("//*[(contains(@style,'display: block;'))]//*[@class='minute' and .='"+Min1+"']"));
+		 try{ClickEvent(Min11.get(0));} catch(Exception e){try{ClickEvent(Min11.get(1));} catch(Exception e1){try{ClickEvent(Min11.get(2));}catch(Exception e2){ClickEvent(Min11.get(3));}
+		}
+		}
+		}
+		}catch(Exception e){}
+	}
+	public static void ClickEvent(WebElement element){
+		try
+		{
+			element.click();
+		}
+		catch(Exception e){JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
+		jse.executeScript("var evt = document.createEvent('MouseEvents');" + "evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);" + "arguments[0].dispatchEvent(evt);", element);
+			e.printStackTrace();element.click();}
 	}
 	public static void Name(String[] s)
 	{
@@ -589,7 +658,7 @@ public class AssignmentCreation {
 		 
 		 try {
 			 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssociationType']")).click();
-			 new Select(LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssociationType']//*[@name='value']"))).selectByVisibleText(hm[0].trim());
+			 new Select(LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssociationType'].//*[@name='value']"))).selectByVisibleText(hm[0].trim());
 			
 			 // new Select(LaunchApp.driver.findElement(By.xpath(".//*[@name='value']"))).selectByVisibleText(hm[0]);
 			} catch (Exception e) {
@@ -602,13 +671,15 @@ public class AssignmentCreation {
 	    System.out.println("in data"); 
 	      LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
 	      LaunchApp.driver.findElement(By.xpath(".//*[@name='moduleName']")).click();
-	     new Select(LaunchApp.driver.findElement(By.xpath(".//*[@name='moduleName'].//*[@name='value']"))).selectByVisibleText(hm[1]);
-	    
+	      try {Thread.sleep(1000);} catch (InterruptedException e1) {e1.printStackTrace();}
+          new Select(LaunchApp.driver.findElement(By.xpath(".//*[@name='moduleName']//*[@name='value']"))).selectByVisibleText(hm[1]);
 	     }
 	     catch(Exception e)
 	     {
-	    	 
-		     LaunchApp.driver.findElement(By.xpath(".//*[@name='moduleName'].//*[@name='value']")).sendKeys(hm[1]);
+	    	 e.printStackTrace();
+	    	 LaunchApp.driver.findElement(By.xpath(".//*[@name='moduleName']")).click();
+	    	 try {Thread.sleep(1000);} catch (InterruptedException e1) {e1.printStackTrace();}
+		     LaunchApp.driver.findElement(By.xpath(".//*[@name='moduleName']//*[@name='value']")).sendKeys(hm[1]);
 		     LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
 		     LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
 		     ExceptionHndeler.Log("Chapter","Assignment Editing", e);
@@ -628,7 +699,8 @@ public class AssignmentCreation {
 		 Loger.LogEvent("Points for question","Points for question Selecting"); 
 		 if(s[1].equals("yes"))
 		 {
-	     LaunchApp.driver.findElement(By.xpath(".//*[@id='Yes']")).click();
+			 try{
+	     LaunchApp.driver.findElement(By.xpath(".//*[@id='Yes']")).click();}catch (Exception e) {}
 		 }
 		 else
 		{
@@ -710,4 +782,84 @@ public class AssignmentCreation {
 		
 	}
 }
+
+
+/* for(WebElement element : li)  
+ {
+	 //System.out.println("text= "+i+"   "+element.getText().trim());
+	
+		try
+		{
+			System.out.println("Before if text= "+i+"   "+(li.get(i)).getText().trim());
+			String Tdate=li.get(i).getText().trim();
+			if(i==10)
+			{
+				li.get(i).click();
+			}
+			if(!Tdate.equals(""))
+			{
+				System.out.println("text= "+i+"   "+li.get(i).getText().trim());
+			  int tempDate=Integer.parseInt(Tdate);
+		    	/*if(tempDate<10)
+			    {
+				Tdate="0"+Tdate;       the Code is removed becouse of new UI which do not appent singile characto with "0"
+			    }/
+			
+			   if(Tdate.equals(day.trim()))
+			   {
+				String str=li.getClass().toString();
+				System.out.println("class="+ str);
+				
+				if(str.trim().equals("day"))
+				{
+				li.get(i).click();
+				System.out.println("mayur date set"+day);
+				break;
+				}
+			   }
+			}
+			
+		}
+		catch(Exception e)
+		{
+			ExceptionHndeler.Log("String reading","Assignment Editing", e);
+			e.printStackTrace();
+		}
+		i++;
+ }*/  // Code is commented becouse of new UI Date time picker is changed 
+
+
+
+/*System.out.println("time is settting  hr"+hr+"min"+min);  //
+LaunchApp.driver.findElement(By.xpath(".//*[@class='glyphicon glyphicon-time']")).click();
+
+
+WebElement slider = LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[2]/dl/dd[2]/div"));
+try {
+	Thread.sleep(100);
+} catch (InterruptedException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+Actions moveSlider = new Actions(LaunchApp.driver);
+Action action = moveSlider.dragAndDropBy(slider, hr, 5).build();
+action.perform();
+WebElement slider1 = LaunchApp.driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[2]/dl/dd[3]/div"));
+try {
+	Thread.sleep(100);
+} catch (InterruptedException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+Actions moveSlider1 = new Actions(LaunchApp.driver);
+Action action1 = moveSlider1.dragAndDropBy(slider1, min, 5).build();
+action1.perform();
+System.out.println("time is set ");
+try {
+	Thread.sleep(100);
+} catch (InterruptedException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+LaunchApp.driver.findElement(By.xpath("html/body/div[6]/div[3]/button[2]")).click();*/  //Old code before changing new UI
 

@@ -1,0 +1,125 @@
+package Teacher;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import Common.AlertHandling;
+import Common.Gototab;
+import Common.LaunchApp;
+import Data.ExceptionHndeler;
+import Data.Loger;
+
+public class ShareAssignment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	@Test
+	@Parameters({ "Chapter", "lesson", "Department", "Subject", "DestinationCourse","DestinationSection","ShareType" })
+	public static void ShareLesson(String Chapter,String lesson,String Department,String Subject,String DestinationCourse,String DestinationSection,String ShareType)
+	{
+		try
+		{
+			String[] args=new String[10]; 
+		    args[0]=(String) "Lessons";
+			Gototab.main(args);
+			
+			try {
+				Thread.sleep(1000);
+				LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+Chapter+"']")).click();
+			} catch (InterruptedException e) {  e.printStackTrace();
+			if(AlertHandling.isAlertPresent())
+				{
+				LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+Chapter+"']")).click();
+				}
+			}
+			
+			try {
+				Thread.sleep(1000);
+				LaunchApp.driver.findElement(By.xpath(".//*[@lessonname='"+lesson.trim()+"' and @name='lessonShare']")).click();
+			} catch (InterruptedException e) {  e.printStackTrace();
+			if(AlertHandling.isAlertPresent())
+				{
+				LaunchApp.driver.findElement(By.xpath(".//*[@lessonname='"+lesson.trim()+"' and @name='lessonShare']")).click();
+				}
+			}
+			
+			try {
+				Thread.sleep(1000);
+				LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Share']")).click();
+			} catch (InterruptedException e) {  e.printStackTrace();
+			if(AlertHandling.isAlertPresent())
+				{
+				LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Share']")).click();
+				}
+			}
+			
+		if(ShareType.equals("Institute"))
+		{
+			LaunchApp.driver.findElement(By.xpath(".//*[@name='sharewithall']")).click();
+			try
+	    	{
+	    	Alert alert = LaunchApp.driver.switchTo().alert();
+	    	String text=alert.getText();
+	    	if(text.equals("Are you sure you want to share with institute"))
+	    	{
+	   	    alert.accept();
+	    	}
+	    	else
+	    	{
+	    		System.out.println("Error in sharing"+ text);
+	    		Loger.LogEvent(text,"Error");
+	    	}
+	    	 alert = LaunchApp.driver.switchTo().alert();
+	    	text=alert.getText();
+	    	if(text.equals("Shared successfully with institute"))
+	    	{
+	   	    alert.accept();
+	   	      }
+	    	else
+	    	{
+	    		System.out.println("Error in sharing Demo"+ text);
+	    		Loger.LogEvent(text,"Error");
+	    		Assert.fail("not able to Shared successfully with institute");
+		    	
+	    	}
+	    	
+	    	} catch (Exception e2) {
+	   		    //exception handling left as an exercise for the reader
+	   		}
+			
+		}
+		else
+		{
+		new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='selectDepartment']"))).selectByVisibleText(Department.trim());
+		Thread.sleep(10000);
+		new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='selectSubject']"))).selectByVisibleText(Subject.trim());
+		Thread.sleep(10000);
+		new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='selectCourse']"))).selectByVisibleText(DestinationCourse.trim());
+		Thread.sleep(10000);
+		if(ShareType.equals("Course"))
+		{
+			try
+			{
+		  LaunchApp.driver.findElement(By.xpath(".//*[@id='selectEntireCourse']")).click();
+		  LaunchApp.driver.findElement(By.xpath("html/body/div[4]/div[3]/div/button[1]")).click();
+			}
+			catch(Exception e)
+			{
+				ExceptionHndeler.Log("Error","share To Course ", e);
+		}
+		}}}
+		
+		catch(Exception e)
+		{
+			ExceptionHndeler.Log("Alert","Create lesson", e);
+		}
+	}
+
+}

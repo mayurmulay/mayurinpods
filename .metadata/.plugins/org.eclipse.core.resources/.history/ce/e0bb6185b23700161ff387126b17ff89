@@ -1,0 +1,45 @@
+package ReadAPIResponce;
+import ReadAPIResponce.*;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
+import java.util.List;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
+
+
+
+import APIClasses.AssignmentClass;
+import APIClasses.Events;
+import Data.ExceptionHndeler;
+
+ class AssignmentActivity {
+
+	public static void main(String[] args) {
+	
+		String AssignmentDta[]=ReadAPI.ReadData("D:\\API_Responce\\name");
+		
+		AssignmentClass[] userList;
+			try {
+				userList = mapper.readValue(JSONEString,Events[].class);
+		        // System.out.println(userList.PostedOn);
+				for(int i=0;i<userList.length;i++)
+			     {
+					Events.Disp(userList[i]);
+			     }
+				return userList;
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+
+	
+}

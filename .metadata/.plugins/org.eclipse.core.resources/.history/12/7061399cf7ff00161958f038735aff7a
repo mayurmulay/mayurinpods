@@ -1,0 +1,281 @@
+package MainPackage;
+
+
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+import Read_Data.Readxlsx;
+import Read_Data.WriteData;
+
+public class MainClassCsvCreation {
+	static Scanner scanner = new Scanner(System.in);
+	public static String [][]Section_List=Readxlsx.ReadData("SectionCourseTeacher.csv");
+	public static String [][]Student_List=Readxlsx.ReadData("ListOfUsername.xlsx");
+	public static String [][]CSVData=new String[10000][20];
+	public static int Rownumber=0;
+	
+	public static void main(String str[])
+	{
+		Boolean Continue= true;
+		while(Continue)
+		{
+		System.out.println("Enter Choice index number only \n 1.Create Section CSV \n 2.Create Division file \n 3.Copy CSV \n 4.Create User \n 5.Process Ganpat University Data");
+		String SectionIds= scanner.nextLine();
+		if(!SectionIds.equals("Back"))
+		{	
+		if(SectionIds.equals("1")){CreateCsv();}
+		if(SectionIds.equals("2")){CreateDivisionFile();}
+		if(SectionIds.equals("3")){AppendCsv();}
+		if(SectionIds.equals("4")){CreateUser();}
+		if(SectionIds.equals("5")){ProcessICTData.ProcessData();}
+		System.out.println("Do You want Continue.. Y/N");
+		String Response= scanner.nextLine();
+		if(Response.equals("N"))
+		{
+			WriteData.WriteCSV(CSVData);
+			break;
+			
+		}
+		}
+		}
+		
+		
+	}
+	
+	public static void AddStudenttoCSV(int sectionId, String [][]StudentList)
+	{
+		CSVData[Rownumber][0]="Section";
+		CSVData[Rownumber][1]=Section_List[sectionId][1];
+		CSVData[Rownumber][2]=Section_List[sectionId][2];
+		CSVData[Rownumber][3]=Section_List[sectionId][3];
+				Rownumber++;
+				int studentCount=0;
+		while(StudentList[studentCount][0]!=null)	
+		{
+			CSVData[Rownumber][0]="Enroll";
+			CSVData[Rownumber][1]=Section_List[sectionId][1];
+			CSVData[Rownumber][2]=StudentList[studentCount][0];
+		    Rownumber++;
+		    studentCount++;
+		}
+		
+		
+	}
+	
+	public static void PrintCSVdata(String [][]CSVData)
+	{
+		for(int i=0;i<Rownumber;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				System.out.print(" "+CSVData[i][j]);
+			}
+			System.out.print("\n");
+		}
+	}
+	
+	public static void CreateCsv()
+
+	{
+		Boolean Continue= true;
+		int Count=0;
+		while(Section_List[Count][1]!=null)
+		{
+			System.out.println(Count+":"+Section_List[Count][1]);
+			Count++;
+		}
+		while(Continue)
+		{
+		System.out.println("Enter the Section index for which you want to add in csv");
+		String SectionIds= scanner.nextLine();
+		if(!SectionIds.equals("Back"))
+		{
+		String[] Sections=SectionIds.split(",");
+		
+		System.out.println("Enter the file name for student form this div");
+		String StudentListfilename= scanner.nextLine();
+	    String[][] StudentList=Readxlsx.ReadData(StudentListfilename.trim());
+		
+		for(int i=0;i<Sections.length;i++)
+		{
+			int sectionId=Integer.parseInt(Sections[i]);
+			System.out.println("Createing section"+Section_List[sectionId][1]);
+			AddStudenttoCSV(sectionId,StudentList);
+			
+			
+		}
+		
+		System.out.println("Do You want to Add more section Y/N");
+		String Response= scanner.nextLine();
+		if(Response.equals("N") ||Response.equals("Back"))
+		{
+			break;
+		}
+		}
+		}
+		
+	}
+	
+	public static void CreateDivisionFile()
+	{
+		System.out.println("Enter File name");
+		String filename= scanner.nextLine();
+		String [][]StudentList=Readxlsx.ReadData(filename.trim());
+		int index=0;
+		while(StudentList[index][0]!=null)
+		{
+			System.out.println(StudentList[index][0]+"    "+StudentList[index][1]);
+			index++;
+		}
+		String []Div = new String[10000];
+		index=0;
+		Set<String> uniqKeys = new TreeSet<String>();
+		while(StudentList[index][0]!=null)
+		{
+			Div[index]=StudentList[index][0];
+			uniqKeys.add(StudentList[index][0]);
+			index++;
+		}
+		System.out.println("Total number of Division are"+uniqKeys.size());
+		System.out.println(" Division are"+uniqKeys);
+		
+		System.out.println("Append User name by");
+		String suffix= scanner.nextLine();
+		
+		Iterator<String> it = uniqKeys.iterator(); 
+		for(int i=0;i<uniqKeys.size();i++)
+		{
+			String Filename=it.next();
+			String[] StudentlistDIv=new String [10000];
+			int Divindex=0;
+			index=0;
+			while(StudentList[index][0]!=null)
+			{
+				if(StudentList[index][0].equals(Filename))
+				{
+					StudentlistDIv[Divindex]=(StudentList[index][1]+""+suffix).trim();
+					Divindex++;
+				}
+				index++;
+			}
+			WriteData.WriteCSVDiv(StudentlistDIv,Filename,Divindex++);
+		}
+		
+		
+		
+		
+		
+	}
+	
+    public static void CreateUser()
+    {
+    	System.out.println("Enter Type of user you want to add \n 1:Student and Teacher \n 2:Tech,Program Head,DepartmentHead");
+		String type= scanner.nextLine();
+		if(!type.equals("Back"))
+		{
+		if(type.startsWith("1")){CreateStudentTeacher();}
+		if(type.startsWith("2")){CreateOtherUsers();}
+		}
+    }
+		
+	public static void CreateStudentTeacher()
+	{
+		System.out.println("Enter user list File name");
+    	// data in type  for student and teacher User Type: username: email : first name : lastname 
+		String filename= scanner.nextLine();
+		if(!filename.equals("Back"))
+		{
+		String [][]UserList=Readxlsx.ReadData(filename.trim());
+		int index=0;
+		while(UserList[index][0]!=null)
+		{
+			System.out.println(UserList[index][0]+"    "+UserList[index][1]+"    "+UserList[index][2]+"    "+UserList[index][3]+"    "+UserList[index][4]);
+			index++;
+		}
+		System.out.println("Enter Defoult password");
+		String Defoultpassword= scanner.nextLine();
+		
+		System.out.println("Enter Defoult EmailId");
+		String DefoultEmail= scanner.nextLine();
+		
+		System.out.println("Enter suuffix string for username give space if nothing to append");
+		String appendUsername= scanner.nextLine();
+		
+		int studentCount=0;
+		while(UserList[studentCount][0]!=null)	
+		{
+			if(UserList[studentCount][0].trim().equals("Student") || UserList[studentCount][0].trim().equals("Teacher"))
+			CSVData[Rownumber][0]=UserList[studentCount][0].trim();   //User type 
+			CSVData[Rownumber][1]=(UserList[studentCount][1].trim()+appendUsername).trim();   //User name 
+			CSVData[Rownumber][2]=Defoultpassword;
+			//if(UserList[studentCount][2]!=null || !UserList[studentCount][2].trim().equals(""))
+			if(UserList[studentCount][2].length()>0)
+			{CSVData[Rownumber][3]=UserList[studentCount][2].trim();}
+			else
+			{CSVData[Rownumber][3]=DefoultEmail;}
+			CSVData[Rownumber][4]=UserList[studentCount][3].trim();   //First name of user
+			CSVData[Rownumber][5]=UserList[studentCount][4].trim();   //Last name of user
+		    Rownumber++;
+		    studentCount++;
+		}
+		}	
+	}
+		
+	public static void CreateOtherUsers()
+	{
+		System.out.println("Enter User type DepartmentHead/AssociateDepartmentHead/ProgramHead");
+		String Usertype= scanner.nextLine();
+		if(!Usertype.equals("Back"))
+		{
+		System.out.println("Enter  First Name of user ");
+		String name= scanner.nextLine();
+		
+		System.out.println("Enter  Last Name of user ");
+		String lname= scanner.nextLine();
+		
+		System.out.println("Enter User name");
+		String Username= scanner.nextLine();
+		
+		System.out.println("Enter defoult password");
+		String dpassword= scanner.nextLine();
+		
+		
+		System.out.println("Enter institute DB name");
+		String institutedb= scanner.nextLine();
+		
+		CSVData[Rownumber][0]=Usertype;   //User type 
+		CSVData[Rownumber][1]=Username.trim();   //User name 
+		CSVData[Rownumber][2]=dpassword;
+		CSVData[Rownumber][3]=institutedb.trim();
+		CSVData[Rownumber][4]=name.trim();   //First name of user
+		CSVData[Rownumber][5]=lname.trim();   //Last name of user
+	    Rownumber++;
+		}
+		
+	}
+
+	public static void AppendCsv()
+	{
+		System.out.println("Enter path of csv file");
+		String filename= scanner.nextLine();
+		if(!filename.equals("Back"))
+		{
+		String [][]dummycsv=Readxlsx.ReadData(filename.trim());
+	    int row=0;
+	    int coloumn=0;
+	    while(dummycsv[row][coloumn]!=null)
+	    {
+	    	coloumn=0;
+	    	while(dummycsv[row][coloumn]!=null)
+		    {
+	    		CSVData[Rownumber][coloumn]=dummycsv[row][coloumn];
+	    		coloumn++;
+	    	}
+	    	coloumn=0;
+	    	row++;
+	    	Rownumber++;
+	    }
+		}
+	}
+}

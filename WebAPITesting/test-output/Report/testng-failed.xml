@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Report]" parallel="methods">
+  <parameter name="Description" value="Descr_TestLevel_NA_30"/>
+  <parameter name="username" value="maym@inpods.com"/>
+  <parameter name="TestData" value="AutoTestingMM"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="Weight" value="30"/>
+  <parameter name="IsContinuousAssessments" value="No"/>
+  <parameter name="name" value="NewSurvey"/>
+  <parameter name="Computation_Method" value="Assignment Level"/>
+  <parameter name="CatgoriName" value="TestLevel_30"/>
+  <parameter name="Sectionname" value="AutoTestingMM_B"/>
+  <parameter name="URL" value="http://localhost/"/>
+  <parameter name="password" value="password"/>
+  <test name="BloomsTaxonomyReport(failed)" parallel="methods">
+    <classes>
+      <class name="Teacher.BloomsTaxonomyReport">
+        <methods>
+          <include name="Gradebook"/>
+        </methods>
+      </class> <!-- Teacher.BloomsTaxonomyReport -->
+    </classes>
+  </test> <!-- BloomsTaxonomyReport(failed) -->
+  <test name="CourseOutcomeReport(failed)" parallel="methods">
+    <classes>
+      <class name="Teacher.CourseOutcomeReport">
+        <methods>
+          <include name="Gradebook"/>
+        </methods>
+      </class> <!-- Teacher.CourseOutcomeReport -->
+    </classes>
+  </test> <!-- CourseOutcomeReport(failed) -->
+  <test name="Gradebook(failed)" parallel="methods">
+    <classes>
+      <class name="Teacher.ValidateGradebook">
+        <methods>
+          <include name="Gradebook"/>
+        </methods>
+      </class> <!-- Teacher.ValidateGradebook -->
+    </classes>
+  </test> <!-- Gradebook(failed) -->
+  <test name="ValidateSurveyReport(failed)" parallel="methods">
+    <parameter name="name" value="NewSurvey"/>
+    <classes>
+      <class name="Teacher.ValidateSurveyReport">
+        <methods>
+          <include name="SurveyReport" invocation-numbers="0 0 0"/>
+        </methods>
+      </class> <!-- Teacher.ValidateSurveyReport -->
+    </classes>
+  </test> <!-- ValidateSurveyReport(failed) -->
+</suite> <!-- Failed suite [Report] -->

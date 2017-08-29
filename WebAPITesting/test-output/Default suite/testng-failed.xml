@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="Teacher.AddQuestionAssignment">
+      <class name="Data.Read_Data">
         <methods>
-          <include name="testAddQuestionAssignment"/>
+          <include name="SetINputDatapath"/>
         </methods>
-      </class> <!-- Teacher.AddQuestionAssignment -->
+      </class> <!-- Data.Read_Data -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

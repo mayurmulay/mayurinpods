@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [AllowExternalPolicy]" parallel="methods">
+  <parameter name="Picname" value="AllowExternal_Teacher"/>
+  <parameter name="text" value="Xpath:.//*[@name=&#039;createExternalAssignment&#039;]"/>
+  <parameter name="Value" value="True"/>
+  <parameter name="username" value="inpodssa@sar.com"/>
+  <parameter name="TestData" value="http://testing.inpods.com:88/"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="PolicyName" value="AllowExternal"/>
+  <parameter name="tabname" value="Manage Course"/>
+  <parameter name="URL" value="http://testing.inpods.com:88/"/>
+  <parameter name="password" value="techone"/>
+  <listeners>
+    <listener class-name="ReportGenration.RetryListener"/>
+  </listeners>
+  <test name="ValiDate External(failed)" parallel="methods">
+    <parameter name="Picname" value="AllowExternal_Teacher"/>
+    <parameter name="text" value="Xpath:.//*[@name=&#039;createExternalAssignment&#039;]"/>
+    <classes>
+      <class name="Common.ValidateAndSnap">
+        <methods>
+          <include name="ValidateStringYes"/>
+        </methods>
+      </class> <!-- Common.ValidateAndSnap -->
+    </classes>
+  </test> <!-- ValiDate External(failed) -->
+</suite> <!-- Failed suite [AllowExternalPolicy] -->

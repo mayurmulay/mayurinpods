@@ -5,7 +5,19 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
 public class Read_Data {
+	
+	public static String InstituteTypeforExicution="Flavour 7-8";
+	
+	@Test
+	@Parameters({"INputDatapath"})
+	public static void SetINputDatapath(String INputDatapath)
+	{
+		InstituteTypeforExicution=INputDatapath.trim();
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -17,7 +29,7 @@ public class Read_Data {
 		String [][] s1=new String[10000][100];
 		 BufferedReader bufferedReader = null;
 		try {
-			bufferedReader = new BufferedReader(new FileReader("D:\\Policy\\"+name));
+			bufferedReader = new BufferedReader(new FileReader("D:\\InpodsAutomationData\\"+InstituteTypeforExicution.trim()+"\\"+name));
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

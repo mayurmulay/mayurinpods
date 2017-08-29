@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [optionalAssignment]" parallel="methods">
+  <parameter name="INputDatapath" value="Flavour 7-8"/>
+  <parameter name="password" value="password"/>
+  <parameter name="filename" value="OptionalQuestionAssignment.csv"/>
+  <parameter name="TestData" value="Lab1_AutoTestingMM"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="PolicyName" value="ValidationOnOptionalQuestion"/>
+  <parameter name="Value" value="False"/>
+  <parameter name="Testcasename" value="Set1OrSet2(DiffCountofQ)"/>
+  <parameter name="SectionId" value="1"/>
+  <parameter name="URL" value="http://localhost/"/>
+  <parameter name="username" value="maym@inpods.com"/>
+  <test name="Set policy_Select Section(failed)" parallel="methods">
+    <parameter name="SectionId" value="1"/>
+    <classes>
+      <class name="Tech.TechChangeSection">
+        <methods>
+          <include name="TechChangeSection"/>
+        </methods>
+      </class> <!-- Tech.TechChangeSection -->
+    </classes>
+  </test> <!-- Set policy_Select Section(failed) -->
+</suite> <!-- Failed suite [optionalAssignment] -->

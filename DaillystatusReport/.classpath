@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="/WebAPITesting/JAR/poi-3.5-FINAL.jar/dom4j-full.jar"/>
+	<classpathentry kind="lib" path="/WebAPITesting/JAR/poi-3.5-FINAL.jar/poi-3.9.jar"/>
+	<classpathentry kind="lib" path="/WebAPITesting/JAR/poi-3.5-FINAL.jar/poi-ooxml-3.9.jar"/>
+	<classpathentry kind="lib" path="/WebAPITesting/JAR/poi-3.5-FINAL.jar/poi-ooxml-schemas-3.9.jar"/>
+	<classpathentry kind="lib" path="/WebAPITesting/JAR/poi-3.5-FINAL.jar/xmlbeans.jar"/>
+	<classpathentry kind="lib" path="/WebAPITesting/JAR/DB_connector/mysql-connector.jar"/>
+	<classpathentry kind="lib" path="/WebAPITesting/JAR/DB_connector/sqljdbc4-3.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

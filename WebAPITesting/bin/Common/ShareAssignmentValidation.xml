@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Teacher P0" parallel="methods" thread-count="1">
+ <parameter name="Cos" value="null1"/> 
+   <parameter name="URL" value="http://localhost:8001/"/> 
+   
+<test name="LaunchApp_SD">
+   <parameter name="TestData" value="http://localhost:8001/"/> 
+   <parameter name="URL" value="http://localhost:8001/"/> 
+      <classes>
+         <class name="Common.LaunchApp" />
+      </classes>
+   </test>
+<test name="LoginWithSD">
+      <parameter name="username" value="sd@inpods.com"/> 
+      <parameter name="password" value="t1t1t1"/> 
+      <classes>
+         <class name="Common.Login" />
+      </classes>
+</test>
+   
+<test name="Change Section SD">
+      <parameter name="TestData" value="Internal Training - sd"/> 
+      <classes>
+      <class name="Common.ChangeSection" />
+          <class name="Com.Ojo.ReadJsonObject" />
+          </classes>
+</test>
+ 
+<!--*********************************************************************Test casess validate share Assignment***********************************-->  
+   <test name="ValidateSharedAssignment">
+    
+      <parameter name="AssignmentList" value=" External_DQ_SECTION:Lab_DQ_Course:Test_MCQ_Institute"/> 
+      <classes>
+      <class name="Teacher.ValidateSharedAssignment" />
+          </classes>
+</test>
+
+    <!--*********************************************************************Test casess validate share lesson***********************************-->  
+   <test name="ValidateSharedLesson">
+    
+      <parameter name="lessonList" value="AutherShareWithSection:UploadShareWithCourse:Link_ShareWithInstitute"/> 
+      <parameter name="TargetLesson" value="CopiedLesson"/> 
+      <classes>
+      <class name="Teacher.ValidateSharedLesson" />
+          </classes>
+   </test>
+  </suite>

@@ -1,0 +1,26 @@
+package Teacher;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+
+import Common.Gototab;
+import Common.LaunchApp;
+
+public class Gradebook_Report {
+	public static void Gradebook()
+	{
+		try
+		{
+	String args1[]={"Manage Course"," "};
+	Gototab.main(args1);
+	JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
+	jse.executeScript("window.scrollTo(50, 50)", "");
+	LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Reports')]")).click();
+	LaunchApp.driver.findElement(By.xpath(".//*[@name='createRubric']")).click();
+	//Wait.until(ExpectedConditions.alertIsPresent());
+	Thread.sleep(10000);
+	Alert alert = LaunchApp.driver.switchTo().alert();
+	 alert.accept();
+
+}

@@ -1,0 +1,97 @@
+package NBAReportTesting;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
+import java.util.List;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
+
+
+
+import Data.ExceptionHndeler;
+
+ class ReadAPI {
+
+	public static void main(String[] args) {
+	
+		 String[] CourseLevelAttainmentReport =ReadData("D:\\API_Responce\\CourseLevelAttainmentReport");
+		 Write(CourseLevelAttainmentReport,"CourseLevelAttainmentReport_JSON");
+		 String[] Semesters =ReadData("D:\\API_Responce\\Semesters");
+		 Write(Semesters,"Semesters_JSON");
+		 String[] POAttainment =ReadData("D:\\API_Responce\\POAttainment");
+		 Write(POAttainment,"POAttainment_JSON");
+		 String[] pgmCOMappings =ReadData("D:\\API_Responce\\pgmCOMappings");
+		 Write(pgmCOMappings,"pgmCOMappings_JSON");
+		 String[] CoursePOAffinityMatrix =ReadData("D:\\API_Responce\\CoursePOAffinityMatrix");
+		 Write(CoursePOAffinityMatrix,"CoursePOAffinityMatrix_JSON");
+		
+		
+	}
+
+	public static String[] ReadData(String name)
+	{
+		String [] s1=new String[10000];
+		
+		 Charset charset = Charset.forName("ISO-8859-1");
+		 List<String> lines = null ;
+		try {
+			 lines = Files.readAllLines(Paths.get(name),charset);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			ExceptionHndeler.Log("Read Data","Read Data", e);
+		}
+		
+  String[] Assignments= new String[1000];
+  int AssCount=0;
+	  for(int i=0;i<lines.size();i++)
+	  {
+		if(lines.get(i).toString().trim().startsWith("<responseData class="))
+		  {
+			String Str="";
+			try
+			{
+			 Str=lines.get(i).toString().trim();
+			int start=Str.indexOf('{');
+			int end=Str.lastIndexOf('}');     
+			Str=Str.substring(start, (end+1));                //Get only JSON Part and Remove other XML 
+			Str=Str.replace("&quot;", "\"");
+		    Assignments[AssCount]=Str;
+		   
+		   // System.out.println("\n\n"+Assignments[AssCount]);
+		    AssCount++;
+			}
+		    catch(Exception e )
+		    {
+		    	System.out.println(e);
+		    	System.out.println(Str);
+		    }
+		  }
+	  }
+	  int AssCountOld=AssCount;
+	  for(int i=AssCountOld;i<AssCount;i++)
+	  {
+		    System.out.println("\n\n new assignment = "+Assignments[i]);  
+	  }
+	     return s1;
+	}
+	public static void Write(String [] observation,String name)
+	{
+	for(int i = 0; i < observation.length; i++) {
+	    try (BufferedWriter bw = new BufferedWriter(new FileWriter("D:\\API_Responce\\"+name+".txt", true))) {
+	        String s=" ";
+	        s = observation[i];
+	        bw.write(s);
+	        bw.flush();
+	    } catch(IOException ex) {}  
+	}
+	}
+}

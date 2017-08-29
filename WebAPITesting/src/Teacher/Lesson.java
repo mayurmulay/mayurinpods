@@ -10,7 +10,9 @@ import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import Common.Gototab;
 import Common.LaunchApp;
+import Common.MooveToElement;
 import Data.ExceptionHndeler;
 
 public class Lesson {
@@ -19,13 +21,22 @@ public class Lesson {
 	{
 		LaunchApp.driver.findElement(By.linkText("Add New Chapter")).click();
 		LaunchApp.driver.findElement(By.xpath(".//*[@id='Name']")).sendKeys(Chapter);
-		LaunchApp.driver.findElement(By.xpath(".//*[@id='StartDate']")).sendKeys("07/02/2016");
+		//LaunchApp.driver.findElement(By.xpath(".//*[@id='StartDate']")).clear();
+		//LaunchApp.driver.findElement(By.xpath(".//*[@id='StartDate']")).sendKeys("07/02/2016");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		MooveToElement.moveToElenment(".//*[@id='Name']");
+		ExceptionHndeler.getScreen("Creating Chapter"+Chapter);
 		LaunchApp.driver.findElement(By.xpath("html/body/div[4]/div[3]/div/button[1]")).click();   
-		LaunchApp.driver.findElement(By.linkText("Enable")).click();
+	//	LaunchApp.driver.findElement(By.linkText("Enable")).click();
 		try
 		{
 			Thread.sleep(1000);
-			LaunchApp.driver.switchTo().alert().accept();
+			//LaunchApp.driver.switchTo().alert().accept();
 		}
 		catch(Exception e)
 		{
@@ -40,7 +51,9 @@ public class Lesson {
 	{
 		try
 		{
-		LaunchApp.driver.findElement(By.linkText("Lessons")).click();
+			String[] args=new String[10]; 
+		    args[0]=(String) "Lessons";
+			Gototab.main(args);
 		if(LaunchApp.driver.findElements(By.linkText(Chapter.trim())).size() == 0)
 		{
 			System.out.println("Lesson is not present");
@@ -58,15 +71,20 @@ public class Lesson {
 		LaunchApp.driver.findElement(By.linkText(Chapter.trim())).click();
 		Thread.sleep(1000);
 		LaunchApp.driver.findElement(By.linkText("Add New Lesson")).click();
+		Thread.sleep(3000);
 		LaunchApp.driver.findElement(By.xpath(".//*[@id='Name']")).clear();
+		Thread.sleep(3000);
 		LaunchApp.driver.findElement(By.xpath(".//*[@id='Name']")).sendKeys(lesson.trim());
+		Thread.sleep(3000);
 		if(type.equals("link"))
 		{
 		   LaunchApp.driver.findElement(By.xpath(".//*[@id='LinkAddress1']")).sendKeys(data.trim());
 		   Thread.sleep(3000);
 		   try { if(!(Cos.equals("null1")))  {  Secect_Co(Cos);  }} catch(Exception e) {	ExceptionHndeler.Log("Alert","Create lesson Co mapping ", e);}
-			
-			LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).click();
+		   
+		   ExceptionHndeler.getScreen("Creating lesson"+lesson);
+		//	LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).click();
+			LaunchApp.driver.findElement(By.xpath(".//*[@value='Save']")).click();
 			Thread.sleep(3000);
 		   
 	    }
@@ -75,15 +93,17 @@ public class Lesson {
 		 try { if(!(Cos.equals("null1")))  {  Secect_Co(Cos);  }} catch(Exception e) {	ExceptionHndeler.Log("Alert","Create lesson Co mapping ", e);}
 			
 	      new Select(LaunchApp.driver.findElement(By.xpath(".//*[@id='SelectedLessonPartType1']"))).selectByVisibleText(type);
-		  Thread.sleep(1000);
+		  Thread.sleep(5000);
 		  WebElement element= LaunchApp.driver.findElement(By.xpath(".//*[@name='UploadFile1']")); 
-		  element.click(); 
-		  Runtime.getRuntime().exec(data.trim());
+		  element.sendKeys(data.trim()); 
+		 // Runtime.getRuntime().exec(data.trim());
 		 
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 			System.out.println("lesson saving");
 			Thread.sleep(300);
-			LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).sendKeys(Keys.ENTER);
+			ExceptionHndeler.getScreen("Creating lesson"+lesson);
+			LaunchApp.driver.findElement(By.xpath(".//*[@value='Save']")).sendKeys(Keys.ENTER);
+			//LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).sendKeys(Keys.ENTER);
 			//LaunchApp.driver.findElement(By.xpath(".//*[@id='frmSaveLesson']/input[15]")).click();
 			System.out.println("Uploading");
 			Thread.sleep(10000);
@@ -102,15 +122,15 @@ public class Lesson {
 		     }
 			WebDriverWait wait = new WebDriverWait(LaunchApp.driver, 90000);
 			WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.linkText(lesson.trim())));
-			
+			ExceptionHndeler.getScreen("Lesson_Created"+lesson);
 			if(LaunchApp.driver.findElements(By.linkText(lesson.trim())).size() > 0)
 			{
-				Assert.assertTrue(true, "User unable to create");
+				Assert.assertTrue(true, "User able to create");
 			}
-		   LaunchApp.driver.findElement(By.linkText("Enable")).click();
+		  // LaunchApp.driver.findElement(By.linkText("Enable")).click();
 		   try
 	     	{
-			LaunchApp.driver.switchTo().alert().accept();
+			//LaunchApp.driver.switchTo().alert().accept();
 		    }
 		    catch(Exception e)
 	     	{
@@ -121,6 +141,7 @@ public class Lesson {
 		catch(Exception e)
 		{
 			ExceptionHndeler.Log("Alert","Create lesson", e);
+			Assert.fail("Not able to create the lesson "+lesson);
 		//	e.printStackTrace();
 		}
 		
@@ -130,8 +151,10 @@ public class Lesson {
 		String CoSelected = null;
 		try
 		{
-		 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblConcept']")).click();
-		 LaunchApp.driver.findElement(By.xpath("//*[@class='dynatree-expander']")).click();
+			Thread.sleep(10000);
+			try{
+		 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblConcept']")).click();}catch(Exception e){}
+			try{ LaunchApp.driver.findElement(By.xpath("//*[@class='dynatree-expander']")).click();}catch(Exception e){}
 		 String []hm={"2","0"};
 		 hm=Cos.split(";");
 		  
@@ -148,7 +171,8 @@ public class Lesson {
 		catch(Exception e)
 		{
 			ExceptionHndeler.Log("Alert","Create lesson", e);
-		//	e.printStackTrace();
+			//Assert.fail("Not able to Map CO to create the lesson ");
+			//e.printStackTrace();
 		}
 		//Assert.assertEquals(CoSelected,LaunchApp.driver.findElement(By.xpath(".//*[@name='lblConcept']")).getText());
 	}

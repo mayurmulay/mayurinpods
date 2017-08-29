@@ -1,0 +1,142 @@
+package assignment_Student;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import Common.LaunchApp;
+
+
+public class Student_MCQ_Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+	public static void MCQ_Test(String[] str )
+	{
+		Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+    
+        
+		int i=1;
+		String[] Qid=new String[100];
+		while(!(str[i].equals("End")))
+		{
+			System.out.println("in question"+i);
+			String []s={"m","n"};
+			s=str[i].split(":");
+	if(s[0].startsWith("Q"))
+	{
+		if(!s[1].equals("NA"))
+		{
+		if(s[0].equals("Q1"))
+		{
+			try {
+				Thread.sleep((long) (3000));
+			} catch (InterruptedException e) {e.printStackTrace();}
+			Qid=getQid();
+			String m=Qid[0]+"_"+s[1];
+			System.out.println("option selected id"+m+"time"+sdf.format(cal.getTime()));
+			Common.LaunchApp.driver.findElement(By.xpath(".//*[@id='"+m+"']")).click();
+		}
+		if(s[0].equals("Q2"))
+		{
+			try {
+				Thread.sleep((long) (5000));
+			} catch (InterruptedException e) {e.printStackTrace();}
+			String m=Qid[1]+"_"+s[1];
+			System.out.println("option selected id"+m+"time"+sdf.format(cal.getTime()));
+			Common.LaunchApp.driver.findElement(By.xpath(".//*[@id='"+m+"']")).click();
+		}
+		if(s[0].equals("Q3"))
+		{
+			try {
+				Thread.sleep((long) (5000));
+			} catch (InterruptedException e) {e.printStackTrace();}
+			Qid=getQid();
+			String m=Qid[2]+"_"+s[1];
+			System.out.println("option selected id"+m+"time"+sdf.format(cal.getTime()));
+			Common.LaunchApp.driver.findElement(By.xpath(".//*[@id='"+m+"']")).click();
+		}
+		if(s[0].equals("Q4"))
+		{
+			try {
+				Thread.sleep((long) (10000));
+			} catch (InterruptedException e) {e.printStackTrace();}
+			Qid=getQid();
+			String m=Qid[3]+"_"+s[1];
+			System.out.println("option selected id"+m+"time"+sdf.format(cal.getTime()));
+			Common.LaunchApp.driver.findElement(By.xpath(".//*[@id='"+m+"']")).click();
+		}
+		if(s[0].equals("Q5"))
+		{
+			Qid=getQid();
+			String m=Qid[4]+"_"+s[1];
+			System.out.println("option selected id"+m+"time"+sdf.format(cal.getTime()));
+			LaunchApp.driver.findElement(By.xpath(".//*[@id='"+m+"']")).click();
+		}
+		if(s[0].equals("Q6"))
+		{
+			Qid=getQid();
+			String m=Qid[5]+"_"+s[1];
+			System.out.println("option selected id"+m+"time"+sdf.format(cal.getTime()));
+			LaunchApp.driver.findElement(By.xpath(".//*[@id='"+m+"']")).click();
+		}
+		if(s[0].equals("Q7"))
+		{
+			Qid=getQid();
+			String m=Qid[3]+"_"+s[1];
+			System.out.println("option selected id"+m+"time"+sdf.format(cal.getTime()));
+			Common.LaunchApp.driver.findElement(By.xpath(".//*[@id='"+m+"']")).click();
+		}
+		if(s[0].equals("Q8"))
+		{
+			Qid=getQid();
+			String m=Qid[4]+"_"+s[1];
+			System.out.println("option selected id"+m+"time"+sdf.format(cal.getTime()));
+			LaunchApp.driver.findElement(By.xpath(".//*[@id='"+m+"']")).click();
+		}
+		if(s[0].equals("Q9"))
+		{
+			Qid=getQid();
+			String m=Qid[5]+"_"+s[1];
+			System.out.println("option selected id"+m+"time"+sdf.format(cal.getTime()));
+			LaunchApp.driver.findElement(By.xpath(".//*[@id='"+m+"']")).click();
+		}
+		if(s[0].equals("Q10"))
+		{
+			Qid=getQid();
+			String m=Qid[5]+"_"+s[1];
+			System.out.println("option selected id"+m+"time"+sdf.format(cal.getTime()));
+			LaunchApp.driver.findElement(By.xpath(".//*[@id='"+m+"']")).click();
+		}
+	}
+	}
+	i++;
+	}
+	}
+	public static String[] getQid()
+	{
+		String[] Qid=new String [100];
+		int i=0;
+		List <WebElement> li=Common.LaunchApp.driver.findElements(By.xpath("//*[@value='0']"));
+		for(WebElement element : li){
+			try
+			{
+				Qid[i]=element.getAttribute("name");
+				i++;
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		return Qid;
+		
+	}
+	
+}

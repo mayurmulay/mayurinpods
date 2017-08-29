@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import Common.Clickevent;
 import Common.Gototab;
 import Common.LaunchApp;
 import Data.ExceptionHndeler;
@@ -28,7 +29,7 @@ public class AddQuestionAssignment {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
-
+//Mayur Upload
 
   @Test
   public void testAddQuestionAssignment() throws Exception {
@@ -36,6 +37,7 @@ public class AddQuestionAssignment {
 	  System.out.println("testAddQuestionAssignment()");
 	  String[] args1 = new String[2];
 	  args1[0]=(String) "Manage Course";
+	  Gototab.main(args1);
 	  LaunchApp.driver.findElement(By.linkText("Create")).click();
 	  String str=closeAlertAndGetItsText();
 	  
@@ -44,60 +46,65 @@ public class AddQuestionAssignment {
       try
       {
     	  Thread.sleep(5000);
-	  AssignmentCreation.Name(args2);}catch(Exception e){e.printStackTrace();}
+	  AssignmentCreation.Name(args2);}catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
       
       String[] args3={"Test","Test"};
       try
-      {Thread.sleep(5000);AssignmentCreation.AssignmentType(args3);}catch(Exception e){e.printStackTrace();}
+      {Thread.sleep(5000);AssignmentCreation.AssignmentType(args3);}catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
       
       try
       {
     	  String[] args4={"Security / Control","Group access codes;ab1"};
     	  AssignmentCreation.SecurityControl(args4);
     
-      }catch(Exception e){e.printStackTrace();}
+      }catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
       
-      LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+      try
+      { LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
 		 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
-		 
+      }catch(Exception e){}
+       
     try
-    {Thread.sleep(5000);EditActivity.createActivity("Multiple Choice");}catch(Exception e){e.printStackTrace();}
+    {Thread.sleep(5000);EditActivity.createActivity("Multiple Choice");}catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
       
-    LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
-	 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+    try
+    { LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+		 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+    }catch(Exception e){}
 	 
     try
-    {Thread.sleep(5000);
-    LaunchApp.driver.findElement(By.name("btnAddQBQuestion")).click();}catch(Exception e){e.printStackTrace();}
-    new Select(LaunchApp.driver.findElement(By.id("questionBank"))).selectByVisibleText("AutoTestQB");
-    LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
-	 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblAssignmentVersion']")).click();
+    {Thread.sleep(5000);   //lblActivitySubTypeName
+    LaunchApp.driver.findElement(By.name("lblActivitySubTypeName")).click();
+    Thread.sleep(5000);
+    LaunchApp.driver.findElement(By.name("btnAddQBQuestion")).click();}catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
+    new Select(LaunchApp.driver.findElement(By.id("questionBank"))).selectByVisibleText("Abc");
+    
     try
-    {Thread.sleep(5000);}catch(Exception e){e.printStackTrace();}
-    LaunchApp.driver.findElement(By.cssSelector("option[value=\"116\"]")).click();
+    {Thread.sleep(5000);}catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
+    //LaunchApp.driver.findElement(By.cssSelector("option[value=\"116\"]")).click();
     try
-    {Thread.sleep(5000);}catch(Exception e){e.printStackTrace();}
+    {Thread.sleep(5000);}catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
     LaunchApp.driver.findElement(By.name("checkbox")).click();
     try
     {Thread.sleep(5000);
     List <WebElement> li=LaunchApp.driver.findElements(By.xpath(".//input[@name='checkbox']"));
-    for(int i=0;i<10 && i<li.size();i++){
+    for(int i=0;i<6 && i<li.size();i++){
 		try
 		{
-			li.get(i).click();
+			Clickevent.ClickEvent(li.get(i));
          Thread.sleep(2000);
-		}catch(Exception e){e.printStackTrace();}
+		}catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
       }
-    }catch(Exception e){e.printStackTrace();}
+    }catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
     try
     {Thread.sleep(5000);
     LaunchApp.driver.findElement(By.id("addQuestionsFromQB")).click(); 
-    String str1=closeAlertAndGetItsText();}catch(Exception e){e.printStackTrace();}
+    String str1=closeAlertAndGetItsText();}catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
    
     try
     {Thread.sleep(5000);
-    LaunchApp.driver.findElement(By.cssSelector("button.ui-dialog-titlebar-close")).click();
-    }catch(Exception e){e.printStackTrace();}
+   // LaunchApp.driver.findElement(By.cssSelector("button.ui-dialog-titlebar-close")).click();   bug get fixed for this line
+    }catch(Exception e){ExceptionHndeler.Log("Add Question QB","Add Question QB", e);e.printStackTrace();}
     
     LaunchApp.driver.findElement(By.name("btnSave")).click();
     Thread.sleep(1000);

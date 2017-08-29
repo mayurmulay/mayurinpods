@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [ShowExternalMarksPolicy]" parallel="methods">
+  <parameter name="Picname" value="HideUniverityStudent_Gradebook"/>
+  <parameter name="TestData" value="http://testing.inpods.com:88/"/>
+  <parameter name="Value" value="false"/>
+  <parameter name="text" value="String:ShowExternalMarksAssignment"/>
+  <parameter name="password" value="techone"/>
+  <parameter name="AssignmentType" value="External+DQ+Univerity+WithoutCO"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="username" value="inpodssa@sar.com"/>
+  <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+  <parameter name="Xpath" value=".//*[.=&#039;My Gradebook&#039;]"/>
+  <parameter name="PolicyName" value="AllowExternal"/>
+  <parameter name="URL" value="http://testing.inpods.com:88/"/>
+  <parameter name="tabname" value="Report"/>
+  <parameter name="href" value="/Report/MyGradebook?sectionId="/>
+  <test name="Login By Student(failed)" parallel="methods">
+    <parameter name="username" value="student.2@inpods.com"/>
+    <parameter name="password" value="s1s1s1"/>
+    <classes>
+      <class name="Common.Login">
+        <methods>
+          <include name="LoginD" invocation-numbers="0 0 0"/>
+        </methods>
+      </class> <!-- Common.Login -->
+    </classes>
+  </test> <!-- Login By Student(failed) -->
+  <test name="Gototab Assignments(failed)" parallel="methods">
+    <parameter name="tabname" value="Assignments"/>
+    <classes>
+      <class name="Common.Gototab">
+        <methods>
+          <include name="execute" invocation-numbers="0 0 0"/>
+        </methods>
+      </class> <!-- Common.Gototab -->
+    </classes>
+  </test> <!-- Gototab Assignments(failed) -->
+  <test name="ValiDate External(failed)" parallel="methods">
+    <parameter name="Picname" value="HideUniverity_Student"/>
+    <parameter name="text" value="String:ShowExternalMarksAssignment"/>
+    <classes>
+      <class name="Common.ValidateAndSnap">
+        <methods>
+          <include name="ValidateStringYes"/>
+        </methods>
+      </class> <!-- Common.ValidateAndSnap -->
+    </classes>
+  </test> <!-- ValiDate External(failed) -->
+  <test name="Gototab Report(failed)" parallel="methods">
+    <parameter name="tabname" value="Report"/>
+    <classes>
+      <class name="Common.Gototab">
+        <methods>
+          <include name="execute" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Common.Gototab -->
+    </classes>
+  </test> <!-- Gototab Report(failed) -->
+  <test name="ValiDate External_Gradebook(failed)" parallel="methods">
+    <parameter name="Picname" value="HideUniverityStudent_Gradebook"/>
+    <parameter name="text" value="String:ShowExternalMarksAssignment"/>
+    <classes>
+      <class name="Common.ValidateAndSnap">
+        <methods>
+          <include name="ValidateStringYes"/>
+        </methods>
+      </class> <!-- Common.ValidateAndSnap -->
+    </classes>
+  </test> <!-- ValiDate External_Gradebook(failed) -->
+</suite> <!-- Failed suite [ShowExternalMarksPolicy] -->

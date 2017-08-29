@@ -1,6 +1,8 @@
 package Common;
 
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
+import org.testng.annotations.Parameters;
 
 public class Gototab {
 
@@ -8,8 +10,20 @@ public class Gototab {
 		Gototab g=new Gototab();
 		Gototab.execute(args[0]);
 	}
-public static void execute(String str)
+@Test
+@Parameters({"tabname"})
+public static void execute(String tabname) 
 {
-	LaunchApp.driver.findElement(By.linkText(str.trim())).click();
+	try {
+		System.out.println("Chanaging tab"+tabname);
+		Thread.sleep(1000);
+		AlertHandling.isAlertPresent();
+		LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+tabname.trim()+"') and @class='menu-title']")).click();
+	} catch (Exception e) {
+	
+		AlertHandling.isAlertPresent();
+		LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'"+tabname.trim()+"') and @class='menu-title']")).click();
+	}
+	
 }
 }

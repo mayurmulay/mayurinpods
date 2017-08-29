@@ -7,12 +7,17 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.thoughtworks.selenium.Wait;
+
 import Common.Gototab;
 import Common.LaunchApp;
+import Common.MooveToElement;
+import Data.ExceptionHndeler;
 
 public class CreateRubric {
 	
@@ -26,15 +31,17 @@ public class CreateRubric {
 	Gototab.main(args1);
 	JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
 	jse.executeScript("window.scrollTo(50, 50)", "");
-	LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Manage Rubrics')]")).click();
+	LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Manage Rubric')]")).click();
 	LaunchApp.driver.findElement(By.xpath(".//*[@name='createRubric']")).click();
+	//Wait.until(ExpectedConditions.alertIsPresent());
+	Thread.sleep(10000);
 	Alert alert = LaunchApp.driver.switchTo().alert();
 	 alert.accept();
 	// int id= GetID();
 	
     // LaunchApp.driver.findElement(By.xpath(".//*[@id='"+id+"'][@name='rubricEdit']")).click();
 	 
-	 try {Thread.sleep(900);} catch (InterruptedException e) {e.printStackTrace();}
+	 try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
 	 
 	 LaunchApp.driver.findElement(By.xpath(".//*[@name='lblRubricTitle']")).click();
 	 try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
@@ -46,20 +53,22 @@ public class CreateRubric {
 	 LaunchApp.driver.findElement(By.xpath(".//*[@name='value']")).clear();
 	 LaunchApp.driver.findElement(By.xpath(".//*[@name='value']")).sendKeys(name);
 	 
-	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
-	 
+	 try {Thread.sleep(10000);} catch (InterruptedException e) {e.printStackTrace();}
+	 MooveToElement.moveToElenment(".//*[@name='value']");
+	 ExceptionHndeler.getScreen("Create Rubric_before"+name);
 	 LaunchApp.driver.findElement(By.xpath(".//*[@name='enable']")).click();   
 	 
-	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+	 try {Thread.sleep(10000);} catch (InterruptedException e) {e.printStackTrace();}
 	 alert = LaunchApp.driver.switchTo().alert();
 	 alert.accept();
-	 try {alert = LaunchApp.driver.switchTo().alert();
-	 alert.accept();} catch (Exception e) {e.printStackTrace();}
+	 try { Thread.sleep(10000); alert = LaunchApp.driver.switchTo().alert();
+	 alert.accept();} catch (Exception e) {}
 	 
 		
-	try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+	try {Thread.sleep(10000);} catch (InterruptedException e) {e.printStackTrace();}
      LaunchApp.driver.findElement(By.xpath(".//*[@name='back']")).click();   //back
-     
+    // MooveToElement.moveToElenment(".//*[@name='value']");
+     ExceptionHndeler.getScreen("Create Rubric_List"+name);
      String Data=LaunchApp.driver.findElement(By.xpath(".//*[@id='NewRubricTable']")).getText();
     
      if(Data.contains(name.trim()))

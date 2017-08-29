@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [New Institute]" parallel="methods">
+  <parameter name="EmployeeType" value="SchoolTech"/>
+  <parameter name="Blooms" value="Bloom1"/>
+  <parameter name="data" value="D:\AutoTestData_Chrome\Upload\Upload.mp4"/>
+  <parameter name="CourseName" value="Smoke Testing"/>
+  <parameter name="UserName" value="Inpods Schooltech [inpodssa@Smoke.in]"/>
+  <parameter name="type" value="Upload"/>
+  <parameter name="password" value="s1s1s1"/>
+  <parameter name="CO_Description" value="AutoCO2"/>
+  <parameter name="AssignmentType" value="Test+DQ+PastStartDate+GroopAccessCode"/>
+  <parameter name="Chapter" value="ChapterDemo"/>
+  <parameter name="username" value="student1@Smoke.in"/>
+  <parameter name="Course" value="Smoke Testing"/>
+  <parameter name="level" value="Chapter-&gt;Lesson"/>
+  <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+  <parameter name="ProgramName" value="Smoke Testing Program"/>
+  <parameter name="Blooms_Description" value="Bloom Cognitive Level 1: REMEMBERING Recognising Listing Describing Identifying Retrieving Naming Locating Finding Bullet pointing Highlighting Bookmarking Social networking Social bookmarking Favouriting/local bookmarking Searching Googling"/>
+  <parameter name="PO_Description" value="AutoPO1"/>
+  <parameter name="Rubric" value="Rubric 1"/>
+  <parameter name="Assignemnt_Name" value="Test4"/>
+  <parameter name="PolicyName" value="ClassicUI"/>
+  <parameter name="name" value="External1"/>
+  <parameter name="Testname" value="Test name:Test4"/>
+  <parameter name="path" value="D:\AutoTestData_Chrome\Upload\External1_Automate Teacher_SmokeTesting.xlsx"/>
+  <parameter name="URL" value="http://testing.inpods.com:88/"/>
+  <parameter name="Program" value="Smoke Testing Program"/>
+  <parameter name="QuestionCount" value="Question Count:5"/>
+  <parameter name="lesson" value="Upload_Video"/>
+  <parameter name="PO_name" value="AutoPO1"/>
+  <parameter name="Value" value="True"/>
+  <parameter name="TestData" value="Smoke Testing-B"/>
+  <parameter name="Answer" value="Q1:2;Q2:0;Q3:2;Q4:2;Q5:1;End"/>
+  <parameter name="Activitytype" value="Activity type:Multiple Choice"/>
+  <parameter name="Blooms_name" value="Bloom1"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="CO_name" value="AutoCO2"/>
+  <parameter name="Student_name" value="student1 automate"/>
+  <parameter name="filename" value="SmokeCOattainment.csv"/>
+  <parameter name="SectionId" value="1"/>
+  <parameter name="AccessCode" value="Access Code:ab1"/>
+  <listeners>
+    <listener class-name="ReportGenration.RetryListener"/>
+  </listeners>
+  <test name="Select Section(failed)" parallel="methods">
+    <parameter name="SectionId" value="1"/>
+    <classes>
+      <class name="Tech.TechChangeSection">
+        <methods>
+          <include name="TechChangeSection"/>
+        </methods>
+      </class> <!-- Tech.TechChangeSection -->
+    </classes>
+  </test> <!-- Select Section(failed) -->
+  <test name="Select Section For PO(failed)" parallel="methods">
+    <parameter name="SectionId" value="1"/>
+    <classes>
+      <class name="Tech.TechChangeSection">
+        <methods>
+          <include name="TechChangeSection"/>
+        </methods>
+      </class> <!-- Tech.TechChangeSection -->
+    </classes>
+  </test> <!-- Select Section For PO(failed) -->
+  <test name="Attempt TestData Student After Resubmit(failed)" parallel="methods">
+    <parameter name="Answer" value="Q1:2;Q2:0;Q3:2;Q4:2;Q5:1;End"/>
+    <parameter name="Testname" value="Test name:Test4"/>
+    <parameter name="Activitytype" value="Activity type:Multiple Choice"/>
+    <parameter name="AccessCode" value="Access Code:ab1"/>
+    <parameter name="QuestionCount" value="Question Count:5"/>
+    <classes>
+      <class name="assignment_Student.StudentStartTest">
+        <methods>
+          <include name="AttemptTestBySingleUser" invocation-numbers="0 0 0"/>
+        </methods>
+      </class> <!-- assignment_Student.StudentStartTest -->
+    </classes>
+  </test> <!-- Attempt TestData Student After Resubmit(failed) -->
+  <test name="Validate Marks and CO attainment(failed)" parallel="methods">
+    <parameter name="filename" value="SmokeCOattainment.csv"/>
+    <classes>
+      <class name="Teacher.ValidateAssignmentLevelCOAttainment">
+        <methods>
+          <include name="exicute" invocation-numbers="0 0 0"/>
+        </methods>
+      </class> <!-- Teacher.ValidateAssignmentLevelCOAttainment -->
+    </classes>
+  </test> <!-- Validate Marks and CO attainment(failed) -->
+</suite> <!-- Failed suite [New Institute] -->

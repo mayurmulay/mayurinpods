@@ -78,7 +78,7 @@ public class Loger {
 	    	    e.printStackTrace();
 	    	}
 		}
-		else
+		if(type.equals("Error") || message.equals("Error"))
 		{
 			CreateLogFile("Error");
 			int flag=0;

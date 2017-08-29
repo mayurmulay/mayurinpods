@@ -1,0 +1,26 @@
+package Teacher;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import Common.Gototab;
+import Common.LaunchApp;
+
+public class ResumitTheAssignment {
+
+	@Test
+	@Parameters({"Student_name","Assignemnt_Name"})
+	public static void RResubmit(String Student_name,String Assignemnt_Name)
+	{
+		try
+		{
+			Gototab.execute("Assignments");
+			Thread.sleep(3000);
+			LaunchApp.driver.findElement(By.xpath(".//*[.='"+Student_name+"']")).click();
+			
+			
+		}catch (Exception e){}
+		
+	}
+}

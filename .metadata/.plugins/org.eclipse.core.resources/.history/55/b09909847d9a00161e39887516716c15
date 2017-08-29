@@ -1,0 +1,41 @@
+package Teacher;
+
+import java.util.List;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
+import Common.Gototab;
+import Common.LaunchApp;
+import Data.ExceptionHndeler;
+
+public class Gradebook_Report {
+	public static void Gradebook()
+	{
+		try
+		{
+	String args1[]={"Reports"," "};
+	Gototab.main(args1);
+	JavascriptExecutor jse = (JavascriptExecutor)LaunchApp.driver;
+	jse.executeScript("window.scrollTo(50, 50)", "");
+	LaunchApp.driver.findElement(By.xpath(".//*[contains(text(),'Reports')]/*[1]")).click();
+	Thread.sleep(10000);
+	ExceptionHndeler.getScreen("Gradebook");
+	List <WebElement> li =LaunchApp.driver.findElements(By.xpath(".//*[@id='NewRubricTable']"));
+    if((li.size()>0))
+    {
+ 	   Assert.assertEquals(1, 1);
+    }
+    else
+    {
+ 	   Assert.fail("Unable TO create Rubric ");
+    }
+		}
+	catch (InterruptedException e) {e.printStackTrace();}
+		
+		
+		}
+}

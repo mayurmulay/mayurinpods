@@ -2,6 +2,8 @@ package Tech;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import Common.LaunchApp;
 import Common.Login;
@@ -24,15 +26,15 @@ public class ResetPasswordByAdmin {
 	//URL=Read_Data.ReadData("URL.csv");
 	
 	//Path=URL[0][0].trim();
-	Path="http://demo.inpods.com/";
-	String[][] Data=Read_Data.ReadData("PasswordChangeInBulk\\change.csv");
+	Path="http://localhost/";
+	String[][] Data=Read_Data.ReadData("PasswordChangeInBulk\\Usernamechange.csv");
 	LaunchApp.main(URL[0]);
 	Login.main(Data[0]);
-	LaunchApp.driver.findElement(By.xpath("//*[contains(text(),'Admin')]")).click();
+	//LaunchApp.driver.findElement(By.xpath("//*[contains(text(),'Admin')]")).click();
 	try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
-	LaunchApp.driver.findElement(By.xpath("//*[contains(text(),'ResetPassword')]")).click();
+	//LaunchApp.driver.findElement(By.xpath("//*[contains(text(),'ResetPassword')]")).click();
 	try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
-	LaunchApp.driver.findElement(By.xpath("//*[contains(text(),'Search')]")).click();
+	//LaunchApp.driver.findElement(By.xpath("//*[contains(text(),'Search')]")).click();
 	for(int i=1;i<Data.length;i++)
 	{
 		try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
@@ -43,6 +45,8 @@ public class ResetPasswordByAdmin {
 			
 	}
 	}
+	@Test
+	@Parameters({"name","password"})
     public static void changePassword(String name,String password)
     {
     	try {
@@ -60,11 +64,11 @@ public class ResetPasswordByAdmin {
     	
     	LaunchApp.driver.findElement(By.xpath(".//*[@name='password_confirm']")).sendKeys(password.trim());
     	
-    	LaunchApp.driver.findElement(By.xpath(".//*[@id='middle']/div/div/div/div[3]/div/div/form/div/div[3]/div[3]/div/span/button")).click();
-    	
+    	LaunchApp.driver.findElement(By.xpath(".//*[@ng-disabled='updateUserForm.password.$error.required || updateUserForm.password_confirm.$error.required || updateUserForm.password.$error.minlength']")).click();
+    	Thread.sleep(5000);
     	Alert alert = LaunchApp.driver.switchTo().alert();
    	    alert.accept();
-   	   
+   	 System.out.println("password changed ="+name);
     	} catch (Exception e) {System.out.println("user not fount ="+name);}
     }
 }

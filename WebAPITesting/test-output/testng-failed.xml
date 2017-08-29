@@ -1,182 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Teacher P0]" parallel="methods">
-  <parameter name="pubDate" value="2"/>
-  <parameter name="lesson" value="lessonDemoChapter"/>
-  <parameter name="TestData" value="AutoTestingMM"/>
-  <parameter name="Important" value="yes"/>
-  <parameter name="QBname" value="AutoTestQB"/>
-  <parameter name="data" value="http://somaiya.inpods.com/"/>
-  <parameter name="Enddate" value="2"/>
-  <parameter name="type" value="Announcement"/>
-  <parameter name="password" value="password"/>
-  <parameter name="message" value="Important Event"/>
-  <parameter name="Chapter" value="ChapterDemoChapter"/>
-  <parameter name="title" value="Important Event"/>
-  <parameter name="AssertString" value="Important Event"/>
-  <parameter name="Cos" value="AutoCO1;AutoCO2;AutoCO3"/>
-  <parameter name="username" value="maym@inpods.com"/>
-  <parameter name="CO_name" value="1"/>
-  <parameter name="Asscount" value="1"/>
-  <parameter name="level" value="Chapter-&gt;Chapter-&gt;Lesson"/>
-  <parameter name="AssignmentListFile" value="AssignmentValidation.csv"/>
-  <parameter name="Complexity" value="1"/>
-  <parameter name="Assname" value="QbAssignment"/>
-  <parameter name="QCount" value="10"/>
-  <parameter name="name" value="AutoTestRubic"/>
-  <parameter name="path" value="D:\AutoTestData\Upload\QBUpload.exe"/>
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [OptQuestionMarksUpload]" parallel="methods">
+  <parameter name="INputDatapath" value="Flavour 7-8"/>
+  <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\Set1OrSet2Set3Comp_Mayur Mulay_AutoTestingMM.xlsx"/>
+  <parameter name="password" value="techone"/>
+  <parameter name="filename" value="OptionalAssignmentLevelCOattanmentValidation.csv"/>
+  <parameter name="TestData" value="http://testing.inpods.com:88/"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="PolicyName" value="IsNotSubmitted"/>
+  <parameter name="Value" value="True"/>
+  <parameter name="name" value="Set1OrSet2Set3Comp"/>
+  <parameter name="SectionId" value="1"/>
   <parameter name="URL" value="http://testing.inpods.com:88/"/>
-  <parameter name="Ack" value="yes"/>
-  <test name="Create QB(failed)" parallel="methods">
-    <parameter name="name" value="AutoTestQB"/>
-    <parameter name="path" value="D:\AutoTestData\Upload\QBUpload.exe"/>
+  <parameter name="username" value="inpodssa@sar.com"/>
+  <listeners>
+    <listener class-name="ReportGenration.RetryListener"/>
+  </listeners>
+  <test name="Set policy_Select Section(failed)" parallel="methods">
+    <parameter name="SectionId" value="1"/>
     <classes>
-      <class name="Teacher.UploadQB">
+      <class name="Tech.TechChangeSection">
         <methods>
-          <include name="UploadQb" invocation-numbers="0"/>
+          <include name="TechChangeSection"/>
         </methods>
-      </class> <!-- Teacher.UploadQB -->
+      </class> <!-- Tech.TechChangeSection -->
     </classes>
-  </test> <!-- Create QB(failed) -->
-  <test name="Assignment Creation From QB (failed)" parallel="methods">
-    <parameter name="Asscount" value="1"/>
-    <parameter name="QCount" value="10"/>
-    <parameter name="Assname" value="QbAssignment"/>
-    <parameter name="QBname" value="AutoTestQB"/>
+  </test> <!-- Set policy_Select Section(failed) -->
+  <test name="Upload QP 2 - M1 - Assignment 7(failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\QP 2 - M1 - Assignment 7_Mayur Mulay_AutoTestingMMB.xlsx"/>
+    <parameter name="TestData" value="AutoTestingMM_B"/>
+    <parameter name="name" value="QP 2 - M1 - Assignment 7"/>
     <classes>
-      <class name="Teacher.CreateAssignmentFromQB">
+      <class name="Teacher.UploadFile">
         <methods>
-          <include name="CreateAssignmentQB" invocation-numbers="0"/>
+          <include name="upload_gradebook" invocation-numbers="0 0 0"/>
         </methods>
-      </class> <!-- Teacher.CreateAssignmentFromQB -->
+      </class> <!-- Teacher.UploadFile -->
     </classes>
-  </test> <!-- Assignment Creation From QB (failed) -->
-  <test name="Create Assignment Add Question From QB(failed)" parallel="methods">
+  </test> <!-- Upload QP 2 - M1 - Assignment 7(failed) -->
+  <test name="Upload Lab - SetOptionalDiffCO(failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\Lab - SetOptionalDiffCO_Mayur Mulay_AutoTestingMMB.xlsx"/>
+    <parameter name="TestData" value="AutoTestingMM_B"/>
+    <parameter name="name" value="Lab - SetOptionalDiffCO"/>
     <classes>
-      <class name="Teacher.AddQuestionAssignment">
+      <class name="Teacher.UploadFile">
         <methods>
-          <include name="testAddQuestionAssignment"/>
+          <include name="upload_gradebook" invocation-numbers="0"/>
         </methods>
-      </class> <!-- Teacher.AddQuestionAssignment -->
+      </class> <!-- Teacher.UploadFile -->
     </classes>
-  </test> <!-- Create Assignment Add Question From QB(failed) -->
-  <test name="Random Assignment createion(failed)" parallel="methods">
-    <parameter name="CO_name" value="1"/>
-    <parameter name="Asscount" value="1"/>
-    <parameter name="Complexity" value="1"/>
-    <parameter name="QCount" value="10"/>
-    <parameter name="QBname" value="AutoTestQB"/>
+  </test> <!-- Upload Lab - SetOptionalDiffCO(failed) -->
+  <test name="Upload OptAssignment2 mm(failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\OptAssignment2_Mayur Mulay_AutoTestingMM.xlsx"/>
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="name" value="OptAssignment2"/>
     <classes>
-      <class name="Teacher.CreateRandomAssignment">
+      <class name="Teacher.UploadFile">
         <methods>
-          <include name="CreateRandomAssignment1"/>
+          <include name="upload_gradebook" invocation-numbers="0"/>
         </methods>
-      </class> <!-- Teacher.CreateRandomAssignment -->
+      </class> <!-- Teacher.UploadFile -->
     </classes>
-  </test> <!-- Random Assignment createion(failed) -->
-  <test name="AssignmentCreation(failed)" parallel="methods">
-    <parameter name="AssignmentListFile" value="AssignmentCreation.csv"/>
+  </test> <!-- Upload OptAssignment2 mm(failed) -->
+  <test name="Upload Set1OptionalSet2Comp mm(failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\Set1OptionalSet2Comp_Mayur Mulay_AutoTestingMM.xlsx"/>
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="name" value="Set1OptionalSet2Comp"/>
     <classes>
-      <class name="Teacher.AssignmentCreation">
+      <class name="Teacher.UploadFile">
         <methods>
-          <include name="AssignmentCreationDataCreation" invocation-numbers="0"/>
+          <include name="upload_gradebook" invocation-numbers="0"/>
         </methods>
-      </class> <!-- Teacher.AssignmentCreation -->
+      </class> <!-- Teacher.UploadFile -->
     </classes>
-  </test> <!-- AssignmentCreation(failed) -->
-  <test name="AssignmentValidation(failed)" parallel="methods">
-    <parameter name="AssignmentListFile" value="AssignmentValidation.csv"/>
+  </test> <!-- Upload Set1OptionalSet2Comp mm(failed) -->
+  <test name="Upload  Set1OrSet2(DiffCountofQ)mm (failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\Set1OrSet2(DiffCountofQ)_Mayur Mulay_Lab1AutoTestingMM.xlsx"/>
+    <parameter name="TestData" value="Lab1_AutoTestingMM"/>
+    <parameter name="name" value="Set1OrSet2(DiffCountofQ)"/>
     <classes>
-      <class name="Teacher.ValidateCreateAssignment">
+      <class name="Teacher.UploadFile">
         <methods>
-          <include name="Validate" invocation-numbers="0"/>
+          <include name="upload_gradebook" invocation-numbers="0"/>
         </methods>
-      </class> <!-- Teacher.ValidateCreateAssignment -->
+      </class> <!-- Teacher.UploadFile -->
     </classes>
-  </test> <!-- AssignmentValidation(failed) -->
-  <test name="Back Date Event(failed)" parallel="methods">
-    <parameter name="message" value="Back Date Event"/>
-    <parameter name="pubDate" value="-2"/>
-    <parameter name="AssertString" value="Publish Date should not be less than today&#039;s date"/>
-    <parameter name="title" value="Back Date Event"/>
-    <parameter name="Important" value="yes"/>
-    <parameter name="Enddate" value="-1"/>
-    <parameter name="type" value="Announcement"/>
-    <parameter name="Ack" value="yes"/>
+  </test> <!-- Upload  Set1OrSet2(DiffCountofQ)mm (failed) -->
+  <test name="Upload Set1OrSet2 mm(failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\Set1OrSet2_Mayur Mulay_AutoTestingMM.xlsx"/>
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="name" value="Set1OrSet2"/>
     <classes>
-      <class name="Teacher.CreateEventsNews">
+      <class name="Teacher.UploadFile">
         <methods>
-          <include name="CreateEventsNewsExe" invocation-numbers="0"/>
+          <include name="upload_gradebook" invocation-numbers="0"/>
         </methods>
-      </class> <!-- Teacher.CreateEventsNews -->
+      </class> <!-- Teacher.UploadFile -->
     </classes>
-  </test> <!-- Back Date Event(failed) -->
-  <test name="PublishDateLessThanTadysDate(failed)" parallel="methods">
-    <parameter name="message" value="PublishDateLessThanTadysDate"/>
-    <parameter name="pubDate" value="-2"/>
-    <parameter name="AssertString" value="Publish Date should not be less than today&#039;s date"/>
-    <parameter name="title" value="PublishDateLessThanTadysDate"/>
-    <parameter name="Important" value="yes"/>
-    <parameter name="Enddate" value="2"/>
-    <parameter name="type" value="Announcement"/>
-    <parameter name="Ack" value="yes"/>
+  </test> <!-- Upload Set1OrSet2 mm(failed) -->
+  <test name="Set1OrSet2Set3Comp mm(failed)" parallel="methods">
+    <parameter name="path" value="D:\AutoTestData_Chrome\Upload\OptionalQuestion\Set1OrSet2Set3Comp_Mayur Mulay_AutoTestingMM.xlsx"/>
+    <parameter name="TestData" value="AutoTestingMM"/>
+    <parameter name="name" value="Set1OrSet2Set3Comp"/>
     <classes>
-      <class name="Teacher.CreateEventsNews">
+      <class name="Teacher.UploadFile">
         <methods>
-          <include name="CreateEventsNewsExe" invocation-numbers="0"/>
+          <include name="upload_gradebook" invocation-numbers="0"/>
         </methods>
-      </class> <!-- Teacher.CreateEventsNews -->
+      </class> <!-- Teacher.UploadFile -->
     </classes>
-  </test> <!-- PublishDateLessThanTadysDate(failed) -->
-  <test name="Simple Event(failed)" parallel="methods">
-    <parameter name="message" value="Simple Event"/>
-    <parameter name="pubDate" value="0"/>
-    <parameter name="AssertString" value="Simple Event"/>
-    <parameter name="title" value="Simple Event"/>
-    <parameter name="Important" value="No"/>
-    <parameter name="Enddate" value="0"/>
-    <parameter name="type" value="Announcement"/>
-    <parameter name="Ack" value="NO"/>
+  </test> <!-- Set1OrSet2Set3Comp mm(failed) -->
+  <test name="Validate Marks and CO attainment(failed)" parallel="methods">
+    <parameter name="filename" value="OptionalAssignmentLevelCOattanmentValidation.csv"/>
     <classes>
-      <class name="Teacher.CreateEventsNews">
+      <class name="Teacher.ValidateAssignmentLevelCOAttainment">
         <methods>
-          <include name="CreateEventsNewsExe" invocation-numbers="0"/>
+          <include name="exicute" invocation-numbers="0 0 0"/>
         </methods>
-      </class> <!-- Teacher.CreateEventsNews -->
+      </class> <!-- Teacher.ValidateAssignmentLevelCOAttainment -->
     </classes>
-  </test> <!-- Simple Event(failed) -->
-  <test name="Ack Event(failed)" parallel="methods">
-    <parameter name="message" value="Ack Event"/>
-    <parameter name="pubDate" value="0"/>
-    <parameter name="AssertString" value="Ack Event"/>
-    <parameter name="title" value="Ack Event"/>
-    <parameter name="Important" value="No"/>
-    <parameter name="Enddate" value="2"/>
-    <parameter name="type" value="Announcement"/>
-    <parameter name="Ack" value="yes"/>
+  </test> <!-- Validate Marks and CO attainment(failed) -->
+  <test name="Reset policy Select Section(failed)" parallel="methods">
+    <parameter name="SectionId" value="1"/>
     <classes>
-      <class name="Teacher.CreateEventsNews">
+      <class name="Tech.TechChangeSection">
         <methods>
-          <include name="CreateEventsNewsExe" invocation-numbers="0"/>
+          <include name="TechChangeSection"/>
         </methods>
-      </class> <!-- Teacher.CreateEventsNews -->
+      </class> <!-- Tech.TechChangeSection -->
     </classes>
-  </test> <!-- Ack Event(failed) -->
-  <test name="Important Event(failed)" parallel="methods">
-    <parameter name="message" value="Important Event"/>
-    <parameter name="pubDate" value="2"/>
-    <parameter name="AssertString" value="Important Event"/>
-    <parameter name="title" value="Important Event"/>
-    <parameter name="Important" value="yes"/>
-    <parameter name="Enddate" value="2"/>
-    <parameter name="type" value="Announcement"/>
-    <parameter name="Ack" value="yes"/>
-    <classes>
-      <class name="Teacher.CreateEventsNews">
-        <methods>
-          <include name="CreateEventsNewsExe" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- Teacher.CreateEventsNews -->
-    </classes>
-  </test> <!-- Important Event(failed) -->
-</suite> <!-- Failed suite [Teacher P0] -->
+  </test> <!-- Reset policy Select Section(failed) -->
+</suite> <!-- Failed suite [OptQuestionMarksUpload] -->

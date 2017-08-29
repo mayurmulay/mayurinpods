@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Gradebookcategory]" parallel="methods">
+  <parameter name="Description" value="Descr_TestLevel_NA_30"/>
+  <parameter name="username" value="maym@inpods.com"/>
+  <parameter name="TestData" value="http://localhost/"/>
+  <parameter name="Cos" value="null1"/>
+  <parameter name="Asignment_name" value="Assignment10Marks;Assignment20marks;Ass_Mark 10;Ass_Mark 25;Ass_Mark 40;Draft Assignment;Ass_Mark 20"/>
+  <parameter name="Weight" value="30"/>
+  <parameter name="IsContinuousAssessments" value="No"/>
+  <parameter name="Computation_Method" value="Assignment Level"/>
+  <parameter name="Generate Report" value="YES"/>
+  <parameter name="CatgoriName" value="TestLevel_10 - (10)"/>
+  <parameter name="Sectionname" value="AutoTestingMM_B"/>
+  <parameter name="URL" value="http://localhost/"/>
+  <parameter name="password" value="password"/>
+  <test name="Gradebook Category Map Asslist 1(failed)" parallel="methods">
+    <parameter name="Asignment_name" value="Ass_Mark 50"/>
+    <parameter name="Generate Report" value="YES"/>
+    <parameter name="CatgoriName" value="TestLevel_30 - (30)"/>
+    <parameter name="Sectionname" value="AutoTestingMM_B"/>
+    <classes>
+      <class name="Teacher.SelectAssignmnetUnderCat">
+        <methods>
+          <include name="exicute" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.SelectAssignmnetUnderCat -->
+    </classes>
+  </test> <!-- Gradebook Category Map Asslist 1(failed) -->
+  <test name="Gradebook Category Map AssLIST 2(failed)" parallel="methods">
+    <parameter name="Asignment_name" value="Cat_Mark 10;Cat_Mark 20;Cat_Mark 25;Cat_Mark 40;Cat_Mark 50"/>
+    <parameter name="Generate Report" value="YES"/>
+    <parameter name="CatgoriName" value="CategoryLevel_30 - (30)"/>
+    <parameter name="Sectionname" value="AutoTestingMM_B"/>
+    <classes>
+      <class name="Teacher.SelectAssignmnetUnderCat">
+        <methods>
+          <include name="exicute" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.SelectAssignmnetUnderCat -->
+    </classes>
+  </test> <!-- Gradebook Category Map AssLIST 2(failed) -->
+  <test name="Gradebook Category Map AssList 3(failed)" parallel="methods">
+    <parameter name="Asignment_name" value="Assignment10Marks;Assignment20marks;Ass_Mark 10;Ass_Mark 25;Ass_Mark 40;Draft Assignment;Ass_Mark 20"/>
+    <parameter name="Generate Report" value="YES"/>
+    <parameter name="CatgoriName" value="TestLevel_10 - (10)"/>
+    <parameter name="Sectionname" value="AutoTestingMM_B"/>
+    <classes>
+      <class name="Teacher.SelectAssignmnetUnderCat">
+        <methods>
+          <include name="exicute" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Teacher.SelectAssignmnetUnderCat -->
+    </classes>
+  </test> <!-- Gradebook Category Map AssList 3(failed) -->
+</suite> <!-- Failed suite [Gradebookcategory] -->

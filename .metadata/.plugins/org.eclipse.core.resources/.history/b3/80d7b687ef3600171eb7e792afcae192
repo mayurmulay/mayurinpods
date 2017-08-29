@@ -1,0 +1,35 @@
+package Teacher;
+
+import org.openqa.selenium.By;
+
+public class CreateTLO {
+	
+	public static void CreateTLO()
+	{
+		
+		
+		try
+		{
+	     Thread.sleep(50);
+	     driver.findElement(By.xpath(".//*[@class='fa fa-plus-square']")).click();
+	     Thread.sleep(50);
+	     driver.findElement(By.xpath(".//*[@id='courseObj_name']")).sendKeys(COName);
+	     Thread.sleep(50);
+	     driver.findElement(By.xpath(".//*[@id='courseObj_content']")).sendKeys(CODescr);
+	     Thread.sleep(50);
+	    // driver.findElement(By.xpath(".//*[@class='icon-save']")).click();
+	     Thread.sleep(50);
+	     driver.findElement(By.xpath(".//*[@class='btn btn-primary']//*[@class='icon-save']")).click();
+	   //  System.out.println("size="+li.size());
+	  //   li.get(2).click();
+	    
+		 coCount++;
+		 System.out.println("Co created no="+coCount+"  name"+COName);
+		 return 1;
+		}
+		catch(Exception e){System.out.print("Error   ="+COName);
+		//e.printStackTrace();  
+		}
+		
+	}
+}
